@@ -4,6 +4,7 @@ import urllib.request
 import datetime
 
 
+weekchn=['星期一','星期二','星期三','星期四','星期五','星期六','星期日','星期一','星期二','星期三','星期四','星期五','星期六','星期日','星期一','星期二','星期三','星期四','星期五','星期六','星期天']
 print()
 #ldkkdj=datetime.datetime.now()
 
@@ -12,7 +13,13 @@ url = 'https://tianqi.2345.com/haian/70445.htm'
 #url = 'http://tianqi.2345.com/nantong/58259.htm'
 
 while (True):
-    print()
+
+    s=datetime.date.today()
+    #print (s)
+    d=datetime.date.weekday(s)         #添加星期几的功能
+    #print(d)
+    #print(weekchn[d])
+
     ldkkdj=datetime.datetime.now()
     ldkkdj=str(ldkkdj)[:19]
     print()
@@ -53,7 +60,7 @@ while (True):
         s=s.strip(r"\n")
         qiwen=low[x]+'~'+high[x]
         #print(riqi[x].ljust(10),tianqi[x].ljust(15-len(tianqi[x])),qiwen.ljust(10),s.ljust(10))
-        print(riqi[x].ljust(10),tianqi[x].ljust(7,('　')),qiwen.ljust(10),s.ljust(10))
-
-    print('.'*30)
+        print(riqi[x].ljust(10), weekchn[d],'    ',tianqi[x].ljust(7,('　')),qiwen.ljust(10),s.ljust(10))
+        d=d+1
+    print('.'*40)
     al=input()
