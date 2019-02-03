@@ -1,4 +1,4 @@
-
+#本程序有待解决的问题：1.加减号应该使用随机生成 2.两个数相加有时候会超过一百
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import docx
