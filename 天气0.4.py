@@ -1,4 +1,5 @@
 ﻿# -*- coding:utf-8 -*-
+#春节快乐
 #本程序 输入2345天气预报的城市网址，输出该城市十五天的天气预报
 import urllib.request
 import datetime
