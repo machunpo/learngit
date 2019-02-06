@@ -1,5 +1,5 @@
 # learngit
-learngit
+learngit   这是一次管乐pull的测试@2019年2月6日正月初二
 
 在廖雪峰官网学习Git时创建，用于练习
 
