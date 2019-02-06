@@ -63,4 +63,4 @@ for k in range(NUMOFPAGE):
     file.add_page_break()
     print('OK')
 #保存文件
-file.save("D:math.docx")
+file.save("mysonmath.docx")
