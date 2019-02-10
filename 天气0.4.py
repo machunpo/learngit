@@ -68,10 +68,17 @@ while (True):
         d=d+1
     print('.'*40)
 
-    yuyinbobao='今天是'+str(riqi[0])+hahhhh+'天气'+str(tianqi[0])+'气温'+str(low[0])+'到'+str(high[0])
+    yuyinbobao='今天是'+str(riqi[0])+'，'+hahhhh+'。'+'天气'+str(tianqi[0])+'。'+'气温'+str(low[0])+'到'+str(high[0])
     #print('今天是',riqi[0],'天气',tianqi[0],'气温',low[0]+'~'+high[0])
-    print(yuyinbobao)
-    speak.Rate=-4
+    #print(yuyinbobao)
+    speak.Rate=-2
     #说话速度 -10到10
     speak.Speak(yuyinbobao)
+    jia='出门，要记得带，雨伞啊。'
+    yi='出门，要记得涂，防晒霜啊。'
+    if '雨'or'雪' in str(tianqi[0]):
+        speak.Speak(jia)
+    else:
+        speak.Speak(yi)    
+
     al=input()
