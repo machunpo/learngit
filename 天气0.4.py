@@ -71,5 +71,7 @@ while (True):
     yuyinbobao='今天是'+str(riqi[0])+hahhhh+'天气'+str(tianqi[0])+'气温'+str(low[0])+'到'+str(high[0])
     #print('今天是',riqi[0],'天气',tianqi[0],'气温',low[0]+'~'+high[0])
     print(yuyinbobao)
+    speak.Rate=-4
+    #说话速度 -10到10
     speak.Speak(yuyinbobao)
     al=input()
