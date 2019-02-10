@@ -54,7 +54,7 @@ for k in range(NUMOFPAGE):
             #print(op1,op2)#这一行为测试输出的代码
             #op="+" if op1%2==0 else "-"
             if op=="+":
-                op2=int(random.randint(1,(100-op1)))
+                op2=int(random.randint(1,(100-op1)))#防止两个数的和超过100
                 run=table.cell(i,j).paragraphs[0].add_run(str(op1)+op+str(op2)+"=")
                 run.font.size=Pt(14)
                 table.cell(i,j).paragraphs[0].alignment=WD_PARAGRAPH_ALIGNMENT.LEFT
