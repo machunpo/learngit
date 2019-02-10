@@ -14,8 +14,8 @@ pip install python-docx
 '''
 
 #定义生成的页数
-NUMOFPAGE=25
-
+NUMOFPAGE=28
+page=1
 #生成一个word对象file
 file=docx.Document()
 
@@ -23,12 +23,15 @@ file=docx.Document()
 for section in file.sections:
     section.left_margin=Inches(0.8)
     section.right_margin = Inches(0.8)
+    section.up_margin = Inches(0.4)
+    section.bottom_margin = Inches(0.4)
+
 
 #k循环用于产生对应页数
 for k in range(NUMOFPAGE):
     #增加每一页的标题
     para = file.add_paragraph()
-    run = para.add_run("天天算一算,练成大本领!(五分钟及格标准:对60题;优秀标准:对95题) \n姓名：               五分钟做对题数:             日期： ")
+    run = para.add_run("天天算一算,练成大本领!(100以内的加减法) \n\n姓名：              得分:             日期： ")
 
      #下面两行用于设置字体和字号
     run.font.name = u"宋体"
@@ -44,12 +47,14 @@ for k in range(NUMOFPAGE):
     for i in range(20):
         print('.',end=' ')#这一行为测试输出的代码
         for j in range(5):
-            #随机生成一个等式，在这里借用了第一个数op1来决定加减符号#为什么不使用随机来生成加减号？
+            #随机生成一个加减符号
+            op=random.choice(["+","-"])
             op1=int(random.randint(1,99))
             op2=int(random.randint(1,99))
             #print(op1,op2)#这一行为测试输出的代码
-            op="+" if op1%2==0 else "-"
+            #op="+" if op1%2==0 else "-"
             if op=="+":
+                op2=int(random.randint(1,(100-op1)))
                 run=table.cell(i,j).paragraphs[0].add_run(str(op1)+op+str(op2)+"=")
                 run.font.size=Pt(14)
                 table.cell(i,j).paragraphs[0].alignment=WD_PARAGRAPH_ALIGNMENT.LEFT
@@ -61,6 +66,8 @@ for k in range(NUMOFPAGE):
                     run = table.cell(i, j).paragraphs[0].add_run(str(op2) + op + str(op1) + "=")
                     run.font.size = Pt(14)
     file.add_page_break()
-    print('OK')
+
+    print('OK,第{0}页已经生成'.format(page))
+    page=page+1
 #保存文件
 file.save("mysonmath.docx")
