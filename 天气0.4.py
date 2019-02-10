@@ -3,7 +3,9 @@
 #本程序 输入2345天气预报的城市网址，输出该城市十五天的天气预报
 import urllib.request
 import datetime
+import win32com.client as win #pip install pypiwin32
 
+speak = win.Dispatch("SAPI.SpVoice")  #增加语音播报的模块
 
 weekchn=['星期一','星期二','星期三','星期四','星期五','星期六','星期日','星期一','星期二','星期三','星期四','星期五','星期六','星期日','星期一','星期二','星期三','星期四','星期五','星期六','星期天']
 print()
@@ -20,6 +22,7 @@ while (True):
     d=datetime.date.weekday(s)         #添加星期几的功能
     #print(d)
     #print(weekchn[d])
+    hahhhh=weekchn[d]
 
     ldkkdj=datetime.datetime.now()
     ldkkdj=str(ldkkdj)[:19]
@@ -64,4 +67,9 @@ while (True):
         print(riqi[x].ljust(10), weekchn[d],'    ',tianqi[x].ljust(7,('　')),qiwen.ljust(10),s.ljust(10))
         d=d+1
     print('.'*40)
+
+    yuyinbobao='今天是'+str(riqi[0])+hahhhh+'天气'+str(tianqi[0])+'气温'+str(low[0])+'到'+str(high[0])
+    #print('今天是',riqi[0],'天气',tianqi[0],'气温',low[0]+'~'+high[0])
+    print(yuyinbobao)
+    speak.Speak(yuyinbobao)
     al=input()
