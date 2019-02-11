@@ -1,4 +1,4 @@
-#本程序有待解决的问题：1.加减号应该使用随机生成 2.两个数相加有时候会超过一百
+
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import docx
@@ -51,8 +51,7 @@ for k in range(NUMOFPAGE):
             op=random.choice(["+","-"])
             op1=int(random.randint(1,99))
             op2=int(random.randint(1,99))
-            #print(op1,op2)#这一行为测试输出的代码
-            #op="+" if op1%2==0 else "-"
+
             if op=="+":
                 op2=int(random.randint(1,(100-op1)))#防止两个数的和超过100
                 run=table.cell(i,j).paragraphs[0].add_run(str(op1)+op+str(op2)+"=")
@@ -69,5 +68,6 @@ for k in range(NUMOFPAGE):
 
     print('OK,第{0}页已经生成'.format(page))
     page=page+1
+    
 #保存文件
 file.save("mysonmath.docx")

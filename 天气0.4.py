@@ -76,7 +76,7 @@ while (True):
     speak.Speak(yuyinbobao)
     jia='出门，要记得带，雨伞啊。'
     yi='出门，要记得涂，防晒霜啊。'
-    if '雨'or'雪' in str(tianqi[0]):
+    if ('雨' in str(tianqi[0])):
         speak.Speak(jia)
     else:
         speak.Speak(yi)    
