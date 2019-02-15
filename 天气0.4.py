@@ -1,27 +1,22 @@
 ﻿# -*- coding:utf-8 -*-
-#春节快乐
-#本程序 输入2345天气预报的城市网址，输出该城市十五天的天气预报
+#本程序 输出该城市十五天的天气预报
 import urllib.request
 import datetime
 import win32com.client as win #pip install pypiwin32
 
+
 speak = win.Dispatch("SAPI.SpVoice")  #增加语音播报的模块
-
 weekchn=['星期一','星期二','星期三','星期四','星期五','星期六','星期日','星期一','星期二','星期三','星期四','星期五','星期六','星期日','星期一','星期二','星期三','星期四','星期五','星期六','星期天']
-print()
-#ldkkdj=datetime.datetime.now()
-
-print()
 url = 'https://tianqi.2345.com/haian/70445.htm'
-#url = 'http://tianqi.2345.com/nantong/58259.htm'
+al="，，，，，，，，"
+speak.Rate=-1      #说话速度 -10到10
 
 while (True):
 
-    s=datetime.date.today()
-    #print (s)
-    d=datetime.date.weekday(s)         #添加星期几的功能
-    #print(d)
-    #print(weekchn[d])
+  
+   
+    d=datetime.date.weekday(datetime.date.today())         #添加星期几的功能
+
     hahhhh=weekchn[d]
 
     ldkkdj=datetime.datetime.now()
@@ -69,10 +64,9 @@ while (True):
     print('.'*40)
 
     yuyinbobao='今天是'+str(riqi[0])+'，'+hahhhh+'。'+'天气'+str(tianqi[0])+'。'+'气温'+str(low[0])+'到'+str(high[0])
-    #print('今天是',riqi[0],'天气',tianqi[0],'气温',low[0]+'~'+high[0])
-    al=input()+"，，，，，，，，"
-    speak.Rate=-1
-    #说话速度 -10到10
+   
+
+
     if al=="，，，，，，，，":
         speak.Speak(yuyinbobao)
         jia='出门，要记得带，雨伞哦。'
@@ -86,4 +80,8 @@ while (True):
             speak.Speak(yi)      
     else:
         speak.Speak(al)
+
+   
+    al=input()+"，，，，，，，，"
+    
 
