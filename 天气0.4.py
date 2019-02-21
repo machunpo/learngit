@@ -69,13 +69,13 @@ while (True):
 
     if al=="，，，，，，，，":
         speak.Speak(yuyinbobao)
-        jia='出门，要记得带，雨伞哦。'
+        jia='出门，要记得带，雨衣哦。'
         yi='出门，要记得带钞票哦。'
-        jia1='出门，要记得带，雨伞，和保暖啊。'
+        jia1='还要注意防寒和保暖啊。'
         if ('雨' in str(tianqi[0])):
             speak.Speak(jia)
-        elif('雪' in str(tianqi[0])):
-            speak.Speak(jia1) 
+            if('雪' in str(tianqi[0])):
+                speak.Speak(jia1) 
         else:
             speak.Speak(yi)      
     else:
