@@ -31,7 +31,7 @@ for section in file.sections:
 for k in range(NUMOFPAGE):
     #增加每一页的标题
     para = file.add_paragraph()
-    run = para.add_run("天天算一算,练成大本领!(100以内的加减法) \n\n姓名：              得分:             日期： ")
+    run = para.add_run("天天算一算,练成大本领!(1000以内的加减法) \n\n姓名：              得分:             日期： ")
 
      #下面两行用于设置字体和字号
     run.font.name = u"宋体"
@@ -49,11 +49,11 @@ for k in range(NUMOFPAGE):
         for j in range(5):
             #随机生成一个加减符号
             op=random.choice(["+","-"])
-            op1=int(random.randint(1,99))
-            op2=int(random.randint(1,99))
+            op1=int(random.randint(1,999))
+            op2=int(random.randint(1,999))
 
             if op=="+":
-                op2=int(random.randint(1,(100-op1)))#防止两个数的和超过100
+                op2=int(random.randint(1,(1000-op1)))#防止两个数的和超过1000
                 run=table.cell(i,j).paragraphs[0].add_run(str(op1)+op+str(op2)+"=")
                 run.font.size=Pt(14)
                 table.cell(i,j).paragraphs[0].alignment=WD_PARAGRAPH_ALIGNMENT.LEFT
