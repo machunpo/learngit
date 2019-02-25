@@ -12,14 +12,16 @@ from docx.oxml.ns import qn
 http://python-docx.readthedocs.io/en/latest/
 pip install python-docx  
 '''
+#定义多少之内的加减法
+zhilei=1000 
 
 #定义生成的页数
-NUMOFPAGE=28
+NUMOFPAGE=20
 page=1
 #生成一个word对象file
 file=docx.Document()
 
-#设置页面的左右边界
+#设置页面的左右边界和上下边界
 for section in file.sections:
     section.left_margin=Inches(0.8)
     section.right_margin = Inches(0.8)
@@ -31,12 +33,12 @@ for section in file.sections:
 for k in range(NUMOFPAGE):
     #增加每一页的标题
     para = file.add_paragraph()
-    run = para.add_run("天天算一算,练成大本领!(1000以内的加减法) \n\n姓名：              得分:             日期： ")
+    run = para.add_run("天天算一算,练成大本领!("+str(zhilei)+"以内的加减法) \n\n姓名：                 得分:                日期： ")
 
-     #下面两行用于设置字体和字号
-    run.font.name = u"宋体"
-    run._element.rPr.rFonts.set(qn('w:eastAsia'), u"宋体")
-    run.font.size = Pt(13)
+    #下面两行用于设置字体和字号
+    run.font.name = u"微软雅黑"
+    run._element.rPr.rFonts.set(qn('w:eastAsia'), u"微软雅黑")
+    run.font.size = Pt(15)
     para.alignment = WD_PARAGRAPH_ALIGNMENT.LEFT
 
     #生成一个20行*5列的表格，每一个单元格中放一个问题等式。表格的作用主要用于排版
@@ -49,11 +51,11 @@ for k in range(NUMOFPAGE):
         for j in range(5):
             #随机生成一个加减符号
             op=random.choice(["+","-"])
-            op1=int(random.randint(1,999))
-            op2=int(random.randint(1,999))
+            op1=int(random.randint(1,zhilei-1))
+            op2=int(random.randint(1,zhilei-1))
 
             if op=="+":
-                op2=int(random.randint(1,(1000-op1)))#防止两个数的和超过1000
+                op2=int(random.randint(1,(zhilei-op1)))#防止两个数的和超过1000
                 run=table.cell(i,j).paragraphs[0].add_run(str(op1)+op+str(op2)+"=")
                 run.font.size=Pt(14)
                 table.cell(i,j).paragraphs[0].alignment=WD_PARAGRAPH_ALIGNMENT.LEFT
