@@ -51,11 +51,12 @@ for k in range(NUMOFPAGE):
         for j in range(5):
             #随机生成一个加减符号
             op=random.choice(["+","-"])
+            #随机生成两个操作数
             op1=int(random.randint(1,zhilei-1))
             op2=int(random.randint(1,zhilei-1))
 
             if op=="+":
-                op2=int(random.randint(1,(zhilei-op1)))#防止两个数的和超过1000
+                op2=int(random.randint(1,(zhilei-op1)))#防止两个数的和超过zhilei
                 run=table.cell(i,j).paragraphs[0].add_run(str(op1)+op+str(op2)+"=")
                 run.font.size=Pt(14)
                 table.cell(i,j).paragraphs[0].alignment=WD_PARAGRAPH_ALIGNMENT.LEFT
