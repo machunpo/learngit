@@ -1,6 +1,0 @@
-﻿Git is a version control system.
-Git is free software.
-这是一个在github的网页上对文件内容进行的更改。
-
-
-这一行是用来测试同时推送两个远程的仓库的 over
