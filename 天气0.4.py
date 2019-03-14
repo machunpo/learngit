@@ -3,13 +3,15 @@
 import urllib.request
 import datetime
 import win32com.client as win #pip install pypiwin32
-
+import json
 
 speak = win.Dispatch("SAPI.SpVoice")  #增加语音播报的模块
 weekchn=['星期一','星期二','星期三','星期四','星期五','星期六','星期日','星期一','星期二','星期三','星期四','星期五','星期六','星期日','星期一','星期二','星期三','星期四','星期五','星期六','星期天']
 url = 'https://tianqi.2345.com/haian/70445.htm'
 al="，，，，，，，，"
 speak.Rate=-1      #说话速度 -10到10
+WANGZHIQIANZUI="http://www.mxnzp.com/api/holiday/single/"
+
 
 while (True):
 
@@ -20,8 +22,21 @@ while (True):
     hahhhh=weekchn[d]
 
     ldkkdj=datetime.datetime.now()
-    ldkkdj=str(ldkkdj)[:19]
+    ldkkdj=str(ldkkdj)[:19]   #  ldkkdj的实例化：2019-03-14  10:05:18
+
+    year=ldkkdj[0:4];mon=ldkkdj[5:7];day=ldkkdj[8:10]
+    wangzhi_api=WANGZHIQIANZUI+year+mon+day     #生成api的网址
+
+    print(wangzhi_api)
+    api_url = urllib.request.urlopen(wangzhi_api)
+    content_apiurl = api_url.read()#.decode('gbk', 'ignore')
+    new_dict = json.loads(content_apiurl)
+    print(new_dict)
+    print(type(new_dict))
+    print(new_dict['data']['lunarCalendar'])#本段代码用来增加农历日期的功能
+
     print()
+
     response = urllib.request.urlopen(url)
     content = response.read().decode('gbk', 'ignore')
     print(ldkkdj)
@@ -63,7 +78,7 @@ while (True):
         d=d+1
     print('.'*40)
 
-    yuyinbobao='今天是'+str(riqi[0])+'，'+hahhhh+'。'+'天气'+str(tianqi[0])+'。'+'气温'+str(low[0])+'到'+str(high[0])
+    yuyinbobao='今天是'+str(riqi[0])+'，'+hahhhh+'。'+'农历'+new_dict['data']['lunarCalendar']+'。'+'天气'+str(tianqi[0])+'。'+'气温'+str(low[0])+'到'+str(high[0])
    
 
 
@@ -72,10 +87,13 @@ while (True):
         jia='出门，要记得带，雨衣哦。'
         yi='出门，要记得带钞票哦。'
         jia1='还要注意防寒和保暖啊。'
+        jia2='出门，要记得涂防晒霜哦'
         if ('雨' in str(tianqi[0])):
             speak.Speak(jia)
-            if('雪' in str(tianqi[0])):
-                speak.Speak(jia1) 
+        if('雪' in str(tianqi[0])):
+            speak.Speak(jia1) 
+        if('晴' in str(tianqi[0])):
+            speak.Speak(jia2) 
         else:
             speak.Speak(yi)      
     else:
