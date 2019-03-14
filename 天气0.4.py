@@ -27,13 +27,13 @@ while (True):
     year=ldkkdj[0:4];mon=ldkkdj[5:7];day=ldkkdj[8:10]
     wangzhi_api=WANGZHIQIANZUI+year+mon+day     #生成api的网址
 
-    print(wangzhi_api)
+    #print(wangzhi_api)
     api_url = urllib.request.urlopen(wangzhi_api)
     content_apiurl = api_url.read()#.decode('gbk', 'ignore')
     new_dict = json.loads(content_apiurl)
-    print(new_dict)
-    print(type(new_dict))
-    print(new_dict['data']['lunarCalendar'])#本段代码用来增加农历日期的功能
+    #print(new_dict)
+    #print(type(new_dict))
+    #print(new_dict['data']['lunarCalendar'])#本段代码用来增加农历日期的功能
 
     print()
 
