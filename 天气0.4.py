@@ -80,7 +80,7 @@ while (True):
 
     yuyinbobao='今天是'+str(riqi[0])+'，'+hahhhh+'。'+'农历'+new_dict['data']['lunarCalendar']+'。'+'天气'+str(tianqi[0])+'。'+'气温'+str(low[0])+'到'+str(high[0])
    
-
+    
 
     if al=="，，，，，，，，":
         speak.Speak(yuyinbobao)
@@ -101,5 +101,13 @@ while (True):
 
    
     al=input()+"，，，，，，，，"
-    
 
+
+    if al=='debug'+"，，，，，，，，":
+        print("生成的api调用网址： ",wangzhi_api)
+        print("由返回的json生成的词典： ",new_dict)
+        print(type(new_dict))
+        print("提取的农历信息：",new_dict['data']['lunarCalendar'])
+        print("生成的预报语音：",yuyinbobao)
+        print("系统时间： ",ldkkdj)
+        print("语音播报的速度： ",speak.Rate)
