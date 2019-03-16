@@ -1,11 +1,7 @@
 class CocaCola:
-    formula = ['caffeine','sugar','water','soda']
-    def drink(self):
-        print('formula')
+  
+    def __init__(self,logo_name):
+        self.local_logo = logo_name
 
-CocaCola().drink()
-print(CocaCola().formula[2])
-coke = CocaCola()
-coke.drink()
-print(coke.formula[0])#直接引用 和 实例化引用
-#测试获得成功
+coke = CocaCola('可可可乐')
+print(coke.local_logo)
