@@ -26,4 +26,7 @@ content = response.read()#.decode('gbk', 'ignore')#打开要抓取的网页
 
 print(content.decode('utf-8'))
 print(back_up_url)
-#extract(content,'begin','end')“
+#extract(content,'begin','end')
+
+
+#   问题：  为什么爬取的内容和查看源代码的内容不一样？  js加载的原因吗？
