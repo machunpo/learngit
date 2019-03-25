@@ -635,12 +635,7 @@ function formatDate(now) {
 
 }
 
-function checkTime(i) {
-  if (i < 10) {
-    i = "0" + i
-  }
-  return i
-}
+
 
 function loadCombineImage(pos) {
 //alert("request combine img");
