@@ -1,7 +1,5 @@
-class CocaCola:
-  
-    def __init__(self,logo_name):
-        self.local_logo = logo_name
+import my_def_lib
 
-coke = CocaCola('可可可乐')
-print(coke.local_logo)
+num=10
+print('num = ',my_def_lib.checkTime(num))
+print('num-1 = ',my_def_lib.checkTime(num-1)) 
