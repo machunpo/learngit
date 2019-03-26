@@ -31,6 +31,13 @@ while (True):
     api_url = urllib.request.urlopen(wangzhi_api)
     content_apiurl = api_url.read()#.decode('gbk', 'ignore')
     new_dict = json.loads(content_apiurl)
+
+    longliriqi=new_dict['data']['lunarCalendar']
+
+    if '廿' in longliriqi:
+        longliriqi=longliriqi.replace('廿','20')
+       # print(longliriqi)
+
     #print(new_dict)
     #print(type(new_dict))
     #print(new_dict['data']['lunarCalendar'])#本段代码用来增加农历日期的功能
@@ -78,7 +85,7 @@ while (True):
         d=d+1
     print('.'*40)
 
-    yuyinbobao='今天是'+str(riqi[0])+'，'+hahhhh+'。'+'农历'+new_dict['data']['lunarCalendar']+'。'+'天气'+str(tianqi[0])+'。'+'气温'+str(low[0])+'到'+str(high[0])
+    yuyinbobao='今天是'+str(riqi[0])+'，'+hahhhh+'。'+'农历'+longliriqi+'。'+'天气'+str(tianqi[0])+'。'+'气温'+str(low[0])+'到'+str(high[0])
    
     
 
@@ -107,7 +114,7 @@ while (True):
         print("生成的api调用网址： ",wangzhi_api)
         print("由返回的json生成的词典： ",new_dict)
         print(type(new_dict))
-        print("提取的农历信息：",new_dict['data']['lunarCalendar'])
+        print("提取的农历信息：",longliriqi)
         print("生成的预报语音：",yuyinbobao)
         print("系统时间： ",ldkkdj)
         print("语音播报的速度： ",speak.Rate)
