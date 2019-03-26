@@ -1,6 +1,5 @@
 
-import json
-import urllib.request
+
 
 #函数功能：输入一个月份或者日期，如果小于10，则在其前面补齐0，用于月份或者日期的对齐
 #输入参数：i 整形变量
@@ -11,7 +10,9 @@ def  checkTime(i):
     else:
         l=str(i)
     return l
-    
+
+import json
+import urllib.request
 #函数功能：通过彩云app获得本机IP地址（互联网）
 #输入参数：无
 #输出参数：无
@@ -23,6 +24,7 @@ def getip():
     print(new_dict)
     status=new_dict['status']
     ip=new_dict['ip']
+    print(status)
     print(ip)
 
 
