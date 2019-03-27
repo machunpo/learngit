@@ -11,6 +11,7 @@ def  checkTime(i):
         l=str(i)
     return l
 
+
 import json
 import urllib.request
 #函数功能：通过彩云app获得本机IP地址（互联网）
