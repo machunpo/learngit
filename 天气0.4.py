@@ -63,8 +63,8 @@ while (True):
 
     print('\n',title,'\n')
     for x in range(15):
-        s=str(fenli[x])
-        s = s.strip('<script type="text/javascript"></script>')
+        s=(str(fenli[x])).strip(r'<script type="text/javascript"></script>')
+        #s = s.strip('<script type="text/javascript"></script>')
         s=s.strip(r"\n")
         qiwen=low[x]+'~'+high[x]
         #print(riqi[x].ljust(10),tianqi[x].ljust(15-len(tianqi[x])),qiwen.ljust(10),s.ljust(10))
