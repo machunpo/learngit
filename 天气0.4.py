@@ -4,6 +4,7 @@ import urllib.request
 import datetime
 import win32com.client as win #pip install pypiwin32
 import json
+from my_def_lib import extract
 
 speak = win.Dispatch("SAPI.SpVoice")  #增加语音播报的模块
 weekchn=['星期一','星期二','星期三','星期四','星期五','星期六','星期日','星期一','星期二','星期三','星期四','星期五','星期六','星期日','星期一','星期二','星期三','星期四','星期五','星期六','星期天']
@@ -14,8 +15,6 @@ WANGZHIQIANZUI="http://www.mxnzp.com/api/holiday/single/"
 
 
 while (True):
-
-  
    
     d=datetime.date.weekday(datetime.date.today())         #添加星期几的功能
 
@@ -36,7 +35,7 @@ while (True):
 
     if '廿' in longliriqi:
         longliriqi=longliriqi.replace('廿','20')
-       # print(longliriqi)
+    
 
     #print(new_dict)
     #print(type(new_dict))
@@ -52,18 +51,6 @@ while (True):
 
     title=content[b+len('<title>'):e]
 
-    def extract(string_all,string_begin,string_end):
-        m=0;n=0;string_arry=[]
-        while m!=-1 or n!=-1 :
-            
-            m=string_all.find(string_begin,n)
-            n=string_all.find(string_end,m)
-            try:
-                string_arry.append(string_all[m+len(string_begin):n])
-            except expression as identifier:
-                pass
-
-        return string_arry[:-1]
 
     content = str(extract(content,'<!-- /city_t -->','<!-- /有热词 begin -->'))
 
@@ -118,3 +105,6 @@ while (True):
         print("生成的预报语音：",yuyinbobao)
         print("系统时间： ",ldkkdj)
         print("语音播报的速度： ",speak.Rate)
+
+    if al=='exit'+"，，，，，，，，":
+        break
