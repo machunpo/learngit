@@ -63,7 +63,7 @@ while (True):
             except expression as identifier:
                 pass
 
-        return string_arry
+        return string_arry[:-1]
 
     content = str(extract(content,'<!-- /city_t -->','<!-- /有热词 begin -->'))
 
@@ -99,7 +99,7 @@ while (True):
             speak.Speak(jia)
         if('雪' in str(tianqi[0])):
             speak.Speak(jia1) 
-        if('晴' in str(tianqi[0])):
+        elif('晴' in str(tianqi[0])):
             speak.Speak(jia2) 
         else:
             speak.Speak(yi)      

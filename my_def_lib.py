@@ -34,8 +34,28 @@ def getip():
     print('center:',center)
     print('city:',city)
 
+
+#函数功能：提取一段特征文本中间的数据
+#输入参数：string_all,string_begin,string_end整段文本，前后的关键词
+#输出参数：string_arry 数组
+
+def extract(string_all,string_begin,string_end):
+    m=0;n=0;string_arry=[]
+    while m!=-1 or n!=-1 :
+            
+        m=string_all.find(string_begin,n)
+        n=string_all.find(string_end,m)
+        try:
+            string_arry.append(string_all[m+len(string_begin):n])
+        except expression as identifier:
+                pass
+
+    return string_arry[:-1] #有个bug，最后一个数组元素内存溢出
+
 if __name__ == '__main__':
-    getip()
+
+    print(extract("1234567890","123",'890'))
+    #getip()
     #num=10
     #print('num = ',checkTime(num))
     #print('num-1 = ',checkTime(num-1))
