@@ -52,10 +52,36 @@ def extract(string_all,string_begin,string_end):
 
     return string_arry[:-1] #有个bug，最后一个数组元素内存溢出
 
+
+#函数功能：对输入的身份证号码进行校验(根据身份证编码规律的国家标准进行)
+#输入参数：包含星号的身份证号码（暂时只支持18位的中华人民共和国的大陆居民身份证）
+#输出参数：错误代码 
+'''
+错误代码：-1：默认值，表示没有问题
+          0：输入的身份证号码不是十八位
+          1：
+
+           '''
+def id_num_check(id_num):
+    err_code=-1                    #定义err_code为错误类型的代码，默认值为-1，表示没有问题
+    if len(id_num) != 18 :
+        err_code = 0
+        return err_code             #如果输入的身份证号码不是十八位，则返回错误代码err_code,的值为0
+
+    else:
+        return err_code
+    
+
+
+
+
+
 if __name__ == '__main__':
 
-    print(extract("1234567890","123",'890'))
+    print('errcode is:',id_num_check('320123****56251235'))
+
+    #print(extract("1234567890","123",'890'))
     #getip()
-    #num=10
-    #print('num = ',checkTime(num))
-    #print('num-1 = ',checkTime(num-1))
+   
+    print('num = ',checkTime(10))
+    print('num-1 = ',checkTime(9))
