@@ -59,18 +59,25 @@ def extract(string_all,string_begin,string_end):
 '''
 错误代码：-1：默认值，表示没有问题
           0：输入的身份证号码不是十八位
-          1：
+          1：输入了非法的字符（0~9，*，x）以外的字符
 
            '''
 def id_num_check(id_num):
     err_code=-1                    #定义err_code为错误类型的代码，默认值为-1，表示没有问题
     if len(id_num) != 18 :
         err_code = 0
-        return err_code             #如果输入的身份证号码不是十八位，则返回错误代码err_code,的值为0
+        return err_code             #如果输入的身份证号码不是十八位，则返回错误代码err_code,的值为0  
 
     else:
+        
+        for i in id_num:
+            if (i=='1') | (i=='2')| (i=='3')| (i=='4')| (i=='5')| (i=='6')| (i=='7')| (i=='8')| (i=='9')| (i=='0')| (i=='*') | (i=='x')  :
+                pass
+            else:
+                #print(i)
+                err_code=1                      #这里懒得写注释了，但愿n年后我还知道这写的是啥，但是最大的可能是这个代码用不到那个时候
+                
         return err_code
-    
 
 
 
@@ -78,10 +85,10 @@ def id_num_check(id_num):
 
 if __name__ == '__main__':
 
-    print('errcode is:',id_num_check('320123****56251235'))
+    print('errcode is:',id_num_check('32123****562aqw3x'))
 
     #print(extract("1234567890","123",'890'))
     #getip()
    
-    print('num = ',checkTime(10))
-    print('num-1 = ',checkTime(9))
+    #print('num = ',checkTime(10))
+    #print('num-1 = ',checkTime(9))
