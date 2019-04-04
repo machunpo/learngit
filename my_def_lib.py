@@ -76,16 +76,48 @@ def id_num_check(id_num):
             else:
                 #print(i)
                 err_code=1                      #这里懒得写注释了，但愿n年后我还知道这写的是啥，但是最大的可能是这个代码用不到那个时候
-                
-        return err_code
 
+        if err_code < 0 :
+ 	        
+            print(id_num[0:2])
+            print(id_num[2:4])
+            print(id_num[4:6])
+            print(id_num[6:10])
+            print(id_num[10:12])
+            print(id_num[12:14])
+            print(id_num[14:16])
+            print(id_num[16:17])
+            print(id_num[17])
+ 		       
+    return err_code
+
+
+'''
+ 	+    身份证号码的意义
+ 	+
+ 	+　　①前1、2位数字表示：所在省份的代码，河南的省份代码是41哦!
+ 	+
+ 	+　　②第3、4位数字表示：所在城市的代码;
+ 	+
+ 	+　　③第5、6位数字表示：所在区县的代码;
+ 	+
+ 	+　　④第7~14位数字表示：出生年、月、日;
+ 	+
+ 	+　　⑤第15、16位数字表示：所在地的派出所的代码;
+ 	+
+ 	+　　⑥第17位数字表示性别：奇数表示男性，偶数表示女性;
+ 	 	  
+ 	+　　⑦第18位数字是校检码：也有的说是个人信息码，一般是随计算机随机产生，用来检验身份证的正确性。校检码可以是0~9的数字，有时也用x表示。
+ 	+   
+     
+ '''
 
 
 
 
 if __name__ == '__main__':
 
-    print('errcode is:',id_num_check('32123****562aqw3x'))
+    print('errcode is:',id_num_check('321082197112113010'))
 
 
     #print(extract("1234567890","123",'890'))
