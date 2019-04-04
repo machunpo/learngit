@@ -85,11 +85,8 @@ def id_num_check(id_num):
 
 if __name__ == '__main__':
 
-<<<<<<< HEAD
     print('errcode is:',id_num_check('32123****562aqw3x'))
-=======
-    print('errcode is:',id_num_check('3****************2'))
->>>>>>> 95c84af... 身份证号码保密
+
 
     #print(extract("1234567890","123",'890'))
     #getip()
