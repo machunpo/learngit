@@ -84,15 +84,30 @@ def id_num_check(id_num):
 
         if err_code < 0 :
  	        
-            print(id_num[0:2])
-            print(id_num[2:4])
-            print(id_num[4:6])
-            print(id_num[6:10])
-            print(id_num[10:12])
-            print(id_num[12:14])
-            print(id_num[14:16])
-            print(id_num[16:17])
-            print(id_num[17])
+            shenfen=(id_num[0:2])
+            if '*' in shenfen :
+                pass
+            else:
+                pass
+
+            chenshi=(id_num[2:4])
+            if '*' in chenshi:
+                pass
+            else:
+                pass
+
+            quxian=(id_num[4:6])
+            if '*' in quxian :
+                pass
+            else:
+                pass
+
+            year=(id_num[6:10])
+            mon=(id_num[10:12])
+            day=(id_num[12:14])
+            szdpcs=(id_num[14:16])
+            xinbie=(id_num[16:17])
+            jiaoyanma=(id_num[17])
  		       
     return err_code
 
