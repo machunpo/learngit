@@ -80,16 +80,18 @@ while (True):
         speak.Speak(yuyinbobao)
         jia='出门，要记得带，雨衣哦。'
         yi='出门，要记得带钞票哦。'
-        jia1='还要注意防寒和保暖啊。'
+        jia1='出门，注意防寒和保暖啊。'
         jia2='出门，要记得涂防晒霜哦'
-        if ('雨' in str(tianqi[0])):
-            speak.Speak(jia)
-        if('雪' in str(tianqi[0])):
-            speak.Speak(jia1) 
-        elif('晴' in str(tianqi[0])):
-            speak.Speak(jia2) 
+
+        if ('晴' in str(tianqi[0])):
+            speak.Speak(jia2)
+        elif('雨' in str(tianqi[0])):
+            speak.Speak(jia)   
+        elif('雪' in str(tianqi[0])):
+            speak.Speak(jia1)
         else:
-            speak.Speak(yi)      
+            speak.Speak(yi)     
+    
     else:
         speak.Speak(al)
 
