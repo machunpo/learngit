@@ -72,4 +72,4 @@ for k in range(NUMOFPAGE):
     print('OK,第{0}页已经生成'.format(k+1))
     
 #保存文件
-file.save("mysonmath.docx")
+file.save(r"C:\Users\zyf\Desktop\mysonmath.docx")
