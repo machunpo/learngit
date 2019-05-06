@@ -101,13 +101,37 @@ def id_num_check(id_num):
                 pass
             else:
                 pass
-
+#以上三项进行合并
             year=(id_num[6:10])
+             if '*' in year :
+                pass
+            else:
+                pass
             mon=(id_num[10:12])
+             if '*' in mon :
+                pass
+            else:
+                pass
             day=(id_num[12:14])
+             if '*' in day :
+                pass
+            else:
+                pass
             szdpcs=(id_num[14:16])
+             if '*' in szdpcs :
+                pass
+            else:
+                pass
             xinbie=(id_num[16:17])
+             if '*' in xinbie :
+                pass
+            else:
+                pass
             jiaoyanma=(id_num[17])
+             if '*' in jiaoyanma :
+                pass
+            else:
+                pass
  		       
     return err_code
 
