@@ -47,7 +47,7 @@ def extract(string_all,string_begin,string_end):
         n=string_all.find(string_end,m)
         try:
             string_arry.append(string_all[m+len(string_begin):n])
-        except expression as identifier:
+        except :
                 pass
 
     return string_arry[:-1] #有个bug，最后一个数组元素内存溢出
