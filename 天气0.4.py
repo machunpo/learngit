@@ -14,6 +14,8 @@ speak.Rate=-1      #说话速度 -10到10
 WANGZHIQIANZUI="http://www.mxnzp.com/api/holiday/single/"
 
 
+
+
 while (True):
    
     d=datetime.date.weekday(datetime.date.today())         #添加星期几的功能
@@ -24,22 +26,24 @@ while (True):
     ldkkdj=str(ldkkdj)[:19]   #  ldkkdj的实例化：2019-03-14  10:05:18
 
     year=ldkkdj[0:4];mon=ldkkdj[5:7];day=ldkkdj[8:10]
+
     wangzhi_api=WANGZHIQIANZUI+year+mon+day     #生成api的网址
 
-    #print(wangzhi_api)
-    api_url = urllib.request.urlopen(wangzhi_api)
-    content_apiurl = api_url.read()#.decode('gbk', 'ignore')
-    new_dict = json.loads(content_apiurl)
+    
+    try:
+        api_url = urllib.request.urlopen(wangzhi_api)
+        content_apiurl = api_url.read()#.decode('gbk', 'ignore')
+        new_dict = json.loads(content_apiurl)
+        longliriqi=new_dict['data']['lunarCalendar']
 
-    longliriqi=new_dict['data']['lunarCalendar']
+        if '廿' in longliriqi:
+            longliriqi=longliriqi.replace('廿','20')
+    except :
+        longliriqi='api服务器故障，农历暂时无法播报'
 
-    if '廿' in longliriqi:
-        longliriqi=longliriqi.replace('廿','20')
     
 
-    #print(new_dict)
-    #print(type(new_dict))
-    #print(new_dict['data']['lunarCalendar'])#本段代码用来增加农历日期的功能
+#本段代码用来增加农历日期的功能
 
     print()
 
