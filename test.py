@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 
-with open('log.txt', 'r+') as f:
-    f.write('niahodjlkf da')
-    rember=f.readline()
-
-print(rember)    
-
+with open('log.txt', 'a+') as f:  #	打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。
+    f.seek(0, 0)
+    rember = f.readline()
+    print ("文件名: ", f.name)
+    print ("是否已关闭 : ", f.closed)
+    print ("访问模式 : ", f.mode)
+    print ("rember : ", rember)
+    position = f.tell()
+    print ("当前文件位置 : ", position)
 
 
 
