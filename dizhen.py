@@ -1,6 +1,6 @@
 import urllib.request
 import time
-from my_def_lib import extract
+from my_def_lib import extract,quxhu_extract
 
 with open('log.txt', 'a+') as f:  #	打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。
     f.seek(0, 0)   #指针移动到文件的开头
