@@ -55,10 +55,26 @@ def extract(string_all,string_begin,string_end):
     return string_arry[:-1] #有个bug，最后一个数组元素内存溢出
 
 
+#函数功能：去除一段特征文本中间的数据
+#输入参数：string_all,string_begin,string_end整段文本，前后的关键词
+#输出参数：一段文本
+
+def quxhu_extract(string_all,string_begin,string_end):
+
+    m = 0; n = 0
+    m = string_all.find(string_begin)
+    n = string_all.find(string_end)
+
+    return string_all[:m]+string_all[n+len(string_end):]
+
+
 if __name__ == '__main__':
 
 
-    getip()
-    print(checkTime(2))
-    print(extract('123456789123654789','123','789'))
+    print(quxhu_extract('参考位置:<a href="http://news.ceic.ac.cn/CD20190601000131.html">新疆喀什地区塔什库尔干县(5分钟更新一次)','<a href','html">'))
+    #这个的输出为    ‘参考位置:新疆喀什地区塔什库尔干县(5分钟更新一次)’
+
+    #getip()
+    #print(checkTime(2))
+    #print(extract('123456789123654789','123','789'))
 
