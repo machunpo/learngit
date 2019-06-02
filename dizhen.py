@@ -26,6 +26,9 @@ while True:
         参考位置 = extract(resp,'<td align="left">','</a></td>')
 
         #此处需要对参考位置进行处理  对其中的超链接进行清理
+        参考位置 = [quxhu_extract(i,'<a href=','.html">') for i in 参考位置]
+        
+
         '''
         j=0;k=0
         for i in 经纬深度:
