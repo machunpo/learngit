@@ -2,11 +2,7 @@ import urllib.request
 import time
 from my_def_lib import extract,quxhu_extract
 
-with open('log.txt', 'a+') as f:  #	打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。
-    f.seek(0, 0)   #指针移动到文件的开头
-    rember = f.readline()
-
-
+re_msg='北京时间:2019-06-09 01:36:28,辽宁朝阳市建平县 发生了3.2级地震'
 
 headers = {
         'User-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
@@ -28,75 +24,30 @@ while True:
         #此处需要对参考位置进行处理  对其中的超链接进行清理
         参考位置 = [quxhu_extract(i,'<a href=','.html">') for i in 参考位置]
         
+        #print(参考位置)
 
-        '''
-        j=0;k=0
-        for i in 经纬深度:
-            print(i,end='      ')
-            j=j+1
-            if j%3==0:
-                k=k+1
-                print(k)
-                print('\n')
-            
-        '''
-      
-        # 如果日志为空,记录添加最新的一条地震信息
-        if rember == '':
-            
-            for i in range(len(震级))  :
-                
-                msg = f'北京时间:{发震时刻[-i-1]},在纬度:{经纬深度[-i-3]} ,经度{经纬深度[-i-2]} 处发生了{震级[-i-1]}级地震,震源深度{经纬深度[-i-1]}千米,参考位置:{参考位置[-i-1]}(5分钟更新一次)'
-                # 保存信息信息
-                
-                with open('log.txt', 'a+') as f:
-                    f.write(msg+'\n')
-                print('日志为空,msg:', msg)
+        msg = f'北京时间:{发震时刻[0]},{参考位置[0]} 发生了{震级[0]}级地震'
+
+        if msg==re_msg :
+            pass
         else:
+            re_msg=msg
+            print(msg)
 
-            #已经有文件存在会进入这里
-            '''
-            i = res.index(rember)
-            while i > 1:
-                i -= 6
-                msg = f'北京时间:{res[i]},在纬度:{res[i+1]} ,经度{res[i+2]} 处发生了{res[i-1]}级地震,震源深度{res[i+3]}千米,参考位置:{res[i+4]}(5分钟更新一次)'
-                # 发送信息
-                
-                print('日志非空,msg:',msg) '''
-            
+        print(int(time.time()))
 
         time.sleep(300)
 
     except:
         time.sleep(60)
 
-'''
+
 
         
         
         
  
-        # 如果日志为空,发送最新的一条地震信息
-        if rember == '':
-            msg = f'北京时间:{res[1]},在纬度:{res[2]} ,经度{res[3]} 处发生了{res[0]}级地震,震源深度{res[4]}千米,参考位置:{res[5]}(5分钟更新一次)'
-            # 发送信息
-            group.send(msg)
-            print('日志为空,msg:', msg)
  
-        # 如果日志非空,就判断是否是最新的,发送日志之后的所有新的数据
-        else:
-            i = res.index(rember)
-            while i > 1:
-                i -= 6
-                msg = f'北京时间:{res[i]},在纬度:{res[i+1]} ,经度{res[i+2]} 处发生了{res[i-1]}级地震,震源深度{res[i+3]}千米,参考位置:{res[i+4]}(5分钟更新一次)'
-                # 发送信息
-                group.send(msg)
-                print('日志非空,msg:',msg)
- 
-        
-        rember = res[1]
-
-            '''
 
 		
 		
