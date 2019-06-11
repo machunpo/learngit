@@ -8,10 +8,10 @@ headers = {
         'User-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
         'cookie':'Hm_lvt_e0025cd5d352165f8a646ccea5beb27d=1543211803; Hm_lpvt_e0025cd5d352165f8a646ccea5beb27d=1543211803',
     }
- 
+print('你好') 
 while True:
     try:
-        url = f'http://news.ceic.ac.cn/index.html'
+        url = 'http://news.ceic.ac.cn/index.html'
         # 请求数据#print(url)
         response = urllib.request.urlopen(url=url)
         resp=response.read().decode('utf-8', 'ignore')
@@ -26,7 +26,7 @@ while True:
         
         #print(参考位置)
 
-        msg = f'北京时间:{发震时刻[0]},{参考位置[0]} 发生了{震级[0]}级地震，经度{经纬深度[0]}，纬度{经纬深度[1]}，深度{经纬深度[2]}千米'
+        msg = '北京时间:{},{} 发生了{}级地震，经度{}，纬度{}，深度{}千米'.format(发震时刻[0],参考位置[0],震级[0],经纬深度[0],经纬深度[1],经纬深度[2])
        
 
         if msg==re_msg :
