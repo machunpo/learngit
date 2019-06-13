@@ -31,6 +31,7 @@ def quxhu_extract(string_all,string_begin,string_end):
 
 import urllib.request
 import time
+import threading #多线程
 import win32com.client as win #pip install pypiwin32
 
 speak = win.Dispatch("SAPI.SpVoice")  #增加语音播报的模块
