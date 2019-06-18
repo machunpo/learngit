@@ -2,6 +2,27 @@
 import json
 import urllib.request
 
+#函数功能：去除一段文本中的HTML标记
+#输入参数：text_all 整段文本
+#输出参数：去除HTML标记后的文本
+def quchu_heml(text_all):
+        m=0
+        n=0
+
+        while 1 :
+
+                m=text_all.find('<',n)
+                n=text_all.find('>',m)
+                
+                if m==-1:
+                        break
+                try:
+                        text_all=text_all[:m]+text_all[(n+1):]
+                except:
+                        pass
+    
+        return text_all
+
 
 #函数功能：输入一个月份或者日期，如果小于10，则在其前面补齐0，用于月份或者日期的对齐
 #输入参数：i 整形变量
@@ -70,8 +91,8 @@ def quxhu_extract(string_all,string_begin,string_end):
 
 if __name__ == '__main__':
 
-
-    print(quxhu_extract('参考位置:<a href="http://news.ceic.ac.cn/CD20190601000131.html">新疆喀什地区塔什库尔干县(5分钟更新一次)','<a href','html">'))
+    print(quchu_heml('<li><a tj="ssy11" href="https://s.click.taobao.com/6fd4wAx" id="mesAreat1">天猫热卖女装，全场1折起包邮</a></li>'))
+    #print(quxhu_extract('参考位置:<a href="http://news.ceic.ac.cn/CD20190601000131.html">新疆喀什地区塔什库尔干县(5分钟更新一次)','<a href','html">'))
     #这个的输出为    ‘参考位置:新疆喀什地区塔什库尔干县(5分钟更新一次)’
 
     #getip()
