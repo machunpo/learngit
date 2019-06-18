@@ -21,7 +21,7 @@ def quchu_heml(text_all):
                 except:
                         pass
     
-        return text_all
+        return text_all#缩短导致定位失败
 
 
 #函数功能：输入一个月份或者日期，如果小于10，则在其前面补齐0，用于月份或者日期的对齐
@@ -91,7 +91,7 @@ def quxhu_extract(string_all,string_begin,string_end):
 
 if __name__ == '__main__':
 
-    print(quchu_heml('<li><a tj="ssy11" href="https://s.click.taobao.com/6fd4wAx" id="mesAreat1">天猫热卖女装，全场1折起包邮</a></li>'))
+    print(quchu_heml('<li>this 是 is <a><test>'))
     #print(quxhu_extract('参考位置:<a href="http://news.ceic.ac.cn/CD20190601000131.html">新疆喀什地区塔什库尔干县(5分钟更新一次)','<a href','html">'))
     #这个的输出为    ‘参考位置:新疆喀什地区塔什库尔干县(5分钟更新一次)’
 
