@@ -5,19 +5,13 @@ import urllib.request
 #函数功能：去除一段文本中的HTML标记
 #输入参数：text_all 整段文本
 #输出参数：去除HTML标记后的文本
-def quchu_heml(text_all):
-        m=n=0
-        m=text_all.find('<',n)
-        n=text_all.find('>',m) 
-
-
-        text_all=text_all[:m]+text_all[(n+1):]
-        if m!=-1:
-                quchu_heml(text_all)#这里使用了递归
-        else:
-                return text_all
-                
-
+def quchu_heml(html_text):
+    s = html_text.find("<")
+    while s != -1:
+        s = html_text.find("<")
+        e = html_text.find(">")
+        html_text = html_text.replace(html_text[s:e + 1], "")
+    return(html_text)
     
         
 
@@ -89,7 +83,9 @@ def quxhu_extract(string_all,string_begin,string_end):
 
 if __name__ == '__main__':
 
-    print(quchu_heml('<li>this 是 is <a><test>'))
+    hi=quchu_heml('jdsajfklsad<li>this  is <a><test>hahah')
+
+    print(hi)
     
     #print(quxhu_extract('参考位置:<a href="http://news.ceic.ac.cn/CD20190601000131.html">新疆喀什地区塔什库尔干县(5分钟更新一次)','<a href','html">'))
     #这个的输出为    ‘参考位置:新疆喀什地区塔什库尔干县(5分钟更新一次)’
