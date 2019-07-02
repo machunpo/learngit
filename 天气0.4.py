@@ -35,9 +35,14 @@ while (True):
         content_apiurl = api_url.read()#.decode('gbk', 'ignore')
         new_dict = json.loads(content_apiurl)
         longliriqi=new_dict['data']['lunarCalendar']
-
+           
         if '廿' in longliriqi:
             longliriqi=longliriqi.replace('廿','20')
+        elif '卅' in longliriqi:
+            longliriqi=longliriqi.replace('卅','30')
+        else :
+            pass
+
     except :
         longliriqi='api服务器故障，农历暂时无法播报'
 
