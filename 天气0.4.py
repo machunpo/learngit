@@ -6,7 +6,7 @@ import win32com.client as win #pip install pypiwin32
 import json
 from my_def_lib import extract
 import time
-
+import _thread
 
 speak = win.Dispatch("SAPI.SpVoice")  #增加语音播报的模块
 weekchn=['星期一','星期二','星期三','星期四','星期五','星期六','星期日','星期一','星期二','星期三','星期四','星期五','星期六','星期日','星期一','星期二','星期三','星期四','星期五','星期六','星期天']
@@ -32,7 +32,8 @@ def two_hour():
         tianqiyubao=new_dict["result"]["forecast_keypoint"]
 
         if tianqiyubao != jizhunshuju:
-            print(tianqiyubao)
+            speak.Speak(tianqiyubao)     
+            #print(tianqiyubao)
             jizhunshuju=tianqiyubao
         else:
             pass
@@ -43,9 +44,13 @@ def two_hour():
         #print('目前系统的编码为：',sys.getdefaultencoding())
         #print('\\u672a\\u676524\\u5c0f\\u65f6\\u591a\\u4e91'.encode('latin-1').decode('unicode_escape'))
         i=i+1
-        time.sleep(10)
+        time.sleep(100)#延时函数，多少秒进行一次查询
 
-
+try:
+   _thread.start_new_thread(two_hour)
+   #_thread.start_new_thread( print_time, ("Thread-2", 4, ) )
+except:
+   print ("Error: 无法启动线程")
 
 while (True):
 
