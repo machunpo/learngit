@@ -11,7 +11,7 @@ response = urllib.request.urlopen(back_up_url)
 content = response.read()#打开要抓取的网页
 
 
-#print (content)
+print (content)
 
 
 slashUStr = b"\\u0063\\u0072\\u0069\\u0066\\u0061\\u006E\\u0020\\u5728\\u8DEF\\u4E0A";    #crifan 在路上 
@@ -39,3 +39,5 @@ name='小明'
 print(type(name))#首先我们来打印下转码前的name类型，因为它是str，所以可以通过encode来进行编码
 name1=name.encode('utf-8')
 print(name1)
+
+input()
