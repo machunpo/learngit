@@ -36,7 +36,7 @@ def two_hour():
             #print(tianqiyubao)
             jizhunshuju=tianqiyubao
         else:
-            pass
+            print(tianqiyubao,i)
         
         print(i)
         #print(new_dict["result"]["minutely"]["description"])
@@ -44,13 +44,13 @@ def two_hour():
         #print('目前系统的编码为：',sys.getdefaultencoding())
         #print('\\u672a\\u676524\\u5c0f\\u65f6\\u591a\\u4e91'.encode('latin-1').decode('unicode_escape'))
         i=i+1
-        time.sleep(100)#延时函数，多少秒进行一次查询
+        time.sleep(600)#延时函数，多少秒进行一次查询
 
 try:
-   _thread.start_new_thread(two_hour)
+   _thread.start_new_thread(two_hour,())
    #_thread.start_new_thread( print_time, ("Thread-2", 4, ) )
-except:
-   print ("Error: 无法启动线程")
+except TypeError as e:
+   print (e)
 
 while (True):
 

@@ -4,6 +4,7 @@ import urllib.request
 import json
 import time
 from my_def_lib import extract
+import _thread
 
 def two_hour():
 
@@ -36,4 +37,9 @@ def two_hour():
         time.sleep(10)
 
 if __name__ == '__main__':
-    two_hour()
+    try:
+        _thread.start_new_thread(two_hour)
+    except:
+        print ("Error: 无法启动线程")
+    
+    
