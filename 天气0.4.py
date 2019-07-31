@@ -33,12 +33,11 @@ def two_hour():
 
         if tianqiyubao != jizhunshuju:
             speak.Speak(tianqiyubao)     
-            #print(tianqiyubao)
+            print('语音播报：',tianqiyubao)
             jizhunshuju=tianqiyubao
         else:
-            print(tianqiyubao,i)
-        
-        print(i)
+            print(tianqiyubao)
+            print(i)
         #print(new_dict["result"]["minutely"]["description"])
         #import sys
         #print('目前系统的编码为：',sys.getdefaultencoding())
