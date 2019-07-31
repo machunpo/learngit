@@ -24,7 +24,7 @@ def two_hour():
     #url_of_pic='http://products.weather.com.cn/product/radar/index/procode/JC_RADAR_AZ9519_JB.shtml'
 
     while(1):
-
+        time.sleep(100)
         response = urllib.request.urlopen(back_up_url)
         content = response.read().decode('unicode_escape')#打开要抓取的网页
 
@@ -43,7 +43,7 @@ def two_hour():
         #print('目前系统的编码为：',sys.getdefaultencoding())
         #print('\\u672a\\u676524\\u5c0f\\u65f6\\u591a\\u4e91'.encode('latin-1').decode('unicode_escape'))
         i=i+1
-        time.sleep(600)#延时函数，多少秒进行一次查询
+        time.sleep(500)#延时函数，多少秒进行一次查询
 
 try:
    _thread.start_new_thread(two_hour,())
@@ -52,8 +52,6 @@ except TypeError as e:
    print (e)
 
 while (True):
-
-
    
     d=datetime.date.weekday(datetime.date.today())         #添加星期几的功能
 
