@@ -36,14 +36,8 @@ def two_hour():
             print('语音播报：',tianqiyubao)
             jizhunshuju=tianqiyubao
         else:
-<<<<<<< HEAD
             print(tianqiyubao)
             print(i)
-=======
-            print(jizhunshuju,i)
-        
-        #print(i)
->>>>>>> c78a5832d0a96afde51f12479c2ca2d0b11968a7
         #print(new_dict["result"]["minutely"]["description"])
         #import sys
         #print('目前系统的编码为：',sys.getdefaultencoding())
