@@ -20,7 +20,7 @@ else:
 API_KEY = '4E1BG9lTnlSeIf1NQFlrSq6h'
 SECRET_KEY = '544ca4657ba8002e3dea3ac2f5fdd241'
 
-TEXT = "我是度小美，欢迎使用百度语音合成。今天的天气真的很不错。"
+
 
 # 发音人选择, 基础音库：0为度小美，1为度小宇，3为度逍遥，4为度丫丫，
 # 精品音库：5为度小娇，103为度米朵，106为度博文，110为度小童，111为度小萌，默认为度小美 
@@ -41,11 +41,6 @@ CUID = "123456PYTHON"
 
 TTS_URL = 'http://tsn.baidu.com/text2audio'
 
-
-class DemoError(Exception):
-    pass
-
-
 """  TOKEN start """
 
 TOKEN_URL = 'http://openapi.baidu.com/oauth/2.0/token'
@@ -53,7 +48,7 @@ SCOPE = 'audio_tts_post'  # 有此scope表示有tts能力，没有请在网页�
 
 
 def fetch_token():
-    print("fetch token begin")
+    #print("fetch token begin")
     params = {'grant_type': 'client_credentials',
               'client_id': API_KEY,
               'client_secret': SECRET_KEY}
@@ -65,34 +60,34 @@ def fetch_token():
         f = urlopen(req, timeout=5)
         result_str = f.read()
     except URLError as err:
-        print('token http response http code : ' + str(err.code))
+        #print('token http response http code : ' + str(err.code))
         result_str = err.read()
     if (IS_PY3):
         result_str = result_str.decode()
 
-    print(result_str)
+    #print(result_str)
     result = json.loads(result_str)
-    print(result)
+    #print(result)
     if ('access_token' in result.keys() and 'scope' in result.keys()):
         if not SCOPE in result['scope'].split(' '):
             raise DemoError('scope is not correct')
-        print('SUCCESS WITH TOKEN: %s ; EXPIRES IN SECONDS: %s' % (result['access_token'], result['expires_in']))
+        #print('SUCCESS WITH TOKEN: %s ; EXPIRES IN SECONDS: %s' % (result['access_token'], result['expires_in']))
         return result['access_token']
     else:
         raise DemoError('MAYBE API_KEY or SECRET_KEY not correct: access_token or scope not found in token response')
 
 
 """  TOKEN end """
-
-if __name__ == '__main__':
+def hahaha(TEXT = "欢迎使用百度语音合成。今天的天气真的很不错。"):
+    
     token = fetch_token()
     tex = quote_plus(TEXT)  # 此处TEXT需要两次urlencode
-    print(tex)
+    #print(tex)
     params = {'tok': token, 'tex': tex, 'per': PER, 'spd': SPD, 'pit': PIT, 'vol': VOL, 'aue': AUE, 'cuid': CUID,
               'lan': 'zh', 'ctp': 1}  # lan ctp 固定参数
 
     data = urlencode(params)
-    print('test on Web Browser' + TTS_URL + '?' + data)
+    #print('test on Web Browser' + TTS_URL + '?' + data)
 
     req = Request(TTS_URL, data.encode('utf-8'))
     has_error = False
@@ -117,4 +112,9 @@ if __name__ == '__main__':
             result_str = str(result_str, 'utf-8')
         print("tts api  error:" + result_str)
 
-    print("result saved as :" + save_file)
+    #print("result saved as :" + save_file)
+
+
+
+if __name__ == '__main__':
+    hahaha('this my good')
