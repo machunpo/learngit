@@ -8,6 +8,8 @@ from my_def_lib import extract
 import time
 import _thread
 import test.tts
+import os
+
 speak = win.Dispatch("SAPI.SpVoice")  #增加语音播报的模块
 weekchn=['星期一','星期二','星期三','星期四','星期五','星期六','星期日','星期一','星期二','星期三','星期四','星期五','星期六','星期日','星期一','星期二','星期三','星期四','星期五','星期六','星期天']
 url = 'https://tianqi.2345.com/haian/70445.htm'
@@ -32,6 +34,9 @@ def two_hour():
         tianqiyubao=new_dict["result"]["forecast_keypoint"]
 
         if tianqiyubao != jizhunshuju:
+
+            #test.tts.hahaha(tianqiyubao) #测试百度云tts
+
             speak.Speak(tianqiyubao)     
             print('语音播报：',tianqiyubao)
             jizhunshuju=tianqiyubao
@@ -121,6 +126,8 @@ while (True):
     
 
     if al=="，，，，，，，，":
+        test.tts.hahaha(yuyinbobao) #测试百度云tts
+        os.system('result.mp3')
         speak.Speak(yuyinbobao)
         jia='出门，要记得带，雨衣哦。'
         yi='出门，要记得带钞票哦。'
