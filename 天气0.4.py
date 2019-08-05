@@ -126,8 +126,8 @@ while (True):
     
 
     if al=="，，，，，，，，":
-        test.tts.hahaha(yuyinbobao) #测试百度云tts
-        os.system('result.mp3')
+        #test.tts.hahaha(yuyinbobao) #测试百度云tts
+        #os.system('result.mp3')
         speak.Speak(yuyinbobao)
         jia='出门，要记得带，雨衣哦。'
         yi='出门，要记得带钞票哦。'
