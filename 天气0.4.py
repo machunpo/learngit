@@ -7,7 +7,7 @@ import json
 from my_def_lib import extract
 import time
 import _thread
-
+import test.tts
 speak = win.Dispatch("SAPI.SpVoice")  #增加语音播报的模块
 weekchn=['星期一','星期二','星期三','星期四','星期五','星期六','星期日','星期一','星期二','星期三','星期四','星期五','星期六','星期日','星期一','星期二','星期三','星期四','星期五','星期六','星期天']
 url = 'https://tianqi.2345.com/haian/70445.htm'
