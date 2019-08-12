@@ -17,6 +17,63 @@ al="，，，，，，，，"
 speak.Rate=-1      #说话速度 -10到10
 WANGZHIQIANZUI="http://www.mxnzp.com/api/holiday/single/"
 
+
+def quxhu_extract(string_all,string_begin,string_end):
+
+    m = 0; n = 0
+    m = string_all.find(string_begin)
+    n = string_all.find(string_end)
+
+    return string_all[:m]+string_all[n+len(string_end):]
+
+
+def dizhena():
+    time.sleep(100)
+    re_msg=''
+
+    print('你好，欢迎使用地震播报系统。') 
+
+    while True:
+        try:
+            url = r'http://news.ceic.ac.cn/index.html'
+            # 请求数据#print(url)
+            response = urllib.request.urlopen(url=url)
+            resp=response.read().decode('utf-8', 'ignore')
+            
+            #print(url)
+            #print(resp)
+
+            震级 = extract(resp,'<td align="center" style="padding-left: 20px">','</td>')#返回列表
+            发震时刻 = extract(resp,'<td align="center" style="width: 155px;">','</td>')
+            经纬深度 = extract(resp,'<td align="center">','</td>')
+            参考位置 = extract(resp,'<td align="left">','</a></td>')
+
+            #此处需要对参考位置进行处理  对其中的超链接进行清理
+            参考位置 = [quxhu_extract(i,'<a href=','.html">') for i in 参考位置]
+            
+            #print(经纬深度)
+            #print(参考位置)
+            #兼容3.5版本
+            msg = '北京时间:{}秒,{} 发生了{}级地震，经度{}，纬度{}，深度{}千米'.format(发震时刻[0],参考位置[0],震级[0],经纬深度[0],经纬深度[1],经纬深度[2])
+
+
+            if msg==re_msg :
+                print('thread-2-dizhen')
+            else:
+                re_msg=msg
+                print(msg)
+                speak.Speak(msg)
+
+            #print(int(time.time())) #打印当前时间
+
+            time.sleep(1900)
+        except TypeError as e:
+            print (e)
+
+            print('err form except')
+            time.sleep(60)
+
+
 def two_hour():
 
     back_up_url='https://api.caiyunapp.com/v2/96Ly7wgKGq6FhllM/120.4769,32.5131/weather.jsonp?hourlysteps=120'        #这是彩云天气的短时间预报
@@ -26,7 +83,7 @@ def two_hour():
     #url_of_pic='http://products.weather.com.cn/product/radar/index/procode/JC_RADAR_AZ9519_JB.shtml'
 
     while(1):
-        time.sleep(100)
+        time.sleep(50)
         response = urllib.request.urlopen(back_up_url)
         content = response.read().decode('unicode_escape')#打开要抓取的网页
 
@@ -52,7 +109,7 @@ def two_hour():
 
 try:
    _thread.start_new_thread(two_hour,())
-   #_thread.start_new_thread( print_time, ("Thread-2", 4, ) )
+   _thread.start_new_thread(dizhena, ())
 except TypeError as e:
    print (e)
 
