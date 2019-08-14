@@ -16,7 +16,7 @@ url = 'https://tianqi.2345.com/haian/70445.htm'
 al="，，，，，，，，"
 speak.Rate=-1      #说话速度 -10到10
 WANGZHIQIANZUI="http://www.mxnzp.com/api/holiday/single/"
-
+h=time.gmtime()#取现在的时间 标准格林时间 0
 
 def quxhu_extract(string_all,string_begin,string_end):
 
@@ -93,9 +93,12 @@ def two_hour():
         if tianqiyubao != jizhunshuju:
 
             #test.tts.hahaha(tianqiyubao) #测试百度云tts
-
-            speak.Speak(tianqiyubao)     
             print('语音播报：',tianqiyubao)
+            if 3<h[3]<7 :
+                pass
+            else:    
+                speak.Speak(tianqiyubao)     
+            
             jizhunshuju=tianqiyubao
         else:
             print(tianqiyubao)
