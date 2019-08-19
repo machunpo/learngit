@@ -97,12 +97,17 @@ def two_hour():
             if 3<h[3]<7 :
                 pass
             else:    
-                speak.Speak(tianqiyubao)     
+                speak.Speak(tianqiyubao)
+                print('小时=',h[3])	
+				
             
             jizhunshuju=tianqiyubao
         else:
-            print(tianqiyubao)
-            print(i)
+            #print(tianqiyubao)
+			#print('thread-1')
+            print(i,end=".")
+			
+			
         #print(new_dict["result"]["minutely"]["description"])
         #import sys
         #print('目前系统的编码为：',sys.getdefaultencoding())
