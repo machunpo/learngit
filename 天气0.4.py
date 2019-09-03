@@ -98,7 +98,8 @@ def two_hour():
                 pass
             else:    
                 speak.Speak(tianqiyubao)
-                print('小时=',h[3])	
+                print(ldkkdj)
+                #print('小时=',h[3])	
 				
             
             jizhunshuju=tianqiyubao
