@@ -1,7 +1,15 @@
 import os
-import exifread
+#import exifread
 
-dan_qian_mu_lu=os.getcwd()
-print(dan_qian_mu_lu)
-for i in os.walk(dan_qian_mu_lu):
-    print(i)
+Source_folder="c:\\Source"
+Target_folder="c:\\Target"
+
+#print(Source_folder,'\n',Target_folder)
+#dan_qian_mu_lu=os.getcwd()
+#print(Source_folder)
+
+for a,b,c in os.walk(Source_folder):
+    print(a,b,c)
+
+
+#下一步是把所有文件打印出来
