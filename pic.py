@@ -8,8 +8,8 @@ Target_folder="c:\\Target"
 #dan_qian_mu_lu=os.getcwd()
 #print(Source_folder)
 
-for a,b,c in os.walk(Source_folder):
-    print(a,b,c)
+for root, dirs, files  in os.walk(Source_folder):
+    print(root, dirs, files )
 
 
 #下一步是把所有文件打印出来
