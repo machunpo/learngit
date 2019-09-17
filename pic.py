@@ -9,7 +9,10 @@ Target_folder="c:\\Target"
 #print(Source_folder)
 
 for root, dirs, files  in os.walk(Source_folder):
-    print(root, dirs, files )
+    for f in files:
+            path=root+"\\"+f
+            print(path)
+    #print(root, dirs, files )
 
 
-#下一步是把所有文件打印出来
+#下一步是辨别文件的后缀名是什么
