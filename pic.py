@@ -27,6 +27,6 @@ for root, dirs, files  in os.walk(Source_folder):
             print(path)                             #打印出完整的文件路径
     #print(root, dirs, files )
 
-
+input()
 
 #下一步是提取文件的拍摄日期是什么时候   也就是exifread的用法
