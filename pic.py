@@ -16,7 +16,14 @@ def get_file_extension(filename):
     return(filename[-i+1:])
     #print(i,filename[-i+1:])
 
-
+#函数名称：get_yearmoon_of_pic  提取图片的拍摄日期中的年和月
+#入口参数：picpath              图片的地址路径
+#返回参数：
+def get_yearmoon_of_pic(picpath):
+    f = open(picpath, 'rb')
+    tags = exifread.process_file(f)
+    f.close()
+    return(str(tags['Image DateTime']))
 
 
 for root, dirs, files  in os.walk(Source_folder):
@@ -25,8 +32,10 @@ for root, dirs, files  in os.walk(Source_folder):
 
             path=root+"\\"+my_file
             print(path)                             #打印出完整的文件路径
+
+            print(get_yearmoon_of_pic(path))
     #print(root, dirs, files )
 
 input()
 
-#下一步是提取文件的拍摄日期是什么时候   也就是exifread的用法
+#下一步是分割字符串 把年月的信息提取出来
