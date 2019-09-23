@@ -23,9 +23,14 @@ def get_file_extension(filename):
 def get_yearmoon_of_pic(picpath):
     f = open(picpath, 'rb')
     tags = exifread.process_file(f)
-    data_arry=tags['Image DateTime'].values.split(" ")
+    #print(tags['Image DateTime'])
+    try:
+        data_arry=tags['Image DateTime'].values.split(" ")
+        year_moon=([x.split(":") for x in data_arry])
+    except:
+        year_moon=[['何','马'],['马','月']]
     f.close()
-    year_moon=([x.split(":") for x in data_arry])
+    
     return((year_moon[0][0],year_moon[0][1]))
 
 
@@ -57,11 +62,11 @@ for root, dirs, files  in os.walk(Source_folder):
                 print('目标文件夹存在')
             else:                 #目标文件夹如果不存在  
                 os.mkdir(Target_file_path) #则创建目录
-                print('创建''{}''目录'.format(Target_file_path))
+                print('创建'  '{}'  '目录'.format(Target_file_path))
                 #print(is_target_dir)
 
    
 
-#input()
+input()
 
 #下一步是考虑各种情况对文件的拷贝
