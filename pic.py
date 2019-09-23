@@ -48,7 +48,7 @@ for root, dirs, files  in os.walk(Source_folder):
 
             #print(Source_file_path)   
              
-            year,moon=(get_yearmoon_of_pic(Source_file_path))#这里要考虑如果提取不到照片的日期
+            year,moon=(get_yearmoon_of_pic(Source_file_path))#这里要考虑如果提取不到照片的日期ok
             #print(year,moon)
             
             #name_of_targer_dir=year+'年'+moon+'月'
