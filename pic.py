@@ -1,5 +1,6 @@
 import os
 import exifread
+import shutil
 
 Source_folder="c:\\Source"
 Target_folder="c:\\Target"
@@ -68,17 +69,19 @@ for root, dirs, files  in os.walk(Source_folder):
             if (is_target_dir):     #目标文件夹如果存在
                 
                 if is_target_file:
-                    pass#改名再拷贝
+                    shutil.copy(Source_file_path,Target_dir_path+'repeat_'+my_file);print('改名后  {}  文件拷贝到  {}  目录成功！'.format(Source_file_path,Target_dir_path))#改名再拷贝
                 else:
-                    pass#直接拷贝
-                print('目标文件夹存在')
-            else:                 #目标文件夹如果不存在  
-                os.mkdir(Target_dir_path) #则创建目录
-                print('创建'  '{}'  '目录'.format(Target_dir_path))
-                #print(is_target_dir)
+                    shutil.copy(Source_file_path,Target_dir_path);print('复制  {}  文件到  {}  目录成功！'.format(Source_file_path,Target_dir_path))#直接拷贝
+                #print('目标文件夹存在')
+            else:                                            #目标文件夹如果不存在  
+                os.mkdir(Target_dir_path)                    #则创建目录
+                shutil.copy(Source_file_path,Target_dir_path);print('复制  {}  文件到新建  {}  目录成功！'.format(Source_file_path,Target_dir_path))
+                #print('创建'  '{}'  '目录'.format(Target_dir_path))
+               
 
    
 
-input()
+#input()
 
-#下一步是对文件的拷贝
+#下一步是解决  改名字也重复的问题 可能要使用递归
+#下一步是 把copy改成 move      move(src, dst)
