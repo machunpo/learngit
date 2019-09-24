@@ -4,7 +4,7 @@ import shutil
 
 Source_folder="c:\\Source"
 Target_folder="c:\\Target"
-pic_type=['jpg','gif','bmp','png','jpeg']
+pic_type=['jpg','gif','bmp','png','jpeg','JPG']
 
 #函数名称：get_file_extension  提取文件名的扩展名
 #入口参数：filename  字符串 文件名
@@ -36,7 +36,7 @@ def get_yearmoon_of_pic(picpath):
         data_arry=tags['Image DateTime'].values.split(" ")
         year_moon=([x.split(":") for x in data_arry])
     except:
-        year_moon=[['何','马'],['马','月']]
+        year_moon=[['何','马'],['如果商业使用，请遵守相关开源协议','侵权必究']]
     f.close()
     
     return((year_moon[0][0],year_moon[0][1]))
@@ -47,6 +47,8 @@ for root, dirs, files  in os.walk(Source_folder):
 
         try:
             houzhuiming_file=get_file_extension(my_file)
+            length_extension=len(houzhuiming_file)#获取后缀名的长度
+            #print(length_extension)
         except :
             print('没有获取到这个文件的扩展名')
 
@@ -69,23 +71,29 @@ for root, dirs, files  in os.walk(Source_folder):
             if (is_target_dir):     #目标文件夹如果存在
                 
                 if is_target_file:
-                    m=0
-                    while():
-
-                        #还没写好
-                    shutil.copy(Source_file_path,Target_dir_path+str(m)+'repeat_'+my_file);print('改名后  {}  文件拷贝到  {}  目录成功！'.format(Source_file_path,Target_dir_path))#改名再拷贝
+                    m=1
+                    while(os.path.exists(Target_file_path)):
+                        if m==1 :
+                            Target_file_path=Target_file_path[:-length_extension-1]+'('+str(m)+ ')'+Target_file_path[-length_extension-1:]
+                         
+                        else:
+                            Target_file_path=Target_file_path.replace('('+str(m-1)+')','('+str(m)+')')
+                            
+                            
+                        m=m+1
+                      
+                    shutil.copy(Source_file_path,Target_file_path);print('改名后  {}  文件拷贝到  {}  目录成功！{}'.format(Source_file_path,Target_dir_path,m-1))#改名再拷贝
                 else:
                     shutil.copy(Source_file_path,Target_dir_path);print('复制  {}  文件到  {}  目录成功！'.format(Source_file_path,Target_dir_path))#直接拷贝
-                #print('目标文件夹存在')
+               
             else:                                            #目标文件夹如果不存在  
                 os.mkdir(Target_dir_path)                    #则创建目录
                 shutil.copy(Source_file_path,Target_dir_path);print('复制  {}  文件到新建  {}  目录成功！'.format(Source_file_path,Target_dir_path))
-                #print('创建'  '{}'  '目录'.format(Target_dir_path))
-               
-
-   
+                
 
 #input()
 
-#下一步是解决  改名字也重复的问题 可能要使用递归
+
 #下一步是 把copy改成 move      move(src, dst)
+#下一步看看能不能不区分大小写
+#有关英文的插件
