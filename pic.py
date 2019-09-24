@@ -69,8 +69,11 @@ for root, dirs, files  in os.walk(Source_folder):
             if (is_target_dir):     #目标文件夹如果存在
                 
                 if is_target_file:
-                    
-                    shutil.copy(Source_file_path,Target_dir_path+'repeat_'+my_file);print('改名后  {}  文件拷贝到  {}  目录成功！'.format(Source_file_path,Target_dir_path))#改名再拷贝
+                    m=0
+                    while():
+
+                        #还没写好
+                    shutil.copy(Source_file_path,Target_dir_path+str(m)+'repeat_'+my_file);print('改名后  {}  文件拷贝到  {}  目录成功！'.format(Source_file_path,Target_dir_path))#改名再拷贝
                 else:
                     shutil.copy(Source_file_path,Target_dir_path);print('复制  {}  文件到  {}  目录成功！'.format(Source_file_path,Target_dir_path))#直接拷贝
                 #print('目标文件夹存在')
