@@ -4,11 +4,11 @@ import shutil
 
 Source_folder="c:\\Source"
 Target_folder="c:\\Target"
-pic_type=['jpg','gif','bmp','png','jpeg','JPG']
+pic_type=['jpg','gif','bmp','png','jpeg']
 
 #函数名称：get_file_extension  提取文件名的扩展名
 #入口参数：filename  字符串 文件名
-#返回参数：filename[-i+1:] 文件的扩展名
+#返回参数：filename[-i+1:].lower() 文件的扩展名的小写
 def get_file_extension(filename):
     i=0
     j=False
@@ -18,7 +18,9 @@ def get_file_extension(filename):
             j=True
             break
     if j:
-        return(filename[-i+1:])
+        
+        return(filename[-i+1:].lower())
+        
     else:
         return('这个字符串肯定不是哪个文件的后缀名')
 
@@ -44,9 +46,10 @@ def get_yearmoon_of_pic(picpath):
 
 for root, dirs, files  in os.walk(Source_folder):
     for my_file in files:
-
+        
         try:
             houzhuiming_file=get_file_extension(my_file)
+            #print(houzhuiming_file)
             length_extension=len(houzhuiming_file)#获取后缀名的长度
             #print(length_extension)
         except :
@@ -94,6 +97,6 @@ for root, dirs, files  in os.walk(Source_folder):
 #input()
 
 
-#下一步是 把copy改成 move      move(src, dst)
-#下一步看看能不能不区分大小写
+#下一步是 把copy改成 move      move(src, dst) 和看看能不能解决何年马月的问题 还有print的重定向问题
+
 #有关英文的插件

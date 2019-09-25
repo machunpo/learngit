@@ -1,5 +1,3 @@
-import time
+a='dkjfkadsjflJKKLJLJ'
 
-h=time.gmtime()
-
-print(h[3])#打印当前时间
+print(a.lower())
