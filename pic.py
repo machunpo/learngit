@@ -98,5 +98,5 @@ for root, dirs, files  in os.walk(Source_folder):
 
 
 #下一步是 把copy改成 move      move(src, dst) 和看看能不能解决何年马月的问题 还有print的重定向问题
-
+#还有考虑写成函数
 #有关英文的插件
