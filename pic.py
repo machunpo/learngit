@@ -1,10 +1,33 @@
 import os
+import sys
 import exifread
 import shutil
 
 Source_folder="c:\\Source"
 Target_folder="c:\\Target"
 pic_type=['jpg','gif','bmp','png','jpeg']
+
+
+
+
+
+class Logger(object):
+    def __init__(self, filename=Target_folder+'\\'"log.txt"):
+        self.terminal = sys.stdout
+        self.log = open(filename, "a")
+ 
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)
+ 
+    def flush(self):
+        pass
+
+path = os.path.abspath(os.path.dirname(__file__))
+type = sys.getfilesystemencoding()
+sys.stdout = Logger()
+
+
 
 #函数名称：get_file_extension  提取文件名的扩展名
 #入口参数：filename  字符串 文件名
@@ -97,6 +120,6 @@ for root, dirs, files  in os.walk(Source_folder):
 #input()
 
 
-#下一步是 把copy改成 move      move(src, dst) 和看看能不能解决何年马月的问题 还有print的重定向问题
+#下一步是 把copy改成 move      move(src, dst) 和看看能不能解决何年马月的问题 
 #还有考虑写成函数
 #有关英文的插件
