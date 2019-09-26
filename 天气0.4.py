@@ -98,7 +98,7 @@ def two_hour():
                 pass
             else:    
                 speak.Speak(tianqiyubao)
-                print(ldkkdj)
+                print(str(datetime.datetime.now())[:19] )
                 #print('小时=',h[3])	
 				
             
