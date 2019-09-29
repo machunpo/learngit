@@ -6,7 +6,7 @@ import exifread
 
 Source_folder = "c:\\Source"
 Target_folder = "c:\\Target"
-pic_type = ['jpg', 'gif', 'bmp', 'png', 'jpeg']
+pic_type = ['jpg', 'gif', 'bmp', 'jpeg']
 
 
 class Logger(object):
