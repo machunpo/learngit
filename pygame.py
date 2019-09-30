@@ -22,7 +22,7 @@ print(path_pic_A)                                                  #当前目录
 
 A=pyauto.locateOnScreen(path_pic_A)
 if A:
-    print(A)
+    print('A type is',type(A))
     x,y=pyauto.center(A)
     print(x,y)
     pyauto.moveTo(x,y)
