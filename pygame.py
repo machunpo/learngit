@@ -16,6 +16,8 @@ pic_C=r'申请成功.png'
 pic_D=r'当前用户未关注店铺.png'
 pic_E=r'操作不要太快吆.png'
 pic_F=r'你的申请已成功提交.png'
+pic_G=r'申请次数超过上限.png'
+
 
 path_pic_A=current_directory+images_directory+pic_A
 path_pic_B=current_directory+images_directory+pic_B
