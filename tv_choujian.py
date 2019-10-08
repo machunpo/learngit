@@ -3,6 +3,8 @@ import time
 import os
 is_next_page=True
 
+count_zhixin=100
+
 time.sleep(3)                       # 延时3秒 用于开始的操作
 
 print(pyauto.size())                # 当前屏幕的分辨率
@@ -29,7 +31,7 @@ pyauto.press('tab');time.sleep(2)
 pyauto.press('home');time.sleep(2)
 #这里可能要加一个tab和home
 while is_next_page:
-    A=pyauto.locateOnScreen(path_pic_A)
+    A=pyauto.locateOnScreen(path_pic_A)#,grayscale=True???
     if A:
         is_next_page=False
         pyauto.moveTo(pyauto.center(A))
