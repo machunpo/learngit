@@ -2,7 +2,7 @@ import pyautogui as pyauto
 import time
 import os
 
-time.sleep(5)                       # 延时5秒 用于开始的操作
+time.sleep(3)                       # 延时3秒 用于开始的操作
 
 print(pyauto.size())                # 当前屏幕的分辨率
 
@@ -32,27 +32,33 @@ for i in range(100):
     
     if A:
         pyauto.moveTo(pyauto.center(A))
-        time.sleep(2)
+        time.sleep(1)
         pyauto.click()
+        time.sleep(1)
     elif pyauto.locateOnScreen(path_pic_B):#关注并申请
         pyauto.moveTo(pyauto.center(pyauto.locateOnScreen(path_pic_B)))
-        time.sleep(2)
+        time.sleep(1)
         pyauto.click()
+        time.sleep(1)
     else:
         if pyauto.locateOnScreen(path_pic_C): #申请成功
             time.sleep(2)
             pyauto.hotkey('ctrl','w')
+            time.sleep(2)
         else:
              if pyauto.locateOnScreen(path_pic_D):#当前用户未关注店铺
                 time.sleep(2)
                 pyauto.hotkey('f5')
+                time.sleep(2)
              else:              
                 if pyauto.locateOnScreen(path_pic_E):#操作不要太快吆
                     time.sleep(2)
                     pyauto.hotkey('f5')
+                    time.sleep(2)
                 elif pyauto.locateOnScreen(path_pic_F):#你的申请已成功提交
                     time.sleep(2)
                     pyauto.hotkey('ctrl','w')
+                    time.sleep(2)
 
        
 
