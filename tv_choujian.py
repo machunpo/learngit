@@ -56,15 +56,14 @@ for i in range(count_Operation):
     time.sleep(1)  # ;print('end')
     pyauto.press('tab')
     # 5.end
-    '''
+    
     try:
-        B = pyauto.locateOnScreen(path_pic_B)高手在当贝啊！学习了
-        
+        B = pyauto.locateOnScreen(path_pic_B)#高手在当贝啊！学习了
         pyauto.click(B)
         time.sleep(1)
     except:
         pyauto.move(10, 10)
-    '''
+
     # 6.点击输入框高手在当贝啊！学习了
 
 
