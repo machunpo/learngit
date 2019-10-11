@@ -65,6 +65,7 @@ for i in range(count_Operation):
     # 5.end
 
     B = pyauto.locateOnScreen(path_pic_B)
+    print(B)
     if B:
         pyauto.click(pyauto.center(B))
     else:
