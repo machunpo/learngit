@@ -4,7 +4,9 @@ import os
 import pyperclip
 
 
-next_page_Coordinates = (1065, 429)  # 下一页的坐标
+next_page_Coordinates = (1065,429)  # 下一页的坐标
+kong_white=(10,300)
+
 count_Operation = 100
 my_txt = '高手在当贝啊！学习了'
 
@@ -33,7 +35,11 @@ for i in range(count_Operation):
     pyauto.hotkey('ctrl', 'enter')
     time.sleep(2)
     # 这里可能要加一个tab和home
+    '''
     pyauto.press('tab')
+    time.sleep(2)
+    '''
+    pyauto.click(kong_white)#空白处点击
     time.sleep(2)
     pyauto.press('home')
     time.sleep(2)
@@ -51,20 +57,22 @@ for i in range(count_Operation):
             pyauto.hotkey('f5')
             time.sleep(10)
     
-    time.sleep(1)
+
+    time.sleep(1)  
     pyauto.press('end')
-    time.sleep(1)  # ;print('end')
-    pyauto.press('tab')
+    time.sleep(1)  
+    pyauto.press('end')
     # 5.end
-    
-    try:
-        B = pyauto.locateOnScreen(path_pic_B)#高手在当贝啊！学习了
-        pyauto.click(B)
-        time.sleep(1)
-    except:
-        pyauto.move(10, 10)
 
-    # 6.点击输入框高手在当贝啊！学习了
+    B = pyauto.locateOnScreen(path_pic_B)
+    if B:
+        pyauto.click(pyauto.center(B))
+    else:
+        break
+
+    time.sleep(5)
+
+print('game over')    
 
 
-    # 下一步制造循环   呵呵呵
+    # 取消tab
