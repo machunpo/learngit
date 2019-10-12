@@ -60,4 +60,4 @@ for i in range(count_Operation):
 print('game over')    
 
 
-    # 取消tab
+
