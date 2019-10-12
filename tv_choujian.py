@@ -3,16 +3,17 @@ import time
 import os
 import pyperclip
 
+count_Operation = 100
+my_txt = '高手在当贝啊！学习了'
+pyperclip.copy(my_txt)
 
 next_page_Coordinates = (1065,429)  # 下一页的坐标
 kong_white=(10,300)
-
-count_Operation = 100
-my_txt = '高手在当贝啊！学习了'
+pyauto.PAUSE=2.5 #每次进行操作后延时2.5秒
 
 time.sleep(3)                       # 延时3秒 用于开始的操作
 print(pyauto.size())                # 当前屏幕的分辨率
-is_next_page = True
+
 current_directory = os.getcwd()  # 获取当前目录
 print(current_directory)
 images_directory = '\\images\\'  # 定义图片目录
@@ -27,8 +28,9 @@ path_pic_E=current_directory+images_directory+pic_E
 '''
 
 for i in range(count_Operation):
+    is_next_page = True
     # 1.输入文本
-    pyperclip.copy(my_txt)
+    
     pyauto.hotkey('ctrl', 'v')
     time.sleep(2)
     # 2.Ctrl+enter
