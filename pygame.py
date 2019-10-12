@@ -67,5 +67,6 @@ for i in range(100):
     pyauto.moveTo(10,10) #回到待命位置
     time.sleep(2)
     
+print('game over.')
 #下一步是要重构 1.改成列表 2.写成函数，根据输入的参数来进行操作
 
