@@ -18,6 +18,7 @@ pic_D=r'当前用户未关注店铺.png'
 pic_E=r'操作不要太快吆.png'
 pic_F=r'你的申请已成功提交.png'
 pic_G=r'申请次数超过上限.png'
+pic_H=r'查看更多试用.png'
 
 
 path_pic_A=current_directory+images_directory+pic_A
@@ -26,8 +27,11 @@ path_pic_C=current_directory+images_directory+pic_C
 path_pic_D=current_directory+images_directory+pic_D
 path_pic_E=current_directory+images_directory+pic_E
 path_pic_F=current_directory+images_directory+pic_F
+path_pic_H=current_directory+images_directory+pic_H
 
 for i in range(100):
+
+    pyauto.press('numlock')
 
     A=pyauto.locateOnScreen(path_pic_A)#申请试用
     
@@ -60,7 +64,9 @@ for i in range(100):
                     
                     pyauto.hotkey('ctrl','w')
                     
-
+                elif pyauto.locateOnScreen(path_pic_H):#查看更多试用
+                    
+                    pyauto.hotkey('ctrl','w')
        
 
 
