@@ -3,7 +3,7 @@ import time
 import os
 
 time.sleep(3)                       # 延时3秒 用于开始的操作
-pyauto.PAUSE=1.5
+pyauto.PAUSE=1
 
 print(pyauto.size())                # 当前屏幕的分辨率
 
@@ -29,44 +29,42 @@ path_pic_E=current_directory+images_directory+pic_E
 path_pic_F=current_directory+images_directory+pic_F
 path_pic_H=current_directory+images_directory+pic_H
 
-for i in range(100):
+for i in range(200):
 
     pyauto.press('numlock')
-
     A=pyauto.locateOnScreen(path_pic_A)#申请试用
-    
     if A:
         pyauto.moveTo(pyauto.center(A))
-        
         pyauto.click()
-        
-    elif pyauto.locateOnScreen(path_pic_B):#关注并申请
-        pyauto.moveTo(pyauto.center(pyauto.locateOnScreen(path_pic_B)))
-        
+
+    pyauto.press('numlock')
+    B=pyauto.locateOnScreen(path_pic_B)
+    if B:#关注并申请
+        pyauto.moveTo(pyauto.center(B))
         pyauto.click()
-        
+
+    pyauto.press('numlock')    
+    C=pyauto.locateOnScreen(path_pic_C)
+    if C: #申请成功
+            
+        pyauto.hotkey('ctrl','w')
     else:
-        if pyauto.locateOnScreen(path_pic_C): #申请成功
-            
-            pyauto.hotkey('ctrl','w')
-            
-        else:
-             if pyauto.locateOnScreen(path_pic_D):#当前用户未关注店铺
+        if pyauto.locateOnScreen(path_pic_D):#当前用户未关注店铺
                 
+            pyauto.hotkey('f5')
+                
+        else:              
+            if pyauto.locateOnScreen(path_pic_E):#操作不要太快吆
+                    
                 pyauto.hotkey('f5')
-                
-             else:              
-                if pyauto.locateOnScreen(path_pic_E):#操作不要太快吆
                     
-                    pyauto.hotkey('f5')
+            elif pyauto.locateOnScreen(path_pic_F):#你的申请已成功提交
                     
-                elif pyauto.locateOnScreen(path_pic_F):#你的申请已成功提交
+                pyauto.hotkey('ctrl','w')
                     
-                    pyauto.hotkey('ctrl','w')
+            elif pyauto.locateOnScreen(path_pic_H):#查看更多试用
                     
-                elif pyauto.locateOnScreen(path_pic_H):#查看更多试用
-                    
-                    pyauto.hotkey('ctrl','w')
+                pyauto.hotkey('ctrl','w')
        
 
 
