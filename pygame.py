@@ -31,23 +31,26 @@ path_pic_H=current_directory+images_directory+pic_H
 
 for i in range(200):
 
-    pyauto.press('numlock')
+    
     A=pyauto.locateOnScreen(path_pic_A)#申请试用
     if A:
         pyauto.moveTo(pyauto.center(A))
         pyauto.click()
+        pyauto.press('numlock')
 
-    pyauto.press('numlock')
+    
     B=pyauto.locateOnScreen(path_pic_B)
     if B:#关注并申请
         pyauto.moveTo(pyauto.center(B))
         pyauto.click()
+        pyauto.press('numlock')
 
-    pyauto.press('numlock')    
+        
     C=pyauto.locateOnScreen(path_pic_C)
     if C: #申请成功
             
         pyauto.hotkey('ctrl','w')
+        pyauto.press('numlock')
     else:
         if pyauto.locateOnScreen(path_pic_D):#当前用户未关注店铺
                 
