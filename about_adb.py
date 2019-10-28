@@ -5,7 +5,7 @@ from PIL import Image
 
 def pull_screenshot():
     os.system('adb shell screencap -p /sdcard/funtoutiao.png')
-    os.system('adb pull /sdcard/funtoutiao.png  ./images')
+    os.system(r'adb pull /sdcard/funtoutiao.png  C:\Users\machunpo\Desktop\images')#./images
 
 def put_page_up():
     os.system('adb shell input swipe 320 410 320 1000 500')  #//从 320 410 经历0.5秒滑动到 320 1000
