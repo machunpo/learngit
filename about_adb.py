@@ -31,8 +31,12 @@ if __name__ == '__main__':
 
         img=Image.open(r'./images/下一页.png')
         img_array=img.load()
+        
         print(img_array[5,5])
         print(type(img_array))
+
+        for i in img_array[5,5]:
+            print(i)
         
 
 
