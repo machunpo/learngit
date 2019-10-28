@@ -35,6 +35,8 @@ def jump(distance):
 
 
 
+
+
 '''
 以下是常用的adb命令。
 
