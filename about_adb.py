@@ -29,8 +29,11 @@ def get_pixel_colour(image_path,x,y):
 if __name__ == '__main__':
 
 
-
-
+        img=Image.open(r'./images/下一页.png')
+        img_array=img.load()
+        print(img_array[5,5])
+        print(type(img_array))
+        
 
 
 
