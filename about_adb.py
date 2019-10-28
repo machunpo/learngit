@@ -1,7 +1,7 @@
 #这是一个使用adb进行安卓手机控制的脚本，使用的编程语言是python
 import os
 import time
-
+from PIL import Image
 
 
 def pull_screenshot():
@@ -16,9 +16,17 @@ def jump(distance):
     print(cmd)
     os.system(cmd)
 
+def get_pixel_colour(image_path,x,y):
+    img=Image.open(image_path)
+    img_array=img.load()
+
+    return  pixel_colour
 
 
 
+
+
+if __name__ == '__main__':
 
 
 
@@ -57,6 +65,9 @@ adb shell input swipe 100 100 200 200  300 //从 100 100 经历300毫秒滑动�
 
 //长按操作
 
-adb shell input swipe 100 100 100 100  1000 //在 100 100 位置长按 1000毫秒
+adb shell input swipe 100 100 100 100  1000 //在 100 100 位置长按 1000毫秒+
+
+img=Image.open("demo.jpg")
+img_array=img.load()
 
 '''
