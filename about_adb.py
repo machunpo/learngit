@@ -3,10 +3,15 @@ import os
 import time
 from PIL import Image
 
-
 def pull_screenshot():
-    os.system('adb shell screencap -p /sdcard/autojump.png')
-    os.system('adb pull /sdcard/autojump.png .')
+    os.system('adb shell screencap -p /sdcard/funtoutiao.png')
+    os.system('adb pull /sdcard/funtoutiao.png  ./images')
+
+def put_page_up():
+    os.system('adb shell input swipe 320 410 320 1000 500')  #//从 320 410 经历0.5秒滑动到 320 1000
+
+def put_page_down():
+    os.system('adb shell input swipe 320 1000 320 410 500')  #//从 320 1000经历0.5秒滑动到 320 410
 
 
 def jump(distance):
@@ -29,14 +34,21 @@ def get_pixel_colour(image_path,x,y):
 if __name__ == '__main__':
 
 
-        img=Image.open(r'./images/下一页.png')
-        img_array=img.load()
-        
-        print(img_array[5,5])
-        print(type(img_array))
 
-        for i in img_array[5,5]:
-            print(i)
+    
+    put_page_up()
+    pull_screenshot()
+    put_page_down()
+    #下一步是取得点的颜色
+
+       # img=Image.open(r'./images/下一页.png')
+        #img_array=img.load()
+        
+        #print(img_array[5,5])
+        #print(type(img_array))
+
+        #for i in img_array[5,5]:
+         #   print(i)
         
 
 
@@ -76,5 +88,9 @@ adb shell input swipe 100 100 100 100  1000 //在 100 100 位置长按 1000毫�
 
 img=Image.open("demo.jpg")
 img_array=img.load()
+
+adb devices #确认已经连接
+
+530，100  #关注的标志点
 
 '''
