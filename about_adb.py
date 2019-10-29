@@ -40,7 +40,7 @@ if __name__ == '__main__':
         count=0
         a=53
         while(a==53):
-                put_page_up();put_page_up();put_page_up()
+                put_page_up();time.sleep(delay_time);put_page_up();put_page_up()
                 pull_screenshot()
                 isguanzhu=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',530,100)
                 a=isguanzhu[0]
@@ -50,7 +50,7 @@ if __name__ == '__main__':
         print('swipe time is:',count)
 
         for i in range(count):
-            put_page_down();put_page_down();put_page_down()
+            put_page_down();put_page_down();time.sleep(delay_time);put_page_down()
             time.sleep(delay_time)
 
         time.sleep(delay_time)
