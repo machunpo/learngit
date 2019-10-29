@@ -29,7 +29,7 @@ path_pic_E=current_directory+images_directory+pic_E
 path_pic_F=current_directory+images_directory+pic_F
 path_pic_H=current_directory+images_directory+pic_H
 
-for i in range(200):
+for i in range(100):
 
     
     A=pyauto.locateOnScreen(path_pic_A)#申请试用
