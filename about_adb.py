@@ -3,15 +3,17 @@ import os
 import time
 from PIL import Image
 
+delay_time=2
+
 def pull_screenshot():
     os.system('adb shell screencap -p /sdcard/funtoutiao.png')
     os.system(r'adb pull /sdcard/funtoutiao.png  C:\Users\machunpo\Desktop\images')#./images
 
 def put_page_up():
-    os.system('adb shell input swipe 320 410 320 1000 500')  #//从 320 410 经历0.5秒滑动到 320 1000
+    os.system('adb shell input swipe 320 410 320 1000 500')  #//从 320 410 经历0.5秒滑动到 320 1000  手指向下滑
 
 def put_page_down():
-    os.system('adb shell input swipe 320 1000 320 410 500')  #//从 320 1000经历0.5秒滑动到 320 410
+    os.system('adb shell input swipe 320 1000 320 410 500')  #//从 320 1000经历0.5秒滑动到 320 410   手指向上滑
 
 
 def jump(distance):
@@ -24,7 +26,8 @@ def jump(distance):
 def get_pixel_colour(image_path,x,y):
     img=Image.open(image_path)
     img_array=img.load()
-
+    pixel_colour=img_array[x,y]
+    img.close()
     return  pixel_colour
 
 
@@ -33,34 +36,29 @@ def get_pixel_colour(image_path,x,y):
 
 if __name__ == '__main__':
 
+    for i in range(2):
+        count=0
+        a=53
+        while(a==53):
+                put_page_up();put_page_up();put_page_up()
+                pull_screenshot()
+                isguanzhu=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',530,100)
+                a=isguanzhu[0]
+                count=count+1
+                time.sleep(delay_time)
+
+        print('swipe time is:',count)
+
+        for i in range(count):
+            put_page_down();put_page_down();put_page_down()
+            time.sleep(delay_time)
+
+        time.sleep(delay_time)
+ 
+    #下一步是🔙后退怎么搞
 
 
-    
-    put_page_up()
-    pull_screenshot()
-    put_page_down()
-    #下一步是取得点的颜色
-
-       # img=Image.open(r'./images/下一页.png')
-        #img_array=img.load()
         
-        #print(img_array[5,5])
-        #print(type(img_array))
-
-        #for i in img_array[5,5]:
-         #   print(i)
-        
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -91,6 +89,6 @@ img_array=img.load()
 
 adb devices #确认已经连接
 
-530，100  #关注的标志点
+530，100  #关注的标志点 (53, 175, 93, 255)对比绿  (255, 255, 255, 255)白色
 
 '''
