@@ -36,26 +36,29 @@ def get_pixel_colour(image_path,x,y):
 
 if __name__ == '__main__':
 
-    for i in range(2):
-        count=0
-        a=53
-        while(a==53):
-                put_page_up();time.sleep(delay_time);put_page_up();put_page_up()
-                pull_screenshot()
-                isguanzhu=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',530,100)
-                a=isguanzhu[0]
-                count=count+1
+    os.system('adb devices')
+    for j in range(5):
+        for i in range(2):
+            count=0
+            a=53
+            while(a==53):
+                    put_page_up();time.sleep(delay_time);put_page_up();put_page_up()
+                    pull_screenshot()
+                    isguanzhu=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',530,100)
+                    a=isguanzhu[0]
+                    count=count+1
+                    time.sleep(delay_time)
+
+            print('swipe time is:',count)
+
+            for i in range(count):
+                put_page_down();put_page_down();time.sleep(delay_time);put_page_down()
                 time.sleep(delay_time)
 
-        print('swipe time is:',count)
-
-        for i in range(count):
-            put_page_down();put_page_down();time.sleep(delay_time);put_page_down()
             time.sleep(delay_time)
-
-        time.sleep(delay_time)
- 
-    #下一步是🔙后退怎么搞
+        os.system('adb shell input keyevent BACK')       #是🔙后退怎么搞
+    
+        #下一步是shuiji
 
 
         
