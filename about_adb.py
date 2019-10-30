@@ -58,7 +58,7 @@ if __name__ == '__main__':
             time.sleep(delay_time)
         os.system('adb shell input keyevent BACK')       #是🔙后退怎么搞
     
-        #下一步是shuiji
+        #下一步是增加结束的时候的提示音
 
 
         
