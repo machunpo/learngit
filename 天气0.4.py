@@ -198,7 +198,7 @@ while (True):
         jia='出门，要记得带，雨衣哦。'
         yi='出门，要记得带钞票哦。'
         jia1='出门，注意防寒和保暖啊。'
-        jia2='出门，要保持好心情哦哦'
+        jia2='出门，要保持好心情哦'
 
         if ('晴' in str(tianqi[0])):
             speak.Speak(jia2)
