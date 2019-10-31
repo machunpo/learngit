@@ -2,8 +2,10 @@
 import os
 import time
 from PIL import Image
-import winsound
+import win32com.client as win #pip install pypiwin32
 
+speak = win.Dispatch("SAPI.SpVoice")  #增加语音播报的模块
+speak.Rate=-1 
 delay_time=2
 
 def pull_screenshot():
@@ -38,6 +40,7 @@ def get_pixel_colour(image_path,x,y):
 if __name__ == '__main__':
 
     os.system('adb devices')
+
     for j in range(5):
         for i in range(2):
             count=0
@@ -58,9 +61,10 @@ if __name__ == '__main__':
 
             time.sleep(delay_time)
         os.system('adb shell input keyevent BACK')       #是🔙后退怎么搞
-    
-        #下一步是增加结束的时候的提示音
-        #和加上统计时间的函数
+
+    speak.Speak('本次卫星回收任务圆满成功，请远洋测量人员进行回车定位操作')
+ 
+        #下一步是加上统计时间的函数
 
 
         
