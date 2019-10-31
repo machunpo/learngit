@@ -42,7 +42,7 @@ if __name__ == '__main__':
     os.system('adb devices')
 
     for j in range(5):
-        speak.Speak('好')
+        speak.Speak('好的，一次循环。')
         for i in range(2):
             count=0
             a=53
@@ -58,7 +58,7 @@ if __name__ == '__main__':
 
             for i in range(count):
                 put_page_down();put_page_down();time.sleep(delay_time);put_page_down()
-                print('put page down.')
+                print('put page down.',count)
                 time.sleep(delay_time)
 
             time.sleep(delay_time)
