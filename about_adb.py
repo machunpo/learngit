@@ -58,7 +58,7 @@ if __name__ == '__main__':
 
             for i in range(count):
                 put_page_down();put_page_down();time.sleep(delay_time);put_page_down()
-                print('put page down.',count)
+                print('put page down.',i)
                 time.sleep(delay_time)
 
             time.sleep(delay_time)
