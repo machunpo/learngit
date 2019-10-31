@@ -2,6 +2,7 @@
 import os
 import time
 from PIL import Image
+import winsound
 
 delay_time=2
 
