@@ -52,7 +52,7 @@ if __name__ == '__main__':
     print(return_txt)
 
     for j in range(5):
-        speak.Speak('好的，开始一次循环。')
+        speak.Speak('好的，开始第{}次循环。'.format(j))
         #此处要增加adb是否连接的判断
         if cheak_adb_link('adb shell input swipe 320 410 320 1000 500','error:'):
             speak.Speak('手机链接出问题了，重新链接一下把。')
