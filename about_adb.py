@@ -18,13 +18,14 @@ def put_page_up():
 def put_page_down():
     os.system('adb shell input swipe 320 1000 320 410 500')  #//从 320 1000经历0.5秒滑动到 320 410   手指向上滑
 
-
+'''
 def jump(distance):
     press_time = distance * 1.35
     press_time = int(press_time)
     cmd = 'adb shell input swipe 320 410 320 410 ' + str(press_time)
     print(cmd)
     os.system(cmd)
+'''
 
 def get_pixel_colour(image_path,x,y):
     img=Image.open(image_path)
@@ -32,8 +33,15 @@ def get_pixel_colour(image_path,x,y):
     pixel_colour=img_array[x,y]
     img.close()
     return  pixel_colour
-
-
+    
+#检测adb连接是否有问题
+#方法是发送一条adb命令，检查返回的关键字。
+def cheak_adb_link(order,key_world):
+    return_txt=os.popen(order).read()
+    if key_world in return_txt:
+        return True
+    else:
+        return False
 
 
 
