@@ -48,9 +48,15 @@ def cheak_adb_link(order,key_world):
 if __name__ == '__main__':
 
     os.system('adb devices')
+    return_txt=os.popen('adb shell input swipe 320 410 320 1000 500').read()
+    print(return_txt)
 
     for j in range(5):
-        speak.Speak('好的，一次循环。')
+        speak.Speak('好的，开始一次循环。')
+        #此处要增加adb是否连接的判断
+        if cheak_adb_link('adb shell input swipe 320 410 320 1000 500','error:'):
+            speak.Speak('手机链接出问题了，重新链接一下把。')
+            break
         for i in range(2):
             count=0
             a=53
