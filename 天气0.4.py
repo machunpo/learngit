@@ -1,14 +1,17 @@
 ﻿# -*- coding:utf-8 -*-
 #本程序 输出该城市十五天的天气预报
-import urllib.request
 import datetime
-import win32com.client as win #pip install pypiwin32
 import json
-from my_def_lib import extract
-import time
-import _thread
-import test.tts
 import os
+import test.tts
+import time
+import urllib.request
+from math import asin, cos, radians, sin, sqrt
+
+import win32com.client as win  # pip install pypiwin32
+
+import _thread
+from my_def_lib import extract
 
 speak = win.Dispatch("SAPI.SpVoice")  #增加语音播报的模块
 weekchn=['星期一','星期二','星期三','星期四','星期五','星期六','星期日','星期一','星期二','星期三','星期四','星期五','星期六','星期日','星期一','星期二','星期三','星期四','星期五','星期六','星期天']
@@ -25,6 +28,22 @@ def quxhu_extract(string_all,string_begin,string_end):
     n = string_all.find(string_end)
 
     return string_all[:m]+string_all[n+len(string_end):]
+
+def haversine(lon1, lat1, lon2, lat2): # 经度1，纬度1，经度2，纬度2 （十进制度数）
+    """
+    Calculate the great circle distance between two points 
+    on the earth (specified in decimal degrees)
+    """
+# 将十进制度数转化为弧度
+    lon1,lat1,lon2,lat2 = map(radians, [lon1, lat1, lon2, lat2])
+    # haversine公式
+    dlon = lon2 - lon1 
+    dlat = lat2 - lat1 
+    a = sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlon/2)**2
+    c = 2 * asin(sqrt(a)) 
+    r = 6371 # 地球平均半径，单位为公里
+    return c * r * 1000
+
 
 
 def dizhena():
@@ -53,8 +72,9 @@ def dizhena():
             
             #print(经纬深度)
             #print(参考位置)
+            
             #兼容3.5版本
-            msg = '北京时间:{}秒,{} 发生了{}级地震，经度{}，纬度{}，深度{}千米'.format(发震时刻[0],参考位置[0],震级[0],经纬深度[0],经纬深度[1],经纬深度[2])
+            msg = '北京时间:{}秒,{} 发生了{}级地震，经度{}，纬度{}，深度{}千米。'.format(发震时刻[0],参考位置[0],震级[0],经纬深度[0],经纬深度[1],经纬深度[2])
 
 
             if msg==re_msg :
