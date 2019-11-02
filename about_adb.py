@@ -56,7 +56,7 @@ if __name__ == '__main__':
         if cheak_adb_link('adb shell input swipe 320 410 320 1000 500'):
             speak.Speak('手机链接出问题了，重新链接一下把。')
             break
-        for i in range(2):
+        for i in range(1):
             count=0
             a=53
             while(a==53):
