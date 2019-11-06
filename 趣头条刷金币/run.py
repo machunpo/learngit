@@ -6,7 +6,7 @@ import win32com.client as win
 speak = win.Dispatch("SAPI.SpVoice")  
 speak.Rate=-1 
 #增加语音播报的模块
-loop_time=10
+loop_time=20
 
 def put_page_up():
     os.system('adb shell input swipe 320 410 320 1000 500')  #//从 320 410 经历0.5秒滑动到 320 1000  手指向下滑
@@ -52,14 +52,15 @@ if __name__ == '__main__':
             speak_and_print(cmd)
             break
 
-        time.sleep(10)
+        time.sleep(12)#等待顶部的更新条消失
         pull_screenshot()
         iskongbai=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',240,460)
         isdingwei=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',500,100)
         
         if iskongbai[0]==255 and isdingwei[0]==243:
+            chengong_or_shibai='成功'
             check()
-            for j in range(5):
+            for j in range(6):
                 time.sleep(2)
                 put_page_down()
                 time.sleep(2)
@@ -70,12 +71,13 @@ if __name__ == '__main__':
             os.system('adb shell input keyevent BACK') 
             time.sleep(5)
         else:
-            for j in range(2):
-                time.sleep(2)
-                put_page_up()
-                time.sleep(2)
+            chengong_or_shibai='失败'
+            
+            time.sleep(1)
+            put_page_up()
+            time.sleep(3)
 
-        speak_and_print('本次循环共{}次，结束第{}次循环'.format(loop_time,i+1))
+        speak_and_print('本次循环共{}次，{}结束第{}次循环'.format(loop_time,chengong_or_shibai,i+1))
 
         print(iskongbai[0]==255 and isdingwei[0]==243)
         print(iskongbai[0])#255.255.255 255
@@ -88,3 +90,5 @@ if __name__ == '__main__':
     speak_and_print('本次卫星发射圆满成功。')
 
     #下一次把参数传进函数
+    
+    
