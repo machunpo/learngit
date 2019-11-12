@@ -36,6 +36,7 @@ def cheak_adb_link(order):
         return True
     else:
         return False
+        
 def speak_and_print(command):
     print(command)
     speak.Speak(command)
@@ -48,7 +49,7 @@ if __name__ == '__main__':
     
 
         if cheak_adb_link('adb shell input swipe 320 410 320 1000 500'):
-            cmd='手机链接出问题了，重新链接一下把。'
+            cmd='手机链接出问题了，重新链接一下把。手机链接出问题了，重新链接一下把。手机链接出问题了，重新链接一下把。'
             speak_and_print(cmd)
             break
 
@@ -90,5 +91,6 @@ if __name__ == '__main__':
     speak_and_print('本次卫星发射圆满成功。')
 
     #下一次把参数传进函数
+    #adb如何断开和链接
     
     
