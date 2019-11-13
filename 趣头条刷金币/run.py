@@ -44,13 +44,18 @@ def speak_and_print(command):
 if __name__ == '__main__':
 
     os.system('adb devices')
+    os.system('adb version')
 
     for i in range(loop_time):
     
 
         if cheak_adb_link('adb shell input swipe 320 410 320 1000 500'):
+            os.system('adb devices')
+            os.system('adb version')
+
             cmd='手机链接出问题了，重新链接一下把。手机链接出问题了，重新链接一下把。手机链接出问题了，重新链接一下把。'
             speak_and_print(cmd)
+
             break
 
         time.sleep(12)#等待顶部的更新条消失
