@@ -83,14 +83,23 @@ def quxhu_extract(string_all,string_begin,string_end):
 
 if __name__ == '__main__':
 
-    with open(r'c:\1.txt', 'r') as f:
+    with open(r'C:\Users\zyf\Desktop\1.txt', 'r') as f:
         
     
         hi=quchu_heml(f.read())
 
+        #hi=hi.replace('?','')
+
         print(hi)
+
+    with open(r'C:\Users\zyf\Desktop\2.txt', 'a') as f:
+
+        f.write(hi)
+
+
+
     
-    
+
     #print(quxhu_extract('参考位置:<a href="http://news.ceic.ac.cn/CD20190601000131.html">新疆喀什地区塔什库尔干县(5分钟更新一次)','<a href','html">'))
     #这个的输出为    ‘参考位置:新疆喀什地区塔什库尔干县(5分钟更新一次)’
 
