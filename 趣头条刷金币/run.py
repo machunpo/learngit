@@ -36,6 +36,7 @@ def cheak_adb_link(order):
         return True
     else:
         return False
+        
 def speak_and_print(command):
     print(command)
     speak.Speak(command)
@@ -43,14 +44,21 @@ def speak_and_print(command):
 if __name__ == '__main__':
 
     os.system('adb devices')
+    os.system('adb version')
 
     for i in range(loop_time):
     
 
         if cheak_adb_link('adb shell input swipe 320 410 320 1000 500'):
-            cmd='手机链接出问题了，重新链接一下把。'
+            os.system('adb devices')
+            os.system('adb version')
+            os.system('adb kill-server')
+            #adb kill-server,adb start-server,
+            cmd='手机链接出问题了，重新链接一下。'
             speak_and_print(cmd)
-            break
+            #os.system('adb shell')
+            os.system('adb shell input swipe 320 410 320 1000 500')
+            
 
         time.sleep(12)#等待顶部的更新条消失
         pull_screenshot()
@@ -77,7 +85,7 @@ if __name__ == '__main__':
             put_page_up()
             time.sleep(3)
 
-        speak_and_print('循环共{}次，{}结束第{}次'.format(loop_time,chengong_or_shibai,i+1))
+        speak_and_print('共{}次，{}结束第{}次'.format(loop_time,chengong_or_shibai,i+1))
 
         print(iskongbai[0]==255 and isdingwei[0]==243)
         print(iskongbai[0])#255.255.255 255
@@ -90,5 +98,6 @@ if __name__ == '__main__':
     speak_and_print('本次卫星发射圆满成功。')
 
     #下一次把参数传进函数
+    
     
     
