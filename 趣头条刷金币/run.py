@@ -6,8 +6,8 @@ import win32com.client as win
 speak = win.Dispatch("SAPI.SpVoice")  
 speak.Rate=-1 
 #增加语音播报的模块
-loop_time_news=1
-loop_time_video=35
+loop_time_news=20
+loop_time_video=10
 
 def put_page_up():
     os.system('adb shell input swipe 320 410 320 1000 500')  #//从 320 410 经历0.5秒滑动到 320 1000  手指向下滑
@@ -115,7 +115,9 @@ if __name__ == '__main__':
 
         if isbaishesanjiaoxin[0]==255 :
             os.system('adb shell input tap 355 305') 
-            time.sleep(100)
+            time.sleep(80)
+            put_page_up()
+            time.sleep(2)
         else:
             put_page_up()
             time.sleep(2)
