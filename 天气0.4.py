@@ -20,6 +20,9 @@ al="，，，，，，，，"
 speak.Rate=-1      #说话速度 -10到10
 WANGZHIQIANZUI="http://www.mxnzp.com/api/holiday/single/"
 
+def speak_and_print(command):
+    print(command)
+    speak.Speak(command)
 
 def quxhu_extract(string_all,string_begin,string_end):
 
@@ -112,7 +115,7 @@ def two_hour():
         if tianqiyubao != jizhunshuju:
             h=time.gmtime()#取现在的时间 标准格林时间 0
             #test.tts.hahaha(tianqiyubao) #测试百度云tts
-            print('语音播报：',tianqiyubao)
+            speak_and_print('语音播报：'+tianqiyubao)
             if 3<h[3]<7 :
                 pass
             else:    
@@ -136,7 +139,7 @@ def two_hour():
         time.sleep(500)#延时函数，多少秒进行一次查询
 
 try:
-   _thread.start_new_thread(two_hour,())
+   #_thread.start_new_thread(two_hour,())
    _thread.start_new_thread(dizhena, ())
 except TypeError as e:
    print (e)
