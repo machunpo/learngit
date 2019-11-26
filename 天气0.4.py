@@ -34,7 +34,7 @@ def haversine(lon1, lat1, lon2, lat2): # 经度1，纬度1，经度2，纬度2 �
     Calculate the great circle distance between two points 
     on the earth (specified in decimal degrees)
     """
-# 将十进制度数转化为弧度
+    # 将十进制度数转化为弧度
     lon1,lat1,lon2,lat2 = map(radians, [lon1, lat1, lon2, lat2])
     # haversine公式
     dlon = lon2 - lon1 
@@ -43,8 +43,6 @@ def haversine(lon1, lat1, lon2, lat2): # 经度1，纬度1，经度2，纬度2 �
     c = 2 * asin(sqrt(a)) 
     r = 6371 # 地球平均半径，单位为公里
     return c * r * 1000
-
-
 
 def dizhena():
     time.sleep(100)
@@ -110,6 +108,7 @@ def two_hour():
         new_dict = json.loads(content)
         tianqiyubao=new_dict["result"]["forecast_keypoint"]
 
+
         if tianqiyubao != jizhunshuju:
             h=time.gmtime()#取现在的时间 标准格林时间 0
             #test.tts.hahaha(tianqiyubao) #测试百度云tts
@@ -118,8 +117,8 @@ def two_hour():
                 pass
             else:    
                 speak.Speak(tianqiyubao)
-                print(str(datetime.datetime.now())[:19] )
-                #print('小时=',h[3])	
+                print(str(datetime.datetime.now())[:19])
+                print('小时=',h[3])	
 				
             
             jizhunshuju=tianqiyubao
