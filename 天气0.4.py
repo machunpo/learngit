@@ -119,7 +119,7 @@ def two_hour():
             if 3<h[3]<7 :
                 pass
             else:    
-                speak.Speak(tianqiyubao)
+                #speak.Speak(tianqiyubao)
                 print(str(datetime.datetime.now())[:19])
                 print('小时=',h[3])	
 				
@@ -139,7 +139,7 @@ def two_hour():
         time.sleep(500)#延时函数，多少秒进行一次查询
 
 try:
-   #_thread.start_new_thread(two_hour,())
+   _thread.start_new_thread(two_hour,())
    _thread.start_new_thread(dizhena, ())
 except TypeError as e:
    print (e)
