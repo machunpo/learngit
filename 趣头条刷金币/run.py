@@ -22,6 +22,9 @@ def pull_screenshot():
 def check():
     os.system('adb shell input tap 240 460') 
 
+def dianji():
+    os.system('adb shell input tap 80 1000') 
+
 def get_pixel_colour(image_path,x,y):
     img=Image.open(image_path)
     img_array=img.load()
@@ -65,6 +68,9 @@ if __name__ == '__main__':
         pull_screenshot()
         iskongbai=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',240,460)
         isdingwei=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',500,100)
+
+        iskongbai_again=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',238,975)
+        iskongbai_again_2=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',480,892)
         
         if iskongbai[0]==255 and isdingwei[0]==243:
             chengong_or_shibai='成功'
@@ -79,6 +85,18 @@ if __name__ == '__main__':
                 time.sleep(2)
             os.system('adb shell input keyevent BACK') 
             time.sleep(5)
+
+        elif iskongbai_again[0]==255 and  iskongbai_again_2[0]==255 :
+            chengong_or_shibai='再次成功'
+            dianji()
+            for j in range(6):
+                time.sleep(2)
+                put_page_down()
+                time.sleep(2)
+            for j in range(5):
+                time.sleep(2)
+                put_page_up()
+                time.sleep(2)
         else:
             chengong_or_shibai='失败'
             
