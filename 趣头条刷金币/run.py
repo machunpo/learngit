@@ -97,6 +97,8 @@ if __name__ == '__main__':
                 time.sleep(2)
                 put_page_up()
                 time.sleep(2)
+            os.system('adb shell input keyevent BACK') 
+            time.sleep(5)
         else:
             chengong_or_shibai='失败'
             
