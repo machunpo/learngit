@@ -19,8 +19,8 @@ def pull_screenshot():
     os.system('adb shell screencap -p /sdcard/funtoutiao.png')
     os.system(r'adb pull /sdcard/funtoutiao.png  C:\Users\machunpo\Desktop\images')#./images
 
-def check():
-    os.system('adb shell input tap 240 460') 
+def check(x,y):
+    os.system('adb shell input tap '+str(x)+' '+str(y)) 
 
 def dianji():
     os.system('adb shell input tap 80 1000') 
@@ -46,11 +46,12 @@ def is_frist_page():#判断是否首页 返回一个元组  就是点击的坐�
     if (a==(129, 140, 136, 255)) & (b==(243, 247, 246, 255)):#检测搜索栏的首页特征
         if (c==(255, 255, 255, 255)) & (d==(255, 255, 255, 255)):#检测图片中间的两条白色竖线
             print('这是状态1')
-            return （350, 1000）
+            return (350,1000)
         elif (c==(255, 255, 255, 255)) & (d==(255, 255, 255, 255)):#检测图片中间的两条白色竖线
             print('这是状态2')
-            return （350, 700）
-
+            return (350,700)
+    else:
+        return F
 
         
 
@@ -88,16 +89,23 @@ if __name__ == '__main__':
 
         time.sleep(12)#等待顶部的更新条消失
         pull_screenshot()
-        iskongbai=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',240,460)
+        time.sleep(5)
+'''
+        zuobiao=is_frist_page()
 
-        isdingwei=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',500,100)
+'''
+        if is_frist_page():
+            x,y=is_frist_page()
+            print(x,y)
+            zuobiao=True
+        else:
+            zuobiao=False
 
-        iskongbai_again=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',238,975)
-        iskongbai_again_2=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',480,892)
-        
-        if iskongbai[0]==255 and isdingwei[0]==243:
+
+        if zuobiao:
+            #    x,y=zuobiao
             chengong_or_shibai='成功'
-            check()
+            check(x,y)#点击坐标
             for j in range(6):
                 time.sleep(2)
                 put_page_down()
@@ -109,19 +117,6 @@ if __name__ == '__main__':
             os.system('adb shell input keyevent BACK') 
             time.sleep(5)
 
-        elif iskongbai_again[0]==255 and  iskongbai_again_2[0]==255 :
-            chengong_or_shibai='再次成功'
-            dianji()
-            for j in range(6):
-                time.sleep(2)
-                put_page_down()
-                time.sleep(2)
-            for j in range(5):
-                time.sleep(2)
-                put_page_up()
-                time.sleep(2)
-            os.system('adb shell input keyevent BACK') 
-            time.sleep(5)
         else:
             chengong_or_shibai='失败'
             
@@ -134,7 +129,7 @@ if __name__ == '__main__':
         speak_and_print('共{}次，{}结束第{}次'.format(loop_time_news,chengong_or_shibai,i+1))
         time.sleep(10)
 
-        print(iskongbai[0]==255 and isdingwei[0]==243)
+    
  
     #下面是刷视频
     os.system('adb shell input tap 216 1220') 
