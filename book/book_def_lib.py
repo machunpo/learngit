@@ -36,5 +36,7 @@ def get_page_txt(url): #获取指定页面‘url’的文本内容
 
 
 
+
 if __name__ == '__main__':
     print(get_page_txt('http://www.xbiquge.la/10/10489/9687867.html'))
+    print('help')

@@ -1,23 +1,29 @@
-def quchu_heml(text_all):
-        m=0
-        n=0
+#-*-coding:utf-8-*-
+import bs4
 
-        while 1 :
 
-                m=text_all.find('<',n)
-                n=text_all.find('>',m)
-                
-                if m==-1:
-                        break
-                try:
-                        text_all=text_all[:m]+text_all[(n+1):]
-                except:
-                        pass
-    
-        return text_all
+html = """
+<html><head><title>The Dormouse's story</title></head>
+<body>
+<p class="title" name="dromouse"><b>The Dormouse's story</b></p>
+<p class="story">Once upon a time there were three little sisters; and their names were
+<a href="http://example.com/elsie" class="sister" id="link1"><!-- Elsie --></a>,
+<a href="http://example.com/lacie" class="sister" id="link2">Lacie</a> and
+<a href="http://example.com/tillie" class="sister" id="link3">Tillie</a>;
+and they lived at the bottom of a well.</p>
+<p class="story">...</p>
+"""
 
-if __name__ == '__main__':
-    print(quchu_heml('this is < a > test!<A>'))
+#创建beautifulsoup对象
+#也可以用打开本地的html文件来创建beautifulsoup对象，例如:
+#soup = BeautifulSoup(open('index.html'))
+#soup = beautifulsoup4(html)
+soup = bs4.BeautifulSoup(html,'lxml')
+#bs4.BeautifulSoup.get_text()
+
+#格式化输出
+print(soup.prettify())
+
 
 
 
