@@ -6,8 +6,8 @@ import win32com.client as win
 speak = win.Dispatch("SAPI.SpVoice")  
 speak.Rate=-1 
 #增加语音播报的模块
-loop_time_news=20
-loop_time_video=10
+loop_time_news=25
+loop_time_video=5
 
 def put_page_up():
     os.system('adb shell input swipe 320 410 320 1000 500')  #//从 320 410 经历0.5秒滑动到 320 1000  手指向下滑
@@ -47,11 +47,11 @@ def is_frist_page():#判断是否首页 返回一个元组  就是点击的坐�
         if (c==(255, 255, 255, 255)) & (d==(255, 255, 255, 255)):#检测图片中间的两条白色竖线
             print('这是状态1')
             return (350,1000)
-        elif (c==(255, 255, 255, 255)) & (d==(255, 255, 255, 255)):#检测图片中间的两条白色竖线
+        elif (e==(255, 255, 255, 255)) & (f==(255, 255, 255, 255)):#检测图片中间的两条白色竖线   这个地方还是有问题
             print('这是状态2')
             return (350,700)
     else:
-        return F
+        return False
 
         
 
@@ -90,10 +90,7 @@ if __name__ == '__main__':
         time.sleep(12)#等待顶部的更新条消失
         pull_screenshot()
         time.sleep(5)
-'''
-        zuobiao=is_frist_page()
 
-'''
         if is_frist_page():
             x,y=is_frist_page()
             print(x,y)
