@@ -1,5 +1,16 @@
 #-*-coding:utf-8-*-
 from bs4 import BeautifulSoup
+import urllib.request
+
+
+def get_xiaoshuo_page(url):
+     response = urllib.request.urlopen(url)
+     content = response.read().decode('gbk', 'ignore')
+     print(content)
+     soup=BeautifulSoup(content,'lxml')
+     print('test-h1:',soup.h1)
+     print('test-div:',soup.find('div',id="content"))
+
 
 #创建beautifulsoup对象
 #也可以用打开本地的html文件来创建beautifulsoup对象，例如:
@@ -17,7 +28,7 @@ zhenwen=str(zhenwen).replace(r'<br/>',r' ')
 print(zhenwen.replace(r'<p><a href="http://koubei.baidu.com/s/xbiquge.la" target="_blank">亲,点击进去,给个好评呗,分数越高更新越快,据说给新笔趣阁打满分的最后都找到了漂亮的老婆哦!</a> 手机站全新改版升级地址：http://m.xbiquge.la，数据和书签与电脑站同步，无广告清新阅读！</p>',''))
 
 #下一步网来到的文本
-
+get_xiaoshuo_page('http://www.xbiquge.la/1/1690/1267600.html')
 
 '''
 <h1> 末章 后来</h1>
