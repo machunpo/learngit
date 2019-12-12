@@ -33,7 +33,7 @@ def get_pixel_colour(image_path,x,y):
     return  pixel_colour
 
 def is_frist_page():#判断是否首页 返回一个元组  就是点击的坐标
-    a=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',43,100)  #得到一个元组 (0, 0, 0, 255)
+    a=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',37,100)  #得到一个元组 (0, 0, 0, 255)
     b=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',570,100)
 
     c=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',240,1000)   
@@ -41,9 +41,9 @@ def is_frist_page():#判断是否首页 返回一个元组  就是点击的坐�
 
     e=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',240,700)   
     f=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',480,700) 
-    
+    print('abcdef的值',a,b,c,d,e,f)
 
-    if (a==(129, 140, 136, 255)) & (b==(243, 247, 246, 255)):#检测搜索栏的首页特征
+    if (a==(243, 247, 246, 255)) & (b==(243, 247, 246, 255)):#检测搜索栏的首页特征
         if (c==(255, 255, 255, 255)) & (d==(255, 255, 255, 255)):#检测图片中间的两条白色竖线
             print('这是状态1')
             return (350,1000)
