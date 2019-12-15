@@ -162,6 +162,7 @@ if __name__ == '__main__':
         speak_and_print('共{}次，结束第{}次'.format(loop_time_video,i+1))
 
     speak_and_print('本次卫星发射圆满成功。')
+    input()
 
     #下一次把参数传进函数
     
