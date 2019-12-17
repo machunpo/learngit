@@ -115,11 +115,11 @@ def two_hour():
         if tianqiyubao != jizhunshuju:
             h=time.gmtime()#取现在的时间 标准格林时间 0
             #test.tts.hahaha(tianqiyubao) #测试百度云tts
-            speak_and_print('语音播报：'+tianqiyubao)
+            
             if 3<h[3]<7 :
                 pass
             else:    
-                #speak.Speak(tianqiyubao)
+                speak_and_print(tianqiyubao)
                 print(str(datetime.datetime.now())[:19])
                 print('小时=',h[3])	
 				
