@@ -115,13 +115,15 @@ def two_hour():
         if tianqiyubao != jizhunshuju:
             h=time.gmtime()#取现在的时间 标准格林时间 0
             #test.tts.hahaha(tianqiyubao) #测试百度云tts
-            
-            if 3<h[3]<7 :
+            #print('现在时间：',h)  #time.struct_time(tm_year=2019, tm_mon=12, tm_mday=17, tm_hour=6, tm_min=37, tm_sec=41, tm_wday=1, tm_yday=351, tm_isdst=0)
+            if 3<h[3]<6 :
+                #print('现在是免打扰时间。')
                 pass
-            else:    
+            else: 
+                #print(tianqiyubao)   
                 speak_and_print(tianqiyubao)
                 print(str(datetime.datetime.now())[:19])
-                print('小时=',h[3])	
+                #print('小时=',h[3])	
 				
             
             jizhunshuju=tianqiyubao
@@ -136,7 +138,7 @@ def two_hour():
         #print('目前系统的编码为：',sys.getdefaultencoding())
         #print('\\u672a\\u676524\\u5c0f\\u65f6\\u591a\\u4e91'.encode('latin-1').decode('unicode_escape'))
         i=i+1
-        time.sleep(500)#延时函数，多少秒进行一次查询
+        time.sleep(600)#延时函数，多少秒进行一次查询
 
 try:
    _thread.start_new_thread(two_hour,())
