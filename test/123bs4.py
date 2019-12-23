@@ -1,43 +1,49 @@
 #-*-coding:utf-8-*-
 from bs4 import BeautifulSoup
-import urllib.request
 import requests
+import random 
+user_agent = [ 
+	"Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)", 
+	"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; AcooBrowser; .NET CLR 1.1.4322; .NET CLR 2.0.50727)", 
+	"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Acoo Browser; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.0.04506)", 
+	"Mozilla/4.0 (compatible; MSIE 7.0; AOL 9.5; AOLBuild 4337.35; Windows NT 5.1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)", 
+	"Mozilla/5.0 (Windows; U; MSIE 9.0; Windows NT 9.0; en-US)", 
+	"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET CLR 2.0.50727; Media Center PC 6.0)", 
+	"Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET CLR 1.0.3705; .NET CLR 1.1.4322)", 
+	"Mozilla/4.0 (compatible; MSIE 7.0b; Windows NT 5.2; .NET CLR 1.1.4322; .NET CLR 2.0.50727; InfoPath.2; .NET CLR 3.0.04506.30)", 
+	"Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN) AppleWebKit/523.15 (KHTML, like Gecko, Safari/419.3) Arora/0.3 (Change: 287 c9dfb30)", 
+	"Mozilla/5.0 (X11; U; Linux; en-US) AppleWebKit/527+ (KHTML, like Gecko, Safari/419.3) Arora/0.6", 
+	"Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.2pre) Gecko/20070215 K-Ninja/2.1.1", 
+	"Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN; rv:1.9) Gecko/20080705 Firefox/3.0 Kapiko/3.0", 
+	"Mozilla/5.0 (X11; Linux i686; U;) Gecko/20070322 Kazehakase/0.4.5", 
+	"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.8) Gecko Fedora/1.9.0.8-1.fc10 Kazehakase/0.5.6", 
+	"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11", 
+	"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) AppleWebKit/535.20 (KHTML, like Gecko) Chrome/19.0.1036.7 Safari/535.20", 
+	"Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; fr) Presto/2.9.168 Version/11.52"
+] 
+
+HEADER = { 
+'User-Agent': random.choice(user_agent),  # 浏览器头部
+'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', # 客户端能够接收的内容类型
+'Accept-Language': 'en-US,en;q=0.5', # 浏览器可接受的语言
+'Connection': 'keep-alive', # 表示是否需要持久连接
+} 
 
 
-def get_xiaoshuo_page(url):
-     response = urllib.request.urlopen(url)
-     content = response.read().decode('gbk', 'ignore')
-     print(content)
-     soup=BeautifulSoup(content,'lxml')
-     print('test-h1:',soup.h1)
-     print('test-div:',soup.find('div',id="content"))
 
-url=r'http://www.xbiquge.la/1/1690/1267600.html'
+url=r'http://www.xbiquge.la/1/1690/1267601.html'
 page = requests.get(url)
 page.encoding = 'utf-8'
-#print(page.text)
 soup = BeautifulSoup(page.text,'lxml')
-#print(soup)
-biaoti=(soup.h1)
-print(biaoti)
-zhenwen=(soup.find('div',id="content"))
-print(zhenwen)
-zhenwen=str(zhenwen).replace(r'<br/>',r' ')
+
+biaoti=str(soup.h1.next)
+zhenwen=(soup.find('div',id="content").text)
+
 print(zhenwen)
 
-#创建beautifulsoup对象
-#也可以用打开�??地的html文件来创建beautifulsoup对象，例�??:
-#######soup = BeautifulSoup(open(r"c:/myfile/learngit/test/qinyunian.html"),'lxml')
-#soup = BeautifulSoup(html)
-#soup = bs4.BeautifulSoup(html,'lxml')
-#bs4.BeautifulSoup.get_text()
-#print(soup.prettify())
-#print(biaoti)
-#print(soup.find(<div id="content">))
-#zhenwen=(soup.find('div',id="content"))
-#zhenwen=str(zhenwen).replace(r'<br/>',r' ')
-#print(zhenwen.replace(r'<p><a href="http://koubei.baidu.com/s/xbiquge.la" target="_blank">�??,点击进去,给个好评�??,分数越高更新越快,�??说给新笔趣阁打满分的最后都找到了漂�??的老婆�??!</a> 手机站全新改版升级地址：http://m.xbiquge.la，数�??和书签与电脑站同步，无广告清新阅读！</p>',''))
 
-#下一步网来到的文�??
-#get_xiaoshuo_page('http://www.xbiquge.la/1/1690/1267600.html')
+
+
+
+
 
