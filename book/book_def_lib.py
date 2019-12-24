@@ -85,7 +85,7 @@ def get_the_biaoti_and_zhenwen(url):
 
 
 if __name__ == '__main__':
-    book_url=r'http://www.xbiquge.la/44/44067/21364487.html'
-    print(get_the_biaoti_and_zhenwen(book_url))
+    book_url=r'http://www.xbiquge.la/0/624/21364341.html'
+    print(get_the_biaoti_and_zhenwen(book_url)[1])
     #下一步   写入文件
 
