@@ -67,25 +67,33 @@ def quchu_heml(html_text):
         e = html_text.find(">")
         html_text = html_text.replace(html_text[s:e + 1], "")
     return(html_text)
-    
+
+#函数功能：获取章节页面的标题和正文
+#输入参数：章节页面的网址URL
+#输出参数：包含标题和正文两个元素的元组
 def get_the_biaoti_and_zhenwen(url):
-#url=r'http://www.xbiquge.la/1/1690/1267601.html'
     page = requests.get(url)
     page.encoding = 'utf-8'
-    #print(page.text)
+
     biaoti=extract(page.text,'<h1>','</h1>')
     biaoti=biaoti[0]
     #'文章的标题：str',
     zhenwen=extract(page.text,'<div id="content">','</div>')
     zhenwen=quxhu_extract(zhenwen[0],'<p>','</p>')
     zhenwen=quchu_heml(zhenwen).replace('&nbsp;','  ')
-    return(biaoti,zhenwen)
+    zhenwen=(zhenwen).replace('\r','\n  ')
+    return(biaoti,'  '+zhenwen)
 
 
 
 
 if __name__ == '__main__':
-    book_url=r'http://www.xbiquge.la/0/624/21364341.html'
-    print(get_the_biaoti_and_zhenwen(book_url)[1])
-    #下一步   写入文件
+
+    book_url=r'http://www.xbiquge.la/20/20948/10611401.html'
+    hi=(get_the_biaoti_and_zhenwen(book_url))
+
+    with open('d:\\'+hi[0]+'.txt','a') as f:
+        f.write(hi[0]+'\n')
+        f.write(hi[1])
+    #下一步获取章节的页面的列表
 
