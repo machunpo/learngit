@@ -43,7 +43,7 @@ def get_the_chapters_of_book(url):
 
 
 if __name__ == '__main__':
-    #print(get_the_chapters_of_book('http://www.xbiquge.la/1/1690/'))
+    
     my_list=get_the_chapters_of_book('http://www.xbiquge.la/1/1690/')
     for i in my_list:
         j=i.replace("<a href='","")
