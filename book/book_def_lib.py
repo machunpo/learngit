@@ -84,7 +84,15 @@ def get_the_biaoti_and_zhenwen(url):
     zhenwen=(zhenwen).replace('\r','\n  ')
     return(biaoti,'  '+zhenwen)
 
-
+#函数功能：获取每个章节URL和名称
+#输入参数：book页面的网址URL
+#输出参数：包含章节名称和网址的列表
+def get_the_chapters_of_book(url):
+    page = requests.get(url)
+    page.encoding = 'utf-8'
+    chapters_list=extract(page.text,'<dd>','</a></dd>')
+    return chapters_list
+    #["<a href='/1/1690/1267524.html' >楔子 一块黑布", "<a href='/1/1690/1267525.html' >第一章 故事会"]
 
 
 if __name__ == '__main__':

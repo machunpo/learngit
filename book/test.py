@@ -1,4 +1,5 @@
 import urllib.request
+import requests
 
 #函数功能：提取一段特征文本中间的数据
 #输入参数：string_all,string_begin,string_end整段文本，前后的关键词
@@ -30,13 +31,21 @@ def get_page_txt(url): #获取指定页面‘url’的文本内容
 
 
 
-
-
+def get_the_chapters_of_book(url):
+    page = requests.get(url)
+    page.encoding = 'utf-8'
+    chapters_list=extract(page.text,'<dd>','</a></dd>')
+    return chapters_list
+    #["<a href='/1/1690/1267524.html' >楔子 一块黑布", "<a href='/1/1690/1267525.html' >第一章 故事会"]
 
 
 
 
 
 if __name__ == '__main__':
-    print(get_page_txt('http://www.xbiquge.la/10/10489/9687867.html'))
-    print('help')
+    #print(get_the_chapters_of_book('http://www.xbiquge.la/1/1690/'))
+    my_list=get_the_chapters_of_book('http://www.xbiquge.la/1/1690/')
+    for i in my_list:
+        j=i.replace("<a href='","")
+        print(j[0:20])
+        print(j[23:])
