@@ -103,5 +103,5 @@ if __name__ == '__main__':
     with open('d:\\'+hi[0]+'.txt','a') as f:
         f.write(hi[0]+'\n')
         f.write(hi[1])
-    #下一步获取章节的页面的列表
+    #下一步开工
 
