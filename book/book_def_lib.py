@@ -107,15 +107,18 @@ if __name__ == '__main__':
         try:
             hi=(get_the_biaoti_and_zhenwen(book_url))
             print(hi[0])
+
+            with open('d:\\庆余年.txt','a') as f:
+                f.write(hi[0]+'\n\n')
+                f.write(hi[1])
+                f.write('\n\n')
+
         except:
             
             print('这个有问题'+hi[0])    
 
-        with open('d:\\庆余年.txt','a') as f:
-            f.write(hi[0]+'\n\n')
-            f.write(hi[1])
-            f.write('\n\n')
-    time.sleep(5)
+
+    #time.sleep(5)
 
 
 
