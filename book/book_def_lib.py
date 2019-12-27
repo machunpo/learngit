@@ -1,6 +1,7 @@
 #-*-coding:utf-8-*-
 import requests
 import random 
+import time
 user_agent = [ 
 	"Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)", 
 	"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; AcooBrowser; .NET CLR 1.1.4322; .NET CLR 2.0.50727)", 
@@ -97,11 +98,42 @@ def get_the_chapters_of_book(url):
 
 if __name__ == '__main__':
 
+
+    url_chapters_of_book=r'http://www.xbiquge.la/1/1690/'
+    chapterslist=get_the_chapters_of_book(url_chapters_of_book)
+    #print(chapterslist)
+    for i in chapterslist:
+        book_url=url_chapters_of_book+i[17:29]
+        try:
+            hi=(get_the_biaoti_and_zhenwen(book_url))
+            print(hi[0])
+        except:
+            
+            print('这个有问题'+hi[0])    
+
+        with open('d:\\庆余年.txt','a') as f:
+            f.write(hi[0]+'\n\n')
+            f.write(hi[1])
+            f.write('\n\n')
+    time.sleep(5)
+
+
+
+'''
     book_url=r'http://www.xbiquge.la/20/20948/10611401.html'
     hi=(get_the_biaoti_and_zhenwen(book_url))
-
+    print(hi[1])
     with open('d:\\'+hi[0]+'.txt','a') as f:
         f.write(hi[0]+'\n')
         f.write(hi[1])
     #下一步开工
 
+需要解决的问题
+Traceback (most recent call last):
+  File "c:/myfile/learngit/book/book_def_lib.py", line 108, in <module>
+    hi=(get_the_biaoti_and_zhenwen(book_url))
+  File "c:/myfile/learngit/book/book_def_lib.py", line 83, in get_the_biaoti_and_zhenwen
+    zhenwen=quxhu_extract(zhenwen[0],'<p>','</p>')
+IndexError: list index out of range
+
+'''
