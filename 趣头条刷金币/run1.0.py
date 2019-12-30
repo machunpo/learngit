@@ -6,7 +6,7 @@ import win32com.client as win
 speak = win.Dispatch("SAPI.SpVoice")  
 speak.Rate=-1 
 #定义循环的次数
-loop_time_news=5
+loop_time_news=15
 loop_time_video=5
 
 def put_page_up():
