@@ -77,6 +77,8 @@ if __name__ == '__main__':
             cmd='手机链接出问题了，重新链接了一下。'
             os.system('adb shell input keyevent BACK') 
             speak_and_print(cmd)
+            time.sleep(10)
+            os.system('adb shell input keyevent BACK') 
 
         time.sleep(5)
         check(72,1216)#点击刷新：72，1216
@@ -118,6 +120,8 @@ if __name__ == '__main__':
             time.sleep(3)
 
         speak_and_print('共{}次，{}结束第{}次'.format(loop_time_news,chengong_or_shibai,i+1))
+        time.sleep(10)
+         os.system('adb shell input keyevent BACK') 
         time.sleep(10)
 
 
