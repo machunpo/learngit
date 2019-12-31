@@ -121,7 +121,7 @@ if __name__ == '__main__':
 
         speak_and_print('共{}次，{}结束第{}次'.format(loop_time_news,chengong_or_shibai,i+1))
         time.sleep(10)
-         os.system('adb shell input keyevent BACK') 
+        os.system('adb shell input keyevent BACK') 
         time.sleep(10)
 
 
