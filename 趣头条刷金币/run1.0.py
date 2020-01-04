@@ -9,7 +9,8 @@ speak.Rate=-1
 loop_time_news=15
 loop_time_video=5
 
-loop_time_news=input()
+loop_time_news=input('请输入要运行的次数：')
+loop_time_news=int(loop_time_news)
 
 def put_page_up():
     os.system('adb shell input swipe 320 410 320 1000 500')  #//从 320 410 经历0.5秒滑动到 320 1000  手指向下滑
