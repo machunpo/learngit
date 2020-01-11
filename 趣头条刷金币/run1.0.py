@@ -2,6 +2,7 @@ import os
 import time
 from PIL import Image
 import win32com.client as win
+import aircv as ac
 #增加语音播报的模块
 speak = win.Dispatch("SAPI.SpVoice")  
 speak.Rate=-1 
@@ -9,8 +10,7 @@ speak.Rate=-1
 loop_time_news=15
 loop_time_video=5
 
-loop_time_news=input('请输入要运行的次数：')
-loop_time_news=int(loop_time_news)
+loop_time_news=int(input('请输入要运行的次数：'))
 
 def put_page_up():
     os.system('adb shell input swipe 320 410 320 1000 500')  #//从 320 410 经历0.5秒滑动到 320 1000  手指向下滑
@@ -125,9 +125,42 @@ if __name__ == '__main__':
         speak_and_print('共{}次，{}结束第{}次'.format(loop_time_news,chengong_or_shibai,i+1))
         time.sleep(10)
         os.system('adb shell input keyevent BACK') 
-        time.sleep(10)
+        time.sleep(5)
+#########################################  下面要插入寻找的代码
+
+        put_page_down()
+        time.sleep(2)
+        put_page_down()
+        time.sleep(2)
+        pull_screenshot()
+        imsrc = ac.imread(r'C:\Users\machunpo\Desktop\images\funtoutiao.png') # 原始图像 
+        imsch = ac.imread(r'C:\Users\machunpo\Desktop\images\ling.png') # 带查找的部分  
+        rult=ac.find_template(imsrc, imsch)
+        print(rult)
+        if(rult):
+            if rult['confidence']>0.99 :
+                check(rult['result'][0],rult['result'][1])
+                time.sleep(2)
+                check(360,1035)
 
 
+
+
+'''
+
+
+
+
+#print(imsch,imsrc)
+print(type(imsch))
+
+for j in imsch:
+    for i in j:
+        print('i=',i)
+
+print(ac.find_template(imsrc, imsch))
+#{'result': (165.0, 342.0), 'rectangle': ((5, 222), (5, 462), (325, 222), (325, 462)), 'confidence': 0.8480324745178223}
+'''
 
 #常用adb命令：
 #adb shell input swipe 320 410 320 1000 500  #滑动
