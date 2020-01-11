@@ -98,7 +98,6 @@ def get_the_chapters_of_book(url):
 
 if __name__ == '__main__':
 
-
     url_chapters_of_book=r'http://www.xbiquge.la/1/1690/'
     chapterslist=get_the_chapters_of_book(url_chapters_of_book)
     #print(chapterslist)
