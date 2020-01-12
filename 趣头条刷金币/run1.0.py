@@ -1,8 +1,10 @@
 import os
 import time
-from PIL import Image
-import win32com.client as win
+
 import aircv as ac
+import win32com.client as win
+from PIL import Image
+
 #增加语音播报的模块
 speak = win.Dispatch("SAPI.SpVoice")  
 speak.Rate=-1 
@@ -58,6 +60,7 @@ def is_frist_page():#判断是否首页 返回一个元组  就是点击的坐�
     #e=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',240,700)   
     #f=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',480,700) 
     print('A B C D 的值是',a,b,c,d)
+    
 
     if (a==(193, 206, 201, 255)) & (b==(243, 247, 246, 255)):#检测搜索栏的首页特征
         if (c==(255, 255, 255, 255)) & (d==(255, 255, 255, 255)):#检测图片中间的两条白色竖线
@@ -74,7 +77,7 @@ if __name__ == '__main__':
     os.system('adb version')
 
     for i in range(loop_time_news):
-
+        print('')
         if cheak_adb_link('adb shell input swipe 320 410 320 1000 500'):
             os.system('adb kill-server')
             cmd='手机链接出问题了，重新链接了一下。'
@@ -89,9 +92,11 @@ if __name__ == '__main__':
         pull_screenshot()
         time.sleep(3)
 
-        if is_frist_page():
-            x,y=is_frist_page()
-            print(x,y)
+        temp=is_frist_page()
+
+        if temp:
+            x,y=temp
+            print('点击坐标：',x,y)
             zuobiao=True
         else:
             zuobiao=False
@@ -122,8 +127,8 @@ if __name__ == '__main__':
             put_page_up()
             time.sleep(3)
 
-        speak_and_print('共{}次，{}结束第{}次'.format(loop_time_news,chengong_or_shibai,i+1))
-        time.sleep(10)
+        #speak_and_print('共{}次，{}结束第{}次'.format(loop_time_news,chengong_or_shibai,i+1))
+        time.sleep(5)
         os.system('adb shell input keyevent BACK') 
         time.sleep(5)
 #########################################  下面要插入寻找的代码
@@ -134,18 +139,38 @@ if __name__ == '__main__':
         time.sleep(2)
         pull_screenshot()
         imsrc = ac.imread(r'C:\Users\machunpo\Desktop\images\funtoutiao.png') # 原始图像 
-        imsch = ac.imread(r'C:\Users\machunpo\Desktop\images\ling.png') # 带查找的部分  
+        imsch = ac.imread(r'C:\Users\machunpo\Desktop\images\ling.png') # 带查找的部分 1 
         rult=ac.find_template(imsrc, imsch)
-        print(rult)
+        #print(rult)
         if(rult):
             if rult['confidence']>0.99 :
                 check(rult['result'][0],rult['result'][1])
                 time.sleep(2)
                 check(360,1035)
+                print('成功领取红包！')
+            else:
+                print('相似度有点低啊！')
+        else:
+            print('没有找到红包！')
 
 
+        imsch2 = ac.imread(r'C:\Users\machunpo\Desktop\images\lingqu.png') # 带查找的部分 1 
+        rult=ac.find_template(imsrc, imsch2)
+        print(rult)
+        if(rult):
+            if rult['confidence']>0.99 :
+                check(rult['result'][0],rult['result'][1])
+                time.sleep(2)
+                print('成功领取金币！')
+            else:
+                print('相似度有点低啊2！')
+        else:
+            print('没有找到金币！')
 
-
+        speak_and_print('共{}次，{}结束第{}次'.format(loop_time_news,chengong_or_shibai,i+1))
+        time.sleep(2)
+        os.system('adb shell input keyevent BACK') 
+        time.sleep(1)
 '''
 
 
