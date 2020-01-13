@@ -70,12 +70,7 @@ def is_frist_page():#判断是否首页 返回一个元组  就是点击的坐�
     else:
         return False
 
-
-if __name__ == '__main__':
-
-    os.system('adb devices')
-    os.system('adb version')
-
+def let_us_go(a=1):
     for i in range(loop_time_news):
         print('')
         if cheak_adb_link('adb shell input swipe 320 410 320 1000 500'):
@@ -100,7 +95,7 @@ if __name__ == '__main__':
             zuobiao=True
         else:
             zuobiao=False
-#########################################  从这⬇的要进行修改
+
         if zuobiao:
             chengong_or_shibai='成功'
             check(x,y)#点击坐标
@@ -131,7 +126,7 @@ if __name__ == '__main__':
         time.sleep(5)
         os.system('adb shell input keyevent BACK') 
         time.sleep(5)
-#########################################  下面要插入寻找的代码
+        #################################  下面要插入寻找的代码
 
         put_page_down()
         time.sleep(2)
@@ -167,10 +162,27 @@ if __name__ == '__main__':
         else:
             print('没有找到金币！')
 
-        speak_and_print('共{}次，{}结束第{}次'.format(loop_time_news,chengong_or_shibai,i+1))
+        speak_and_print('{}共{}次，{}结束第{}次'.format(a,loop_time_news,chengong_or_shibai,i+1))
         time.sleep(2)
         os.system('adb shell input keyevent BACK') 
         time.sleep(1)
+
+if __name__ == '__main__':
+
+    os.system('adb devices')
+    os.system('adb version')
+    time.sleep(1)
+    check(104,126)
+    time.sleep(10)
+    let_us_go()
+    time.sleep(2)
+    os.system('adb shell input keyevent BACK') 
+    time.sleep(0.5)
+    os.system('adb shell input keyevent BACK') 
+    time.sleep(2)
+    check(277,126)
+    time.sleep(10)
+    let_us_go(2)
 '''
 
 
