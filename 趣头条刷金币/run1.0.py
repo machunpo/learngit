@@ -103,10 +103,12 @@ def let_us_go(a=1):
                 time.sleep(2)
                 put_page_down()
                 time.sleep(2)
+                print(j,end=',')
             for j in range(8):
                 time.sleep(2)
                 put_page_up()
                 time.sleep(2)
+                print(j,end=',')
             check(621,1091)
             time.sleep(2)
             os.system('adb shell input keyevent BACK') 
