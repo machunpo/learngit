@@ -175,7 +175,7 @@ if __name__ == '__main__':
     os.system('adb version')
     time.sleep(1)
     check(104,126)
-    time.sleep(10)
+    time.sleep(15)
     let_us_go()
     time.sleep(2)
     os.system('adb shell input keyevent BACK') 
@@ -183,7 +183,7 @@ if __name__ == '__main__':
     os.system('adb shell input keyevent BACK') 
     time.sleep(2)
     check(277,126)
-    time.sleep(10)
+    time.sleep(15)
     let_us_go(2)
 '''
 
