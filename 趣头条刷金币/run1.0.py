@@ -178,6 +178,8 @@ if __name__ == '__main__':
     time.sleep(15)
     let_us_go()
     time.sleep(2)
+
+    #应该在这里增加视频函数
     os.system('adb shell input keyevent BACK') 
     time.sleep(0.5)
     os.system('adb shell input keyevent BACK') 
