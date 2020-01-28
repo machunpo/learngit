@@ -1,5 +1,4 @@
 ﻿# -*- coding:utf-8 -*-
-#本程序 输出该城市十五天的天气预报
 import datetime
 import json
 import os
@@ -19,6 +18,17 @@ url = 'https://tianqi.2345.com/haian/70445.htm'
 al="，，，，，，，，"
 speak.Rate=-1      #说话速度 -10到10
 WANGZHIQIANZUI="http://www.mxnzp.com/api/holiday/single/"
+
+#函数功能：去除一段文本中的HTML标记
+#输入参数：text_all 整段文本
+#输出参数：去除HTML标记后的文本
+def quchu_heml(html_text):
+    s = html_text.find("<")
+    while s != -1:
+        s = html_text.find("<")
+        e = html_text.find(">")
+        html_text = html_text.replace(html_text[s:e + 1], "")
+    return(html_text)
 
 def speak_and_print(command):
     print(command)
@@ -100,8 +110,7 @@ def two_hour():
     back_up_url='https://api.caiyunapp.com/v2/96Ly7wgKGq6FhllM/120.4769,32.5131/weather.jsonp?hourlysteps=120'        #这是彩云天气的短时间预报
     jizhunshuju='这是用来比较是否更新的基础数据'
     i=1
-    #使用的是常州站的数据
-    #url_of_pic='http://products.weather.com.cn/product/radar/index/procode/JC_RADAR_AZ9519_JB.shtml'
+
 
     while(1):
         time.sleep(50)
@@ -128,15 +137,11 @@ def two_hour():
             
             jizhunshuju=tianqiyubao
         else:
-            #print(tianqiyubao)
-			#print('thread-1')
+
             print(i,end=".")
 			
 			
-        #print(new_dict["result"]["minutely"]["description"])
-        #import sys
-        #print('目前系统的编码为：',sys.getdefaultencoding())
-        #print('\\u672a\\u676524\\u5c0f\\u65f6\\u591a\\u4e91'.encode('latin-1').decode('unicode_escape'))
+
         i=i+1
         time.sleep(600)#延时函数，多少秒进行一次查询
 
@@ -193,7 +198,7 @@ while (True):
 
     content = str(extract(content,'<!-- /city_t -->','<!-- /有热词 begin -->'))
 
-    riqi=extract(content,'<strong>','(')
+    riqi=extract(content,r'<strong>\n','(')
     tianqi=extract(content,'<b>','</b>')
     low=extract(content,'<font class="blue">','</font>～')
     high=extract(content,'～<font class="red">','</font>')
@@ -202,11 +207,11 @@ while (True):
 
     print('\n',title,'\n')
     for x in range(15):
-        s=(str(fenli[x])).strip(r'<script type="text/javascript"></script>')
-        #s = s.strip('<script type="text/javascript"></script>')
+        s=quchu_heml(str(fenli[x]))
+        
         s=s.strip(r"\n")
         qiwen=low[x]+'~'+high[x]
-        #print(riqi[x].ljust(10),tianqi[x].ljust(15-len(tianqi[x])),qiwen.ljust(10),s.ljust(10))
+
         print(riqi[x].ljust(10), weekchn[d],'    ',tianqi[x].ljust(7,('　')),qiwen.ljust(10),s.ljust(10))
         d=d+1
     print('.'*40)
@@ -216,8 +221,7 @@ while (True):
     
 
     if al=="，，，，，，，，":
-        #test.tts.hahaha(yuyinbobao) #测试百度云tts
-        #os.system('result.mp3')
+
         speak.Speak(yuyinbobao)
         jia='出门，要记得带，雨衣哦。'
         yi='出门，要记得带钞票哦。'
