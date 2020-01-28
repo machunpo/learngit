@@ -23,7 +23,7 @@ def put_page_down():
 #截屏并发送到电脑
 def pull_screenshot():
     os.system('adb shell screencap -p /sdcard/funtoutiao.png')
-    os.system(r'adb pull /sdcard/funtoutiao.png  C:\Users\machunpo\Desktop\images')
+    os.system(r'adb pull /sdcard/funtoutiao.png  C:\Users\machunpo\Desktop\myimages')
 
 #点击坐标x，y
 def check(x,y):
@@ -51,18 +51,18 @@ def speak_and_print(command):
     speak.Speak(command)
 
 def is_frist_page():#判断是否首页 返回一个元组  就是点击的坐标
-    a=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',102,100)  #得到一个元组 (0, 0, 0, 255)
-    b=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',570,100)
+    a=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',115,92)  #得到一个元组 (0, 0, 0, 255)
+    b=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',570,100)
 
-    c=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',240,420)   
-    d=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',480,420) 
+    c=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',240,420)   
+    d=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',480,420) 
 
-    #e=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',240,700)   
-    #f=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',480,700) 
+    #e=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',240,700)   
+    #f=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',480,700) 
     print('A B C D 的值是',a,b,c,d)
     
 
-    if (a==(193, 206, 201, 255)) & (b==(243, 247, 246, 255)):#检测搜索栏的首页特征
+    if (a==(243, 247, 246, 255)) & (b==(243, 247, 246, 255)):#检测搜索栏的首页特征
         if (c==(255, 255, 255, 255)) & (d==(255, 255, 255, 255)):#检测图片中间的两条白色竖线
             #print('这是状态1')
             return (350,420)
@@ -135,8 +135,8 @@ def let_us_go(a=1):
         put_page_down()
         time.sleep(2)
         pull_screenshot()
-        imsrc = ac.imread(r'C:\Users\machunpo\Desktop\images\funtoutiao.png') # 原始图像 
-        imsch = ac.imread(r'C:\Users\machunpo\Desktop\images\ling.png') # 带查找的部分 1 
+        imsrc = ac.imread(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png') # 原始图像 
+        imsch = ac.imread(r'C:\Users\machunpo\Desktop\myimages\ling.png') # 带查找的部分 1 
         rult=ac.find_template(imsrc, imsch)
         #print(rult)
         if(rult):
@@ -151,7 +151,7 @@ def let_us_go(a=1):
             print('没有找到红包！')
 
 
-        imsch2 = ac.imread(r'C:\Users\machunpo\Desktop\images\lingqu.png') # 带查找的部分 1 
+        imsch2 = ac.imread(r'C:\Users\machunpo\Desktop\myimages\lingqu.png') # 带查找的部分 1 
         rult=ac.find_template(imsrc, imsch2)
         print(rult)
         if(rult):
@@ -207,7 +207,7 @@ print(ac.find_template(imsrc, imsch))
 
 #截屏并且传输到电脑
 #adb shell screencap -p /sdcard/funtoutiao.png
-#adb pull /sdcard/funtoutiao.png  C:\Users\machunpo\Desktop\images
+#adb pull /sdcard/funtoutiao.png  C:\Users\machunpo\Desktop\myimages
 
 #刷新：72，1216
 #视频：216，1216
@@ -219,3 +219,5 @@ print(ac.find_template(imsrc, imsch))
 #底色：570，100
 
 #第二页的悬浮球：621，1091        这个位置是可以变化的
+
+#相对路径         还有视频（214，1218）（359，306）

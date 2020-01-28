@@ -17,7 +17,7 @@ def put_page_down():
 
 def pull_screenshot():
     os.system('adb shell screencap -p /sdcard/funtoutiao.png')
-    os.system(r'adb pull /sdcard/funtoutiao.png  C:\Users\machunpo\Desktop\images')#./images
+    os.system(r'adb pull /sdcard/funtoutiao.png  C:\Users\machunpo\Desktop\myimages')#./myimages
 
 def check(x,y):
     os.system('adb shell input tap '+str(x)+' '+str(y)) 
@@ -33,14 +33,14 @@ def get_pixel_colour(image_path,x,y):
     return  pixel_colour
 
 def is_frist_page():#判断是否首页 返回一个元组  就是点击的坐标
-    a=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',37,100)  #得到一个元组 (0, 0, 0, 255)
-    b=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',570,100)
+    a=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',37,100)  #得到一个元组 (0, 0, 0, 255)
+    b=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',570,100)
 
-    c=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',240,1000)   
-    d=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',480,1000) 
+    c=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',240,1000)   
+    d=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',480,1000) 
 
-    e=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',240,700)   
-    f=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',480,700) 
+    e=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',240,700)   
+    f=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',480,700) 
     print('abcdef的值',a,b,c,d,e,f)
 
     if (a==(243, 247, 246, 255)) & (b==(243, 247, 246, 255)):#检测搜索栏的首页特征
@@ -146,7 +146,7 @@ if __name__ == '__main__':
 
         time.sleep(10)#等待顶部的更新条消失
         pull_screenshot()
-        isbaishesanjiaoxin=get_pixel_colour(r'C:\Users\machunpo\Desktop\images\funtoutiao.png',355,305)
+        isbaishesanjiaoxin=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',355,305)
 
         if isbaishesanjiaoxin[0]==255 :
             os.system('adb shell input tap 355 305') 
