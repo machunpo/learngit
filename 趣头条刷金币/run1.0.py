@@ -45,6 +45,12 @@ def cheak_adb_link(order):
         return True
     else:
         return False
+
+def play_video(t): #刷视频函数
+    time.sleep(5)
+    check(359,306)#点击开始播放视频
+    print('开始播放视频')
+    time.sleep(60*t)#延时t分钟
 #print and speak       
 def speak_and_print(command):
     print(command)
@@ -178,7 +184,8 @@ if __name__ == '__main__':
     time.sleep(15)
     let_us_go()
     time.sleep(2)
-
+    check(216,1216)#点击视频
+    play_video(10)#播放视频10分钟
     #应该在这里增加视频函数
     os.system('adb shell input keyevent BACK') 
     time.sleep(0.5)
@@ -187,6 +194,12 @@ if __name__ == '__main__':
     check(277,126)
     time.sleep(15)
     let_us_go(2)
+    check(216,1216)#点击视频
+    play_video(10)
+    os.system('adb shell input keyevent BACK') 
+    time.sleep(0.5)
+    os.system('adb shell input keyevent BACK') 
+
 '''
 
 
