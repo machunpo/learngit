@@ -47,10 +47,19 @@ def cheak_adb_link(order):
         return False
 
 def play_video(t): #刷视频函数
-    time.sleep(5)
-    check(359,306)#点击开始播放视频
-    print('开始播放视频')
-    time.sleep(60*t)#延时t分钟
+    for i in range(t):
+        check(216,1216)#点击视频
+        time.sleep(5)
+        check(359,306)#点击开始播放视频
+        print('开始播放视频:',i)
+        time.sleep(120)#延时2分钟
+        check(621,1091)#点击彩蛋
+        time.sleep(2)
+        os.system('adb shell input keyevent BACK') 
+        time.sleep(2)
+    os.system('adb shell input keyevent BACK') 
+    time.sleep(2)
+
 #print and speak       
 def speak_and_print(command):
     print(command)
@@ -115,7 +124,7 @@ def let_us_go(a=1):
                 put_page_up()
                 time.sleep(2)
                 print(j,end=',')
-            check(621,1091)
+            check(621,1091)#这是点彩蛋吗？
             time.sleep(2)
             os.system('adb shell input keyevent BACK') 
             time.sleep(2)
@@ -184,8 +193,8 @@ if __name__ == '__main__':
     time.sleep(15)
     let_us_go()
     time.sleep(2)
-    check(216,1216)#点击视频
-    play_video(10)#播放视频10分钟
+    
+    play_video(5)#播放视频10分钟
     #应该在这里增加视频函数
     os.system('adb shell input keyevent BACK') 
     time.sleep(0.5)
@@ -194,8 +203,8 @@ if __name__ == '__main__':
     check(277,126)
     time.sleep(15)
     let_us_go(2)
-    check(216,1216)#点击视频
-    play_video(10)
+
+    play_video(5)
     os.system('adb shell input keyevent BACK') 
     time.sleep(0.5)
     os.system('adb shell input keyevent BACK') 
@@ -236,3 +245,6 @@ print(ac.find_template(imsrc, imsch))
 #第二页的悬浮球：621，1091        这个位置是可以变化的
 
 #相对路径         还有视频（216，1216）（359，306）
+
+
+#加刷新和点击
