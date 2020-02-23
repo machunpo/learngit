@@ -10,7 +10,7 @@ speak = win.Dispatch("SAPI.SpVoice")
 speak.Rate=-1 
 #定义循环的次数
 loop_time_news=15
-loop_time_video=5
+loop_time_video=10
 
 loop_time_news=int(input('请输入要运行的次数：'))
 
@@ -194,7 +194,7 @@ if __name__ == '__main__':
     let_us_go()
     time.sleep(2)
     
-    play_video(5)#播放视频10分钟
+    play_video(loop_time_video)#播放视频10分钟
     #应该在这里增加视频函数
     os.system('adb shell input keyevent BACK') 
     time.sleep(0.5)
@@ -204,7 +204,7 @@ if __name__ == '__main__':
     time.sleep(15)
     let_us_go(2)
 
-    play_video(5)
+    play_video(loop_time_video)
     os.system('adb shell input keyevent BACK') 
     time.sleep(0.5)
     os.system('adb shell input keyevent BACK') 
