@@ -9,8 +9,8 @@ from PIL import Image
 speak = win.Dispatch("SAPI.SpVoice")  
 speak.Rate=-1 
 #定义循环的次数
-loop_time_news=15
-loop_time_video=10
+loop_time_xiaoshiping=5
+loop_time_video=7
 
 loop_time_news=int(input('请输入要运行的次数：'))
 
@@ -99,6 +99,8 @@ def let_us_go(a=1):
         time.sleep(5)
         check(72,1216)#点击刷新：72，1216
         time.sleep(5)#等待顶部的更新条消失
+        check(72,1216)#点击刷新：72，1216
+        time.sleep(7)#等待顶部的更新条消失
         pull_screenshot()
         time.sleep(3)
 
@@ -184,27 +186,49 @@ def let_us_go(a=1):
         os.system('adb shell input keyevent BACK') 
         time.sleep(1)
 
+def qiandao():#签到  点击任务图标
+    check(505,1216)
+    print('签到了')
+
+def shuaxiaoshiping(i):#刷小视频
+    for j in range(i):
+        check(300,1216)
+        time.sleep(60)
+    print('刷小视频')
+    os.system('adb shell input keyevent BACK') 
+
 if __name__ == '__main__':
 
     os.system('adb devices')
     os.system('adb version')
     time.sleep(1)
     check(104,126)
-    time.sleep(15)
+    time.sleep(20)
+    qiandao()#签到
+    time.sleep(2)
     let_us_go()
     time.sleep(2)
     
     play_video(loop_time_video)#播放视频10分钟
-    #应该在这里增加视频函数
+
+    shuaxiaoshiping(loop_time_xiaoshiping)#刷小视频
+
+
     os.system('adb shell input keyevent BACK') 
     time.sleep(0.5)
     os.system('adb shell input keyevent BACK') 
+
     time.sleep(2)
     check(277,126)
-    time.sleep(15)
+    time.sleep(20)
+    qiandao()#签到
+    time.sleep(2)
     let_us_go(2)
 
     play_video(loop_time_video)
+
+    shuaxiaoshiping(loop_time_xiaoshiping)#刷小视频
+
     os.system('adb shell input keyevent BACK') 
     time.sleep(0.5)
     os.system('adb shell input keyevent BACK') 
