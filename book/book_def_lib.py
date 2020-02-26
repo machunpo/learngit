@@ -101,8 +101,10 @@ if __name__ == '__main__':
     url_chapters_of_book=r'http://www.xbiquge.la/1/1690/'
     chapterslist=get_the_chapters_of_book(url_chapters_of_book)
     #print(chapterslist)
+    err_list=[]
     for i in chapterslist:
         book_url=url_chapters_of_book+i[17:29]
+        
         try:
             hi=(get_the_biaoti_and_zhenwen(book_url))
             print(hi[0])
@@ -115,6 +117,8 @@ if __name__ == '__main__':
         except:
             
             print('这个有问题'+hi[0])    
+            err_list.append(book_url)
+    print(err_list)
 
 
     #time.sleep(5)
