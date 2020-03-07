@@ -9,9 +9,9 @@ from PIL import Image
 speak = win.Dispatch("SAPI.SpVoice")  
 speak.Rate=-1 
 #定义循环的次数
-loop_time_xiaoshiping = 1#5
-loop_time_video       = 1#7
-loop_time_toutiao     = 6
+loop_time_xiaoshiping = 5
+loop_time_video       = 6
+loop_time_toutiao     = 7
 
 loop_time_news=int(input('请输入要运行的次数：'))
 
@@ -257,12 +257,14 @@ if __name__ == '__main__':
     time.sleep(5)
     check(437,126)
     time.sleep(20)
-
+    print("开始今日头条刷金币")
     jin_ri_tou_tiao()#今日头条刷金币
 
     os.system('adb shell input keyevent BACK') 
     time.sleep(0.5)
     os.system('adb shell input keyevent BACK') 
+
+    print("程序执行完毕")
 
 
 '''   
