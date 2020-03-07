@@ -9,8 +9,9 @@ from PIL import Image
 speak = win.Dispatch("SAPI.SpVoice")  
 speak.Rate=-1 
 #定义循环的次数
-loop_time_xiaoshiping=5
-loop_time_video=7
+loop_time_xiaoshiping = 1#5
+loop_time_video       = 1#7
+loop_time_toutiao     = 6
 
 loop_time_news=int(input('请输入要运行的次数：'))
 
@@ -195,7 +196,25 @@ def shuaxiaoshiping(i):#刷小视频
         check(300,1216)
         time.sleep(60)
     print('刷小视频')
-    os.system('adb shell input keyevent BACK') 
+    os.system('adb shell input keyevent BACK')
+
+
+def jin_ri_tou_tiao():
+    for i in range(loop_time_toutiao):
+        check(73,1235)#点击首页进行刷新
+        time.sleep(7)
+        check(505,1235)#点击任务
+        time.sleep(3)
+        check(608,1141)#点击开宝箱得金币
+        time.sleep(3)
+        check(331,858)#点击看视频
+        time.sleep(100)
+        check(614,80)#点击关闭广告
+        time.sleep(500)
+
+
+
+
 
 if __name__ == '__main__':
 
@@ -229,11 +248,24 @@ if __name__ == '__main__':
 
     shuaxiaoshiping(loop_time_xiaoshiping)#刷小视频
 
+
     os.system('adb shell input keyevent BACK') 
     time.sleep(0.5)
     os.system('adb shell input keyevent BACK') 
 
-'''
+
+    time.sleep(5)
+    check(437,126)
+    time.sleep(20)
+
+    jin_ri_tou_tiao()#今日头条刷金币
+
+    os.system('adb shell input keyevent BACK') 
+    time.sleep(0.5)
+    os.system('adb shell input keyevent BACK') 
+
+
+'''   
 
 
 
@@ -271,4 +303,4 @@ print(ac.find_template(imsrc, imsch))
 #相对路径         还有视频（216，1216）（359，306）
 
 
-#加刷新和点击
+#下一步今日头条的退出机制
