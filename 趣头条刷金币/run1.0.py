@@ -53,7 +53,7 @@ def play_video(t): #刷视频函数
         time.sleep(5)
         check(359,306)#点击开始播放视频
         print('开始播放视频:',i)
-        time.sleep(120)#延时2分钟
+        time.sleep(75)#延时75’
         check(621,1091)#点击彩蛋
         time.sleep(2)
         os.system('adb shell input keyevent BACK') 
@@ -194,9 +194,12 @@ def qiandao():#签到  点击任务图标
 def shuaxiaoshiping(i):#刷小视频
     for j in range(i):
         check(300,1216)
-        time.sleep(60)
+        time.sleep(45)
+        print('刷小视频的次数：',j)
     print('刷小视频')
     os.system('adb shell input keyevent BACK')
+    
+
 
 
 def jin_ri_tou_tiao():
@@ -211,7 +214,9 @@ def jin_ri_tou_tiao():
         time.sleep(100)
         check(614,80)#点击关闭广告
         time.sleep(500)
-
+        print('刷金币的次数：',i)
+        check(73,1235)#点击首页进行刷新
+        time.sleep(7)
 
 
 
