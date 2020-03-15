@@ -8,12 +8,12 @@ pyauto.PAUSE=0.5                    #每次pyauto的延时
 
 
 def setup():
-    print(pyauto.size())                # 当前屏幕的分辨率
-    print('当前目录：',os.getcwd() )
+    print('屏幕分辨率：',pyauto.size())                # 当前屏幕的分辨率
+    print('当前目录  ：',os.getcwd() )
 
 def run():
 
-    print(pyauto.locateOnScreen('A.png'))
+    print(pyauto.locateOnScreen('jdtest\pic\A.png'))
 
 
 
