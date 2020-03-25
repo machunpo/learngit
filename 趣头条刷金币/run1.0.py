@@ -190,6 +190,8 @@ def let_us_go(a=1):
 def qiandao():#签到  点击任务图标
     check(505,1216)
     print('签到了')
+    time.sleep(3)
+    
 
 def shuaxiaoshiping(i):#刷小视频
     for j in range(i):
@@ -229,6 +231,8 @@ if __name__ == '__main__':
     check(104,126)
     time.sleep(20)
     qiandao()#签到
+    time.sleep(2)
+    put_page_up()#添加一个下拉
     time.sleep(2)
     let_us_go()
     time.sleep(2)
