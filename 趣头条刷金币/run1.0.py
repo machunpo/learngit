@@ -241,6 +241,10 @@ if __name__ == '__main__':
 
     shuaxiaoshiping(loop_time_xiaoshiping)#刷小视频
 
+    time.sleep(5)
+    check(648,1216) #点击我的图标
+    time.sleep(5)
+
 
     os.system('adb shell input keyevent BACK') 
     time.sleep(0.5)
