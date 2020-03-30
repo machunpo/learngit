@@ -154,7 +154,7 @@ def let_us_go(a=1):
         time.sleep(2)
         pull_screenshot()
         imsrc = ac.imread(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png') # 原始图像 
-'''
+
         imsch = ac.imread(r'C:\Users\machunpo\Desktop\myimages\ling.png') # 带查找的部分 1 
         rult=ac.find_template(imsrc, imsch)
         #print(rult)
@@ -168,7 +168,6 @@ def let_us_go(a=1):
                 print('相似度有点低啊！')
         else:
             print('没有找到红包！')
-'''
 
         imsch2 = ac.imread(r'C:\Users\machunpo\Desktop\myimages\lingqu.png') # 带查找的部分 1 
         rult=ac.find_template(imsrc, imsch2)
