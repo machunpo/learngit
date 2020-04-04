@@ -266,13 +266,13 @@ if __name__ == '__main__':
     time.sleep(0.5)
     os.system('adb shell input keyevent BACK') 
 
-
+'''
     time.sleep(5)
     check(437,126)
     time.sleep(20)
-    print("开始今日头条刷金币")
-    jin_ri_tou_tiao()#今日头条刷金币
-
+    # print("开始今日头条刷金币")
+    # jin_ri_tou_tiao()#今日头条刷金币
+'''
     os.system('adb shell input keyevent BACK') 
     time.sleep(0.5)
     os.system('adb shell input keyevent BACK') 
