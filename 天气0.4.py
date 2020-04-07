@@ -7,6 +7,10 @@ import time
 import urllib.request
 from math import asin, cos, radians, sin, sqrt
 
+import  sxtwl
+lunar = sxtwl.Lunar()  #实例化日历库
+#下面可以使用lunar做些日历的操作
+
 import win32com.client as win  # pip install pypiwin32
 
 import _thread
@@ -18,6 +22,10 @@ url = 'https://tianqi.2345.com/haian/70445.htm'
 al="，，，，，，，，"
 speak.Rate=-1      #说话速度 -10到10
 WANGZHIQIANZUI="http://www.mxnzp.com/api/holiday/single/"
+
+ymc = ["十一", "十二", "正", "二", "三", "四", "五", "六", "七", "八", "九", "十" ]
+rmc = ["初一", "初二", "初三", "初四", "初五", "初六", "初七", "初八", "初九", "初十", "十一", "十二", "十三", "十四", "十五", "十六", "十七", "十八", "十九", "二十", "廿一", "廿二", "廿三", "廿四", "廿五", "廿六", "廿七", "廿八", "廿九", "三十", "卅一"]
+
 
 #函数功能：去除一段文本中的HTML标记
 #输入参数：text_all 整段文本
@@ -162,6 +170,17 @@ while (True):
 
     year=ldkkdj[0:4];mon=ldkkdj[5:7];day=ldkkdj[8:10]
 
+    this_day = lunar.getDayBySolar(int(year),int(mon),int(day))  # 查询2018年10月20日
+
+    print("公历:", this_day.y, "年", this_day.m, "月", this_day.d, "日")
+
+    if this_day.Lleap:
+        print("润", ymc[this_day.Lmc], "月", rmc[this_day.Ldi], "日")
+        new_longli=("润"+ymc[this_day.Lmc]+"月"+rmc[this_day.Ldi]+"日")
+    else:
+        print(ymc[this_day.Lmc], "月", rmc[this_day.Ldi], "日")
+        new_longli=(ymc[this_day.Lmc]+"月"+rmc[this_day.Ldi]+"日")
+
     wangzhi_api=WANGZHIQIANZUI+year+mon+day     #生成api的网址
 
     
@@ -218,7 +237,7 @@ while (True):
         d=d+1
     print('.'*40)
 
-    yuyinbobao='今天是'+str(riqi[0])+'，'+hahhhh+'。'+'农历'+longliriqi+'。'+'天气'+str(tianqi[0])+'。'+'气温'+str(low[0])+'到'+str(high[0])
+    yuyinbobao='今天是'+str(riqi[0])+'，'+hahhhh+'。'+'农历'+new_longli+'。'+'天气'+str(tianqi[0])+'。'+'气温'+str(low[0])+'到'+str(high[0])
    
     
 
