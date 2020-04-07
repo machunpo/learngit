@@ -208,10 +208,12 @@ while (True):
     print('\n',title,'\n')
     for x in range(15):
         s=quchu_heml(str(fenli[x]))
-        
         s=s.strip(r"\n")
+        s=s.replace(r"\n","")
+        s=s.replace('            ','')
+        #print(s)#test
         qiwen=low[x]+'~'+high[x]
-
+        riqi[x]=riqi[x].replace('                ','    ')
         print(riqi[x].ljust(10), weekchn[d],'    ',tianqi[x].ljust(7,('　')),qiwen.ljust(10),s.ljust(10))
         d=d+1
     print('.'*40)
