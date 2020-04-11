@@ -250,7 +250,13 @@ if __name__ == '__main__':
     time.sleep(0.5)
     os.system('adb shell input keyevent BACK') 
 
-    time.sleep(2)
+    time.sleep(5)
+
+    os.system('adb shell input keyevent BACK') 
+    time.sleep(0.5)
+    os.system('adb shell input keyevent BACK') 
+
+    time.sleep(5)
     check(277,126)
     time.sleep(20)
     qiandao()#签到
