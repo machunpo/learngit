@@ -11,6 +11,7 @@ flash_times=5                       #刷新的次数
 def setup():
     print('屏幕分辨率：',pyauto.size())                                # 当前屏幕的分辨率
     print('当前目录  ：',os.getcwd() )
+    time.sleep(5)                  # 延时5秒，用来等待页面
 
 def end():
     pyauto.moveTo(10,800)
@@ -48,6 +49,11 @@ def run():
 
     if (pyauto.locateOnScreen( pic_path + 'sqcg.png' )):               # 申请成功
         pyauto.hotkey('ctrl','w')                                      # 关闭标签
+
+    elif (pyauto.locateOnScreen( pic_path + 'kthy.png' )):         # 要求开通会员
+        pyauto.hotkey('ctrl','w')
+        print('要求开通会员')
+        
     elif (pyauto.locateOnScreen( pic_path + 'wlwtsqsb.png' )):         # 网络问题申请失败
         pyauto.hotkey('ctrl','w')
         print('网络问题申请失败')
@@ -68,7 +74,7 @@ def run():
     time.sleep(5)
 
 if __name__ == '__main__':
-    time.sleep(5)                  # 延时5秒，用来等待页面
+    
     setup()
     for i in range(loop_time):            # 循环执行 loop-timer个页面
         run()
