@@ -50,21 +50,27 @@ def run():
     if (pyauto.locateOnScreen( pic_path + 'sqcg.png' )):               # 申请成功
         pyauto.hotkey('ctrl','w')                                      # 关闭标签
 
-    elif (pyauto.locateOnScreen( pic_path + 'kthy.png' )):         # 要求开通会员
+    elif (pyauto.locateOnScreen( pic_path + 'kthy.png' )):             # 要求开通会员
         pyauto.hotkey('ctrl','w')
         print('要求开通会员')
-        
+    elif (pyauto.locateOnScreen( pic_path + 'app.png' )):              # 需要app进行申请
+        pyauto.hotkey('ctrl','w')
+        print('需要app进行申请')
+
+
     elif (pyauto.locateOnScreen( pic_path + 'wlwtsqsb.png' )):         # 网络问题申请失败
         pyauto.hotkey('ctrl','w')
         print('网络问题申请失败')
-    elif (pyauto.locateOnScreen( pic_path + 'fwycqshzs.png' )):         # 服务异常请稍后再试
+    elif (pyauto.locateOnScreen( pic_path + 'fwycqshzs.png' )):        # 服务异常请稍后再试
         pyauto.hotkey('ctrl','w')
         print('服务异常请稍后再试')
+
+
     else:                                                               # 如果最后 什么显示都没有的话
         for i in range(flash_times):
             pyauto.hotkey('f5')
-            time.sleep(5)# 延时3秒，用来等待刷新页面
-            if (pyauto.locateOnScreen( pic_path + 'sqsy.png' )):               # 申请试用
+            time.sleep(5)# 延时5秒，用来等待刷新页面
+            if (pyauto.locateOnScreen( pic_path + 'sqsy.png' )):        # 申请试用
                 pyauto.moveTo(10,10)
                 break
             else:
