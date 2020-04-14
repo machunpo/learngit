@@ -220,6 +220,25 @@ def jin_ri_tou_tiao():
         check(73,1235)#点击首页进行刷新
         time.sleep(7)
 
+def jrtt_kxs():   #头条看小说
+
+    time.sleep(5)
+    check(437,126)   #点击今日头条的图标启动app
+    time.sleep(20)
+
+    check(73,1235)#点击首页进行刷新
+    time.sleep(5)
+#点击小说
+    check(458,193)
+    time.sleep(5)
+#点击封面
+    check(107,714)
+    time.sleep(5)
+#点击看小说的循环
+    for i in range(25):
+        for j in range(15):
+            check(609，1125)#点击进行翻页
+            time.sleep(2)
 
 
 
