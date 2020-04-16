@@ -237,7 +237,7 @@ def jrtt_kxs():   #头条看小说
 #点击看小说的循环
     for i in range(25):
         for j in range(15):
-            check(609，1125)#点击进行翻页
+            check(609,1125)#点击进行翻页
             time.sleep(2)
 
 
@@ -249,9 +249,10 @@ if __name__ == '__main__':
     time.sleep(1)
     check(104,126)
     time.sleep(20)
+
     qiandao()#签到
     time.sleep(2)
-    put_page_up()#添加一个下拉
+    #put_page_up()#添加一个下拉
     time.sleep(2)
     let_us_go()
     time.sleep(2)
@@ -265,14 +266,12 @@ if __name__ == '__main__':
     time.sleep(5)
 
 
-    os.system('adb shell input keyevent BACK') 
-    time.sleep(0.5)
-    os.system('adb shell input keyevent BACK') 
 
+    os.system('adb shell input keyevent BACK') 
     time.sleep(5)
 
     os.system('adb shell input keyevent BACK') 
-    time.sleep(0.5)
+    time.sleep(0.2)
     os.system('adb shell input keyevent BACK') 
 
     time.sleep(5)
@@ -286,9 +285,15 @@ if __name__ == '__main__':
 
     shuaxiaoshiping(loop_time_xiaoshiping)#刷小视频
 
+    time.sleep(5)
+    check(648,1216) #点击我的图标
+    time.sleep(5)
+    
+    os.system('adb shell input keyevent BACK') 
+    time.sleep(5)
 
     os.system('adb shell input keyevent BACK') 
-    time.sleep(0.5)
+    time.sleep(0.2)
     os.system('adb shell input keyevent BACK') 
 
 '''
