@@ -148,26 +148,9 @@ def let_us_go(a=1):
         time.sleep(5)
         #################################  下面要插入寻找的代码
 
-        put_page_down()
-        time.sleep(2)
-        put_page_down()
-        time.sleep(2)
         pull_screenshot()
         imsrc = ac.imread(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png') # 原始图像 
 
-        imsch = ac.imread(r'C:\Users\machunpo\Desktop\myimages\ling.png') # 带查找的部分 1 
-        rult=ac.find_template(imsrc, imsch)
-        #print(rult)
-        if(rult):
-            if rult['confidence']>0.99 :
-                check(rult['result'][0],rult['result'][1])
-                time.sleep(2)
-                check(360,1035)
-                print('成功领取红包！')
-            else:
-                print('相似度有点低啊！')
-        else:
-            print('没有找到红包！')
 
         imsch2 = ac.imread(r'C:\Users\machunpo\Desktop\myimages\lingqu.png') # 带查找的部分 1 
         rult=ac.find_template(imsrc, imsch2)
@@ -348,3 +331,4 @@ print(ac.find_template(imsrc, imsch))
 
 
 #下一步今日头条的退出机制
+
