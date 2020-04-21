@@ -7,11 +7,13 @@ def check(x,y):
     os.system('adb shell input tap '+str(x)+' '+str(y)) 
 
 
-def jrtt_kxs():   #头条看小说
-
+def init():   #初始化
     time.sleep(5)
     check(437,126)   #点击今日头条的图标启动app
     time.sleep(20)
+
+
+def jrtt_kxs():   #头条看小说
 
 #点击小说
     check(458,193)
@@ -28,6 +30,7 @@ def jrtt_kxs():   #头条看小说
 
 
 if __name__ == '__main__':
+    init()
     jrtt_kxs()
 
     #解决额外奖励影响运行的问题

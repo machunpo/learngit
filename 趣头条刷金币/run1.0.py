@@ -1,6 +1,8 @@
 import os
 import time
 
+import jrttkxs
+
 import aircv as ac
 import win32com.client as win
 from PIL import Image
@@ -12,6 +14,9 @@ speak.Rate=-1
 loop_time_xiaoshiping = 5
 loop_time_video       = 6
 loop_time_toutiao     = 7
+
+jrttkxs.init()
+jrttkxs.jrtt_kxs()
 
 loop_time_news=int(input('请输入要运行的次数：'))
 
