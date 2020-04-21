@@ -27,8 +27,11 @@ def jrtt_kxs():   #头条看小说
             check(609,1125)#点击进行翻页
             time.sleep(2)
 
-
-
+'''        check(360,1000)#解决额外奖励的问题
+        time.sleep(15)
+        os.system('adb shell input keyevent BACK') 
+        time.sleep(5)
+'''
 if __name__ == '__main__':
     init()
     jrtt_kxs()
