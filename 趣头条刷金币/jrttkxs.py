@@ -19,7 +19,7 @@ def init():   #初始化
 
 
 def jrtt_kxs():   #头条看小说
-    imsrc1 = ac.imread(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png') # 原始图像
+    imsch2 = ac.imread(r'C:\Users\machunpo\Desktop\myimages\$.png') # 带查找的部分
 #点击小说
     check(458,193)
     time.sleep(5)
@@ -32,8 +32,7 @@ def jrtt_kxs():   #头条看小说
             check(609,1125)#点击进行翻页
             time.sleep(2)
         pull_screenshot()
- 
-        imsch2 = ac.imread(r'C:\Users\machunpo\Desktop\myimages\$.png') # 带查找的部分 1 
+        imsrc1 = ac.imread(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png') # 原始图像
         rult=ac.find_template(imsrc1, imsch2)
         print(rult)
         if(rult):
