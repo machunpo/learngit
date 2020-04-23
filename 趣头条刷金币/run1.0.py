@@ -15,8 +15,7 @@ loop_time_xiaoshiping = 5
 loop_time_video       = 6
 loop_time_toutiao     = 7
 
-jrttkxs.init()
-jrttkxs.jrtt_kxs()
+
 
 loop_time_news=int(input('请输入要运行的次数：'))
 
@@ -26,10 +25,7 @@ def put_page_up():
 def put_page_down():
     os.system('adb shell input swipe 320 1000 320 410 500')  #//从 320 1000经历0.5秒滑动到 320 410   手指向上滑
 
-#截屏并发送到电脑
-def pull_screenshot():
-    os.system('adb shell screencap -p /sdcard/funtoutiao.png')
-    os.system(r'adb pull /sdcard/funtoutiao.png  C:\Users\machunpo\Desktop\myimages')
+
 
 #点击坐标x，y
 def check(x,y):
@@ -153,7 +149,7 @@ def let_us_go(a=1):
         time.sleep(5)
         #################################  下面要插入寻找的代码
 
-        pull_screenshot()
+        jrttkxs.pull_screenshot()
         imsrc = ac.imread(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png') # 原始图像 
 
 
@@ -283,6 +279,9 @@ if __name__ == '__main__':
     os.system('adb shell input keyevent BACK') 
     time.sleep(0.2)
     os.system('adb shell input keyevent BACK') 
+
+    jrttkxs.init()
+    jrttkxs.jrtt_kxs()
 
 '''
     time.sleep(5)

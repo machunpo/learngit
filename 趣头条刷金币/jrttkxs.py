@@ -6,6 +6,10 @@ import time
 def check(x,y):
     os.system('adb shell input tap '+str(x)+' '+str(y)) 
 
+#截屏并发送到电脑
+def pull_screenshot():
+    os.system('adb shell screencap -p /sdcard/funtoutiao.png')
+    os.system(r'adb pull /sdcard/funtoutiao.png  C:\Users\machunpo\Desktop\myimages')
 
 def init():   #初始化
     time.sleep(5)
@@ -13,8 +17,9 @@ def init():   #初始化
     time.sleep(20)
 
 
-def jrtt_kxs():   #头条看小说
 
+def jrtt_kxs():   #头条看小说
+    imsrc1 = ac.imread(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png') # 原始图像
 #点击小说
     check(458,193)
     time.sleep(5)
@@ -26,7 +31,24 @@ def jrtt_kxs():   #头条看小说
         for j in range(15):
             check(609,1125)#点击进行翻页
             time.sleep(2)
+        pull_screenshot()
+ 
+        imsch2 = ac.imread(r'C:\Users\machunpo\Desktop\myimages\$.png') # 带查找的部分 1 
+        rult=ac.find_template(imsrc1, imsch2)
+        print(rult)
+        if(rult):
+            if rult['confidence']>0.99 :
+                #check(rult['result'][0],rult['result'][1])
+                check(360,800)#点击按钮看视频
+                time.sleep(30)
+                print('看视频！')
+                os.system('adb shell input keyevent BACK') #这个地方要修改为那个关闭的东西
 
+            else:
+                print('相似度有点低啊！')
+        else:
+            print('没有找到看视频按钮！')
+        
 '''        check(360,1000)#解决额外奖励的问题
         time.sleep(15)
         os.system('adb shell input keyevent BACK') 
@@ -36,4 +58,5 @@ if __name__ == '__main__':
     init()
     jrtt_kxs()
 
-    #解决额外奖励影响运行的问题
+    #把检测变成函数
+    #  #这个地方要修改为那个关闭的东西

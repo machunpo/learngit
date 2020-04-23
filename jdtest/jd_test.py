@@ -3,7 +3,7 @@ import time
 import os
 import random
 
-loop_time=60                        #运行的次数
+loop_time=70                        #运行的次数
 pyauto.PAUSE=1                      #每次pyauto的延时
 pic_path='jdtest/pic/'              #图片的目录
 flash_times=5                       #刷新的次数
