@@ -103,7 +103,7 @@ def let_us_go(a=1):
         time.sleep(5)#等待顶部的更新条消失
         check(72,1216)#点击刷新：72，1216
         time.sleep(7)#等待顶部的更新条消失
-        pull_screenshot()
+        jrttkxs.pull_screenshot()
         time.sleep(3)
 
         temp=is_frist_page()
@@ -280,8 +280,8 @@ if __name__ == '__main__':
     time.sleep(0.2)
     os.system('adb shell input keyevent BACK') 
 
-    jrttkxs.init()
-    jrttkxs.jrtt_kxs()
+    #jrttkxs.init()
+    #jrttkxs.jrtt_kxs()
 
 '''
     time.sleep(5)

@@ -2,6 +2,8 @@
 import os
 import time
 
+import aircv as ac
+
 #点击坐标x，y
 def check(x,y):
     os.system('adb shell input tap '+str(x)+' '+str(y)) 
@@ -31,6 +33,7 @@ def jrtt_kxs():   #头条看小说
         for j in range(15):
             check(609,1125)#点击进行翻页
             time.sleep(2)
+            
         pull_screenshot()
         imsrc1 = ac.imread(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png') # 原始图像
         rult=ac.find_template(imsrc1, imsch2)
