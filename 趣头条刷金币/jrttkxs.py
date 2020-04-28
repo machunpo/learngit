@@ -56,9 +56,12 @@ def jrtt_kxs():   #头条看小说
         os.system('adb shell input keyevent BACK') 
         time.sleep(5)
 '''
+def get_out():
+    os.system('adb shell input keyevent BACK') 
+
 if __name__ == '__main__':
     init()
     jrtt_kxs()
 
-
-    #可以正常使用了  下面增加次数
+    get_out()
+    #可以正常使用了  
