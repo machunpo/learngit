@@ -151,7 +151,7 @@ def two_hour():
 			
 
         i=i+1
-        time.sleep(600)#延时函数，多少秒进行一次查询
+        time.sleep(300)#延时函数，多少秒进行一次查询
 
 try:
    _thread.start_new_thread(two_hour,())
