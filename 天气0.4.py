@@ -155,7 +155,7 @@ def two_hour():
 
 try:
    _thread.start_new_thread(two_hour,())
-   _thread.start_new_thread(dizhena, ())
+   # _thread.start_new_thread(dizhena, ())
 except TypeError as e:
    print (e)
 
