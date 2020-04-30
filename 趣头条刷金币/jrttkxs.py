@@ -64,4 +64,5 @@ if __name__ == '__main__':
     jrtt_kxs()
 
     get_out()
+    os.system('adb shell input keyevent BACK') 
     #可以正常使用了  
