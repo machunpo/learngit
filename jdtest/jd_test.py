@@ -82,6 +82,7 @@ def run():
 if __name__ == '__main__':
     
     setup()
+    print('setup is over！')
     for i in range(loop_time):            # 循环执行 loop-timer个页面
         run()
     end()
