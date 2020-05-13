@@ -257,6 +257,12 @@ if __name__ == '__main__':
     os.system('adb shell input keyevent BACK') 
     time.sleep(0.2)
     os.system('adb shell input keyevent BACK') 
+    time.sleep(5)
+
+    os.system('adb shell input keyevent BACK') 
+    time.sleep(0.2)
+    os.system('adb shell input keyevent BACK') 
+
 
     time.sleep(5)
     check(277,126)
