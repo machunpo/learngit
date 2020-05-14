@@ -246,13 +246,12 @@ if __name__ == '__main__':
     shuaxiaoshiping(loop_time_xiaoshiping)#刷小视频
 
     time.sleep(5)
-    check(648,1216) #点击我的图标
+    #check(648,1216) #点击我的图标
     time.sleep(5)
 
 
 
-    os.system('adb shell input keyevent BACK') 
-    time.sleep(5)
+
 
     os.system('adb shell input keyevent BACK') 
     time.sleep(0.2)
@@ -276,18 +275,17 @@ if __name__ == '__main__':
     shuaxiaoshiping(loop_time_xiaoshiping)#刷小视频
 
     time.sleep(5)
-    check(648,1216) #点击我的图标
+    #check(648,1216) #点击我的图标
     time.sleep(5)
     
-    os.system('adb shell input keyevent BACK') 
-    time.sleep(5)
+
 
     os.system('adb shell input keyevent BACK') 
     time.sleep(0.2)
     os.system('adb shell input keyevent BACK') 
 
-    jrttkxs.init()#今日头条刷金币
-    jrttkxs.jrtt_kxs()
+    #jrttkxs.init()#今日头条刷金币
+    #jrttkxs.jrtt_kxs()
 
 '''
     time.sleep(5)
