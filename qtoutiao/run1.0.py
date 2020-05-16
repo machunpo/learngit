@@ -284,8 +284,8 @@ if __name__ == '__main__':
     time.sleep(0.2)
     os.system('adb shell input keyevent BACK') 
 
-    #jrttkxs.init()#今日头条刷金币
-    #jrttkxs.jrtt_kxs()
+    jrttkxs.init()#今日头条刷金币
+    jrttkxs.jrtt_kxs()
 
 '''
     time.sleep(5)

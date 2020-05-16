@@ -38,7 +38,7 @@ def bjtx():
 def jrtt_kxs():   #头条看小说
 
 #点击小说
-    check(458,193)
+    check(369,198)
     time.sleep(5)
 #点击封面
     check(107,714)
