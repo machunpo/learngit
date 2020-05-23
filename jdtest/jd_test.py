@@ -65,6 +65,11 @@ def run():
         pyauto.hotkey('ctrl','w')
         print('服务异常请稍后再试')
 
+    elif (pyauto.locateOnScreen( pic_path + 'jinxianzhi.png' )):        # 京享值不符合要求！
+        pyauto.hotkey('ctrl','w')
+        print('京享值不符合要求！')
+
+
 
     else:                                                               # 如果最后 什么显示都没有的话
         for i in range(flash_times):
