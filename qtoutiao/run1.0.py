@@ -11,8 +11,8 @@ from PIL import Image
 speak = win.Dispatch("SAPI.SpVoice")  
 speak.Rate=-1 
 #定义循环的次数
-loop_time_xiaoshiping = 5
-loop_time_video       = 6
+loop_time_xiaoshiping = 1
+loop_time_video       = 1
 loop_time_toutiao     = 7
 
 
@@ -157,7 +157,7 @@ def let_us_go(a=1):
         rult=ac.find_template(imsrc, imsch2)
         print(rult)
         if(rult):
-            if rult['confidence']>0.99 :
+            if rult['confidence']>0.91 :     #检测相似度  》0.91
                 check(rult['result'][0],rult['result'][1])
                 time.sleep(2)
                 print('成功领取金币！')
@@ -263,9 +263,9 @@ if __name__ == '__main__':
     os.system('adb shell input keyevent BACK') 
 
 
-    time.sleep(5)
+    time.sleep(15)#增加两个程序切换之间的时间。
     check(277,126)
-    time.sleep(20)
+    time.sleep(45)
     qiandao()#签到
     time.sleep(2)
     let_us_go(2)
@@ -284,8 +284,8 @@ if __name__ == '__main__':
     time.sleep(0.2)
     os.system('adb shell input keyevent BACK') 
 
-    jrttkxs.init()#今日头条刷金币
-    jrttkxs.jrtt_kxs()
+    # jrttkxs.init()#今日头条刷金币
+    # jrttkxs.jrtt_kxs()#有一个小说定位的问题等待解决
 
 '''
     time.sleep(5)
