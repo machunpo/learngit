@@ -1,6 +1,8 @@
 
 import json,os
 import urllib.request
+import win32com.client as win  # pip install pypiwin32
+
 
 #函数功能：去除一段文本中的HTML标记
 #输入参数：text_all 整段文本
