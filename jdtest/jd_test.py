@@ -90,6 +90,10 @@ if __name__ == '__main__':
     print('setup is over！')
     for i in range(loop_time):            # 循环执行 loop-timer个页面
         run()
+        if (pyauto.locateOnScreen( pic_path + 'tpydnw.png' )):        # 服务异常请稍后再试
+            print('本次操作结束')
+            break
+            
     end()
 
 
