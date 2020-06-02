@@ -65,13 +65,17 @@ def weather_report():
 
         if(kongqizhilian[i][-1:]=='度'):
             print(kongqizhilian[i][-2:]+'污染')
-            qits=(kongqizhilian[i][-2:]+'污染')
+            
         else:
             print(kongqizhilian[i][-1:])
-            qits=(kongqizhilian[i][-1:])
+            
 
+    if(kongqizhilian[1][-1:]=='度'):
+        print12=(kongqizhilian[1][-2:]+'污染')        
+    else:
+        print12=(kongqizhilian[1][-1:])
 
-    yuyinbobao='今天是'+str(riqi[1].replace('/','月'))+'日'+'。。'+hahhhh+'。。'+'农历：'+longli+'。。'+'天气' + str(tianqi[1]) +'。。  '+fenli[1]+'。。  '+'气温'+str(wendu[1].replace('~','到'))+'。。  '+'空气质量'+qits
+    yuyinbobao='今天是'+str(riqi[1].replace('/','月'))+'日'+'。。'+hahhhh+'。。'+'农历：'+longli+'。。'+'天气' + str(tianqi[1]) +'。。  '+fenli[1]+'。。  '+'气温'+str(wendu[1].replace('~','到'))+'。。  '+'空气质量'+print12
     #print(yuyinbobao)
     speak.Speak(yuyinbobao)
 
