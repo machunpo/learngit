@@ -1,8 +1,10 @@
 # -*- coding:utf-8 -*-
+import json
+import time
 import datetime
 import urllib.request
 import _thread
-from my_def_lib import extract
+from my_def_lib import *
 import win32com.client as win  # pip install pypiwin32
 import  sxtwl
 lunar = sxtwl.Lunar()  #实例化日历库
@@ -53,18 +55,24 @@ def weather_report():
     fenli=extract(content,'<span class="home-day">','</span>')
     kongqizhilian=extract(content,'<span class="status wea','</span>')
 
-
+    print('');print('');print('')
 
     for i in range(16):
         print(riqi[i],end="      ")
         print(tianqi[i].ljust(16-len(tianqi[i])),end=" ")
         print(wendu[i].ljust(15),end=" ")
         print(fenli[i].ljust(18-len(fenli[i])),end=" ")
-        print(kongqizhilian[i][-1:])
+
+        if(kongqizhilian[i][-1:]=='度'):
+            print(kongqizhilian[i][-2:]+'污染')
+            qits=(kongqizhilian[i][-2:]+'污染')
+        else:
+            print(kongqizhilian[i][-1:])
+            qits=(kongqizhilian[i][-1:])
 
 
-    yuyinbobao='今天是'+str(riqi[1].replace('/','月'))+'日'+'。。'+hahhhh+'。。'+'农历：'+longli+'。。'+'天气' + str(tianqi[1]) +'。。  '+fenli[1]+'。。  '+'气温'+str(wendu[1].replace('~','到'))+'。。  '+'空气质量'+kongqizhilian[1][-2:]
-    print(yuyinbobao)
+    yuyinbobao='今天是'+str(riqi[1].replace('/','月'))+'日'+'。。'+hahhhh+'。。'+'农历：'+longli+'。。'+'天气' + str(tianqi[1]) +'。。  '+fenli[1]+'。。  '+'气温'+str(wendu[1].replace('~','到'))+'。。  '+'空气质量'+qits
+    #print(yuyinbobao)
     speak.Speak(yuyinbobao)
 
     al=input()+"，，，，，，，，"
@@ -74,7 +82,62 @@ def weather_report():
     #if al=='exit'+"，，，，，，，，":
         #break
 
+
+
+def two_hour():
+
+    back_up_url='https://api.caiyunapp.com/v2/96Ly7wgKGq6FhllM/120.4769,32.5131/weather.jsonp?hourlysteps=120'        #这是彩云天气的短时间预报
+    jizhunshuju='这是用来比较是否更新的基础数据'
+    i=1
+
+
+    while(1):
+        time.sleep(50)
+        response = urllib.request.urlopen(back_up_url)
+        content = response.read().decode('unicode_escape')#打开要抓取的网页
+
+        new_dict = json.loads(content)
+        tianqiyubao=new_dict["result"]["forecast_keypoint"]
+
+
+        if tianqiyubao != jizhunshuju:
+            h=time.gmtime()#取现在的时间 标准格林时间 0
+            #test.tts.hahaha(tianqiyubao) #测试百度云tts
+            #print('现在时间：',h)  #time.struct_time(tm_year=2019, tm_mon=12, tm_mday=17, tm_hour=6, tm_min=37, tm_sec=41, tm_wday=1, tm_yday=351, tm_isdst=0)
+            if 3<h[3]<6 :
+                #print('现在是免打扰时间。')
+                pass
+            else: 
+                #print(tianqiyubao) 
+                print('')  
+                speak.Speak(tianqiyubao)
+                print(tianqiyubao)
+                print(str(datetime.datetime.now())[:19])
+                #print('小时=',h[3])	
+				
+            
+            jizhunshuju=tianqiyubao
+        else:
+
+            print(i,end=".")
+			
+			
+
+        i=i+1
+        time.sleep(300)#延时函数，多少秒进行一次查询
+
+
+
+
+
 if __name__ == '__main__':
+
+    try:
+        _thread.start_new_thread(two_hour,())
+
+    except TypeError as e:
+        print (e)    
+   # _thread.start_new_thread(dizhena, ())
     while 1:
 
         weather_report()
