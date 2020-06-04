@@ -19,6 +19,9 @@ weekchn=['星期一','星期二','星期三','星期四','星期五','星期六'
 def weather_report():
 
     d=datetime.date.weekday(datetime.date.today())         #添加星期几的功能
+
+    print(d)
+
     hahhhh=weekchn[d]
     ldkkdj=datetime.datetime.now()
     ldkkdj=str(ldkkdj)[:19]   #  ldkkdj的实例化：2019-03-14  10:05:18
@@ -29,15 +32,14 @@ def weather_report():
 
     if this_day.Lleap:
         longli="润"+ymc[this_day.Lmc]+"月"+rmc[this_day.Ldi]+"日"
-        print(longli)
-        #print("润", ymc[this_day.Lmc], "月", rmc[this_day.Ldi], "日")
+        print('农历：',longli)
         new_longli=("润"+ymc[this_day.Lmc]+"月"+rmc[this_day.Ldi]+"日")
     else:
         longli=ymc[this_day.Lmc]+ "月"+ rmc[this_day.Ldi]+ "日"
-        print(longli)
-        #print(ymc[this_day.Lmc], "月", rmc[this_day.Ldi], "日")
+        print('农历：',longli)
         new_longli=(ymc[this_day.Lmc]+"月"+rmc[this_day.Ldi]+"日")
-    print(hahhhh)
+
+    print(hahhhh)   #星期几
 
 
 
@@ -59,6 +61,7 @@ def weather_report():
 
     for i in range(16):
         print(riqi[i],end="      ")
+        print(weekchn[d-1],end="      ");d=d+1
         print(tianqi[i].ljust(16-len(tianqi[i])),end=" ")
         print(wendu[i].ljust(15),end=" ")
         print(fenli[i].ljust(18-len(fenli[i])),end=" ")
@@ -92,42 +95,30 @@ def two_hour():
 
     back_up_url='https://api.caiyunapp.com/v2/96Ly7wgKGq6FhllM/120.4769,32.5131/weather.jsonp?hourlysteps=120'        #这是彩云天气的短时间预报
     jizhunshuju='这是用来比较是否更新的基础数据'
-    i=1
-
 
     while(1):
         time.sleep(50)
+
         response = urllib.request.urlopen(back_up_url)
         content = response.read().decode('unicode_escape')#打开要抓取的网页
-
         new_dict = json.loads(content)
         tianqiyubao=new_dict["result"]["forecast_keypoint"]
 
-
         if tianqiyubao != jizhunshuju:
             h=time.gmtime()#取现在的时间 标准格林时间 0
-            #test.tts.hahaha(tianqiyubao) #测试百度云tts
-            #print('现在时间：',h)  #time.struct_time(tm_year=2019, tm_mon=12, tm_mday=17, tm_hour=6, tm_min=37, tm_sec=41, tm_wday=1, tm_yday=351, tm_isdst=0)
             if 3<h[3]<6 :
-                #print('现在是免打扰时间。')
                 pass
             else: 
-                #print(tianqiyubao) 
                 print('')  
                 speak.Speak(tianqiyubao)
                 print(tianqiyubao)
-                print(str(datetime.datetime.now())[:19])
-                #print('小时=',h[3])	
-				
-            
+                print(str(datetime.datetime.now())[:19])	
+
             jizhunshuju=tianqiyubao
         else:
 
-            print(i,end=".")
-			
-			
+            print('~',end=".")
 
-        i=i+1
         time.sleep(300)#延时函数，多少秒进行一次查询
 
 
