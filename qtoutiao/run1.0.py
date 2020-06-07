@@ -11,8 +11,8 @@ from PIL import Image
 speak = win.Dispatch("SAPI.SpVoice")  
 speak.Rate=-1 
 #定义循环的次数
-loop_time_xiaoshiping = 1
-loop_time_video       = 1
+loop_time_xiaoshiping = 8
+loop_time_video       = 8
 loop_time_toutiao     = 7
 
 
@@ -69,10 +69,10 @@ def speak_and_print(command):
 
 def is_frist_page():#判断是否首页 返回一个元组  就是点击的坐标
     a=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',115,92)  #得到一个元组 (0, 0, 0, 255)
-    b=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',570,100)
+    b=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',560,100)
 
-    c=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',240,420)   #700
-    d=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',480,420)   #700
+    c=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',250,420)   #700
+    d=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',470,420)   #700
 
     #e=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',240,700)   
     #f=get_pixel_colour(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png',480,700) 
@@ -90,6 +90,7 @@ def is_frist_page():#判断是否首页 返回一个元组  就是点击的坐�
 def let_us_go(a=1):
     for i in range(loop_time_news):
         print('')
+
         if cheak_adb_link('adb shell input swipe 320 410 320 1000 500'):
             os.system('adb kill-server')
             cmd='手机链接出问题了，重新链接了一下。'
@@ -139,13 +140,17 @@ def let_us_go(a=1):
             chengong_or_shibai='失败'
             time.sleep(1)
             os.system('adb shell input keyevent BACK') 
+            time.sleep(3)
+            os.system('adb shell input keyevent BACK') 
             time.sleep(1)
             put_page_up()
             time.sleep(3)
 
         #speak_and_print('共{}次，{}结束第{}次'.format(loop_time_news,chengong_or_shibai,i+1))
         time.sleep(5)
-        os.system('adb shell input keyevent BACK') 
+        os.system('adb shell input keyevent BACK')
+        time.sleep(3)
+        os.system('adb shell input keyevent BACK')  
         time.sleep(5)
         #################################  下面要插入寻找的代码
 
@@ -212,13 +217,13 @@ def jrtt_kxs():   #头条看小说
 
     check(73,1235)#点击首页进行刷新
     time.sleep(5)
-#点击小说
+    #点击小说
     check(458,193)
     time.sleep(5)
-#点击封面
+    #点击封面
     check(107,714)
     time.sleep(5)
-#点击看小说的循环
+    #点击看小说的循环
     for i in range(25):
         for j in range(15):
             check(609,1125)#点击进行翻页
@@ -231,7 +236,7 @@ if __name__ == '__main__':
     os.system('adb devices')
     os.system('adb version')
     time.sleep(1)
-    check(104,126)
+    check(110,720)#点击图标
     time.sleep(20)
 
     qiandao()#签到
@@ -253,18 +258,16 @@ if __name__ == '__main__':
 
 
 
-    os.system('adb shell input keyevent BACK') 
-    time.sleep(0.2)
-    os.system('adb shell input keyevent BACK') 
+
+    time.sleep(2)
+    os.system('adb shell input keyevent 3') #点击home键
     time.sleep(5)
 
-    os.system('adb shell input keyevent BACK') 
-    time.sleep(0.2)
-    os.system('adb shell input keyevent BACK') 
+
 
 
     time.sleep(15)#增加两个程序切换之间的时间。
-    check(277,126)
+    check(270,720)#点击图标
     time.sleep(45)
     qiandao()#签到
     time.sleep(2)
@@ -280,9 +283,9 @@ if __name__ == '__main__':
     
 
 
-    os.system('adb shell input keyevent BACK') 
-    time.sleep(0.2)
-    os.system('adb shell input keyevent BACK') 
+    time.sleep(2)
+    os.system('adb shell input keyevent 3') #点击home键
+    time.sleep(5)
 
     # jrttkxs.init()#今日头条刷金币
     # jrttkxs.jrtt_kxs()#有一个小说定位的问题等待解决
@@ -297,28 +300,20 @@ if __name__ == '__main__':
     time.sleep(0.5)
     os.system('adb shell input keyevent BACK') 
 '''   
-#    print("程序执行完毕")
 
 
-'''   
-
-
-
-
-#print(imsch,imsrc)
-print(type(imsch))
-
-for j in imsch:
-    for i in j:
-        print('i=',i)
-
-print(ac.find_template(imsrc, imsch))
-#{'result': (165.0, 342.0), 'rectangle': ((5, 222), (5, 462), (325, 222), (325, 462)), 'confidence': 0.8480324745178223}
-'''
 
 #常用adb命令：
 #adb shell input swipe 320 410 320 1000 500  #滑动
 #adb shell input tap 100 200 #点击坐标
+
+#adb shell input keyevent BACK   #后退键
+
+#adb shell input keyevent 3    #模拟home按键 
+# or adb shell input keyevent HOME
+
+#adb shell input keyevent 82   #菜单键
+
 
 #截屏并且传输到电脑
 #adb shell screencap -p /sdcard/funtoutiao.png
@@ -330,13 +325,16 @@ print(ac.find_template(imsrc, imsch))
 #任务：505，1216
 #我的：648，1216
 
-#竖条：102，100
-#底色：570，100
+#不是竖条：102，100（变了）
+#底色：560，100
 
 #第二页的悬浮球：621，1091        这个位置是可以变化的
 
-#相对路径         还有视频（216，1216）（359，306）
+
+#在桌面上的位置 图标   y=720      x=110，270，450，？600
+
+#白条的取点的位置     (250,420)     (470,420)
 
 
-#下一步解决点击了我的图标之后发生的事情
+
 
