@@ -287,8 +287,8 @@ if __name__ == '__main__':
     os.system('adb shell input keyevent 3') #点击home键
     time.sleep(5)
 
-    # jrttkxs.init()#今日头条刷金币
-    # jrttkxs.jrtt_kxs()#有一个小说定位的问题等待解决
+    jrttkxs.init()#今日头条刷金币
+    jrttkxs.jrtt_kxs()#有一个小说定位的问题等待解决
 
 '''
     time.sleep(5)
