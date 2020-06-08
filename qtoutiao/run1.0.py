@@ -278,8 +278,7 @@ if __name__ == '__main__':
     shuaxiaoshiping(loop_time_xiaoshiping)#刷小视频
 
     time.sleep(5)
-    #check(648,1216) #点击我的图标
-    time.sleep(5)
+
     
 
 
@@ -288,23 +287,13 @@ if __name__ == '__main__':
     time.sleep(5)
 
     jrttkxs.init()#今日头条刷金币
-    jrttkxs.jrtt_kxs()#有一个小说定位的问题等待解决
+    jrttkxs.jrtt_kxs()
 
 
     time.sleep(2)
     os.system('adb shell input keyevent 3') #点击home键
     time.sleep(5)
 
-'''
-    time.sleep(5)
-    check(437,126)
-    time.sleep(20)
-    # print("开始今日头条刷金币")
-    # jin_ri_tou_tiao()#今日头条刷金币
-    os.system('adb shell input keyevent BACK') 
-    time.sleep(0.5)
-    os.system('adb shell input keyevent BACK') 
-'''   
 
 
 
