@@ -290,6 +290,11 @@ if __name__ == '__main__':
     jrttkxs.init()#今日头条刷金币
     jrttkxs.jrtt_kxs()#有一个小说定位的问题等待解决
 
+
+    time.sleep(2)
+    os.system('adb shell input keyevent 3') #点击home键
+    time.sleep(5)
+
 '''
     time.sleep(5)
     check(437,126)

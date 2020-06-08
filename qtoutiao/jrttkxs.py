@@ -44,6 +44,7 @@ def jrtt_kxs():   #头条看小说
     #点击封面
     check(107,714)
     time.sleep(5)
+    check(360,650)#中间点一下
     #点击看小说的循环
     for i in range(25):
         for j in range(15):
