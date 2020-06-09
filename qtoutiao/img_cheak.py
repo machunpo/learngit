@@ -1,9 +1,6 @@
 import aircv as ac
 import os
 
-
-
-
 #函数功能：截屏并发送到电脑的指定目录
 #输入参数：dizhi 文件目录的相对地址
 #输出参数：无
@@ -31,5 +28,5 @@ def img_cheak(img_scr,img_arry):
 
 if __name__ == '__main__':
 
-    pull_screenshot('qtoutiao/img')
+    #pull_screenshot('qtoutiao/img')
     print(img_cheak('qtoutiao/img/cut_img.png',['qtoutiao\img\pic1.png','qtoutiao\img\pic2.png']))
