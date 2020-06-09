@@ -29,6 +29,9 @@ def bjtx():
         if rult['confidence']>0.9 :
             check(360,1000)#点击按钮看视频（关闭界面）
             time.sleep(3)
+            #
+            #
+            #
             print(rult)
         else:
             print('相似度有点低啊！')
