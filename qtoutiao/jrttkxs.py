@@ -42,6 +42,13 @@ def bjtx():
 
 
 def jrtt_kxs():   #头条看小说
+    print('开始头条看小说')
+    time.sleep(5)
+    os.system('adb shell input keyevent BACK')
+    time.sleep(5)
+    os.system('adb shell input keyevent BACK')  
+    time.sleep(5)
+
     time.sleep(5)
     os.system('adb shell input swipe 600 410 220 410 100')  #//从 600 410 经历0.1秒滑动到 220 410  手指向左滑
     time.sleep(5)
@@ -69,6 +76,8 @@ def get_out():
 
 if __name__ == '__main__':
     init()
+
+
     jrtt_kxs()
 
     get_out()

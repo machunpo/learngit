@@ -237,7 +237,7 @@ if __name__ == '__main__':
     os.system('adb version')
     time.sleep(1)
     check(110,720)#点击图标
-    time.sleep(20)
+    time.sleep(35)
 
     qiandao()#签到
     time.sleep(2)
@@ -290,9 +290,9 @@ if __name__ == '__main__':
     jrttkxs.jrtt_kxs()
 
 
-    time.sleep(2)
-    os.system('adb shell input keyevent 3') #点击home键
-    time.sleep(5)
+    #time.sleep(2)
+    #os.system('adb shell input keyevent 3') #点击home键
+    #time.sleep(5)
 
 
 
