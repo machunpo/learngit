@@ -21,6 +21,7 @@ def init():   #初始化
     time.sleep(20)
 
 def bjtx():
+    kspzljb=(350,780)
     pull_screenshot()
     imsrc1 = ac.imread(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png') # 原始图像
     rult=ac.find_template(imsrc1, imsch2)#原始图像  ，   待查找的图像
@@ -29,10 +30,10 @@ def bjtx():
         if rult['confidence']>0.9 :
             check(360,1000)#点击按钮看视频（关闭界面）
             time.sleep(3)
-            os.system(r'adb pull /sdcard/funtoutiao.png  C:\Users\machunpo\Desktop')#把图片发到桌面，临时处理
-            #check(x,y)#点击**看视频
-            #time.sleep(30)
-            #os.system('adb shell input keyevent BACK') #maybe
+            #os.system(r'adb pull /sdcard/funtoutiao.png  C:\Users\machunpo\Desktop')#把图片发到桌面，临时处理
+            check(kspzljb)#点击**看视频再领金币
+            time.sleep(40)
+            os.system('adb shell input keyevent BACK')
             print(rult)
         else:
             print('相似度有点低啊！')
@@ -65,12 +66,6 @@ def jrtt_kxs():   #头条看小说
             time.sleep(2)
         bjtx()
 
-        
-'''        check(360,1000)#解决额外奖励的问题
-        time.sleep(15)
-        os.system('adb shell input keyevent BACK') 
-        time.sleep(5)
-'''
 def get_out():
     os.system('adb shell input keyevent BACK') 
 
@@ -82,4 +77,10 @@ if __name__ == '__main__':
 
     get_out()
     os.system('adb shell input keyevent BACK') 
-    #可以正常使用了  
+
+
+
+
+
+
+    #下面开始开宝箱
