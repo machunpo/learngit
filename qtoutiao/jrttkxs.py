@@ -29,14 +29,15 @@ def bjtx():
         if rult['confidence']>0.9 :
             check(360,1000)#点击按钮看视频（关闭界面）
             time.sleep(3)
-            #
-            #
-            #
+            #check(x,y)#点击**看视频
+            #time.sleep(30)
             print(rult)
         else:
             print('相似度有点低啊！')
     else:
         print('没有找到看视频按钮！')
+
+
 
 def jrtt_kxs():   #头条看小说
     time.sleep(5)
