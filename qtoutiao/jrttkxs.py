@@ -21,17 +21,17 @@ def init():   #初始化
     time.sleep(20)
 
 def bjtx():
-    kspzljb=(350,780)
+    
     pull_screenshot()
     imsrc1 = ac.imread(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png') # 原始图像
     rult=ac.find_template(imsrc1, imsch2)#原始图像  ，   待查找的图像
     #print(rult)
     if(rult):
         if rult['confidence']>0.9 :
-            check(360,1000)#点击按钮看视频（关闭界面）
+            #check(360,1000)#点击按钮看视频（关闭界面）
             time.sleep(3)
             #os.system(r'adb pull /sdcard/funtoutiao.png  C:\Users\machunpo\Desktop')#把图片发到桌面，临时处理
-            check(kspzljb)#点击**看视频再领金币
+            check(350,780)#点击**看视频再领金币
             time.sleep(40)
             os.system('adb shell input keyevent BACK')
             print(rult)

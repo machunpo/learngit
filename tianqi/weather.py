@@ -20,7 +20,7 @@ def weather_report():
 
     d=datetime.date.weekday(datetime.date.today())         #添加星期几的功能
 
-    print(d)
+    #print(d)
 
     hahhhh=weekchn[d]
     ldkkdj=datetime.datetime.now()
