@@ -31,6 +31,7 @@ def bjtx():
             time.sleep(3)
             #check(x,y)#点击**看视频
             #time.sleep(30)
+            #os.system('adb shell input keyevent BACK') #maybe
             print(rult)
         else:
             print('相似度有点低啊！')
