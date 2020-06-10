@@ -289,6 +289,8 @@ if __name__ == '__main__':
     jrttkxs.init()#今日头条刷金币
     jrttkxs.jrtt_kxs()
 
+    input()
+
 
     #time.sleep(2)
     #os.system('adb shell input keyevent 3') #点击home键
