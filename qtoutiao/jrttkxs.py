@@ -19,6 +19,7 @@ def init():   #初始化
     time.sleep(5)
     check(450,720)   #点击今日头条的图标启动app
     time.sleep(20)
+    print('初始化已经完成。')
 
 def bjtx():
     
@@ -43,21 +44,22 @@ def bjtx():
 
 
 def jrtt_kxs():   #头条看小说
-    print('开始头条看小说')
     time.sleep(5)
+    print('开始头条看小说')
     os.system('adb shell input keyevent BACK')
     time.sleep(5)
     os.system('adb shell input keyevent BACK')  
     time.sleep(5)
-
+    print('左滑开始')
     time.sleep(5)
-    os.system('adb shell input swipe 600 410 220 410 100')  #//从 600 410 经历0.1秒滑动到 220 410  手指向左滑
-    time.sleep(5)
-    os.system('adb shell input swipe 600 410 220 410 100')  #//从 600 410 经历0.1秒滑动到 220 410  手指向左滑
-    time.sleep(5)
+    os.system('adb shell input swipe 600 410 220 410 300')  #//从 600 410 经历0.3秒滑动到 220 410  手指向左滑
+    time.sleep(10)
+    os.system('adb shell input swipe 600 410 220 410 300')  #//从 600 410 经历0.3秒滑动到 220 410  手指向左滑
+    time.sleep(10)
     #点击封面
     check(107,714)
     time.sleep(5)
+    print('中间点一下。')
     check(360,650)#中间点一下
     #点击看小说的循环
     for i in range(25):
@@ -68,6 +70,14 @@ def jrtt_kxs():   #头条看小说
 
 def get_out():
     os.system('adb shell input keyevent BACK') 
+
+
+def kai_baoxiang():
+    time.sleep(10)
+    #check(,)
+    time.sleep(40)
+    os.system('adb shell input keyevent BACK') 
+    pass
 
 if __name__ == '__main__':
     init()
