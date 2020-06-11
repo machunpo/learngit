@@ -99,14 +99,14 @@ def kai_baoxiang():
 
     #检测是不是第一次打开  图片检测
     pull_screenshot()
-    img_arry=img_cheak(img_scr,img_arry);print(img_arry)
+    '''img_arry=img_cheak(img_scr,img_arry);print(img_arry)
         if img_arry[0]:#这里做只有一个来考虑
             if img_arry[0]['confidence']>0.9:
                 pass
 
 
 
-
+'''
 
     time.sleep(10)
     #check(,)
@@ -121,14 +121,14 @@ if __name__ == '__main__':
 
     init()#初始化
 
-    kai_baoxiang()#进行开宝箱的操作
+    #kai_baoxiang()#进行开宝箱的操作
 
     jrtt_kxs()
 
     get_out()
     os.system('adb shell input keyevent BACK') 
 
-    kai_baoxiang()#进行开宝箱的操作
+    #kai_baoxiang()#进行开宝箱的操作
 
 
 
