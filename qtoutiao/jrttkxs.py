@@ -46,15 +46,14 @@ def bjtx():
 def jrtt_kxs():   #头条看小说
     time.sleep(5)
     print('开始头条看小说')
-    os.system('adb shell input keyevent BACK')
-    time.sleep(5)
+
     os.system('adb shell input keyevent BACK')  
     time.sleep(5)
     print('左滑开始')
     time.sleep(5)
     os.system('adb shell input swipe 600 410 220 410 300')  #//从 600 410 经历0.3秒滑动到 220 410  手指向左滑
     time.sleep(10)
-    os.system('adb shell input swipe 600 410 220 410 300')  #//从 600 410 经历0.3秒滑动到 220 410  手指向左滑
+    os.system('adb shell input swipe 600 510 220 500 300')  
     time.sleep(10)
     #点击封面
     check(107,714)
@@ -133,6 +132,7 @@ if __name__ == '__main__':
 
 
     #下面开始开宝箱
+    #开头有个问题
 
 
 
