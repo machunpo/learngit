@@ -52,14 +52,15 @@ def jrtt_kxs():   #头条看小说
     print('左滑开始')
     time.sleep(5)
     os.system('adb shell input swipe 600 410 220 410 300')  #//从 600 410 经历0.3秒滑动到 220 410  手指向左滑
-    time.sleep(10)
-    os.system('adb shell input swipe 600 510 220 500 300')  
-    time.sleep(10)
+    time.sleep(15)
+    os.system('adb shell input swipe 600 500 120 500 500')  
+    time.sleep(15)
     #点击封面
     check(107,714)
-    time.sleep(5)
+    time.sleep(15)
     print('中间点一下。')
     check(360,650)#中间点一下
+    time.sleep(2)
     #点击看小说的循环
     for i in range(25):
         for j in range(15):
