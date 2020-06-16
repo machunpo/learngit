@@ -19,6 +19,11 @@ loop_time_toutiao     = 7
 
 loop_time_news=int(input('请输入要运行的次数：'))
 
+
+def pull_screenshot():
+        os.system('adb shell screencap -p /sdcard/funtoutiao.png')
+        os.system(r'adb pull /sdcard/funtoutiao.png  C:\Users\machunpo\Desktop\myimages')
+
 def put_page_up():
     os.system('adb shell input swipe 320 410 320 1000 500')  #//从 320 410 经历0.5秒滑动到 320 1000  手指向下滑
 
@@ -104,8 +109,7 @@ def let_us_go(a=1):
         time.sleep(5)#等待顶部的更新条消失
         check(72,1216)#点击刷新：72，1216
         time.sleep(7)#等待顶部的更新条消失
-        os.system('adb shell screencap -p /sdcard/funtoutiao.png')
-        os.system(r'adb pull /sdcard/funtoutiao.png  C:\Users\machunpo\Desktop\myimages')
+        pull_screenshot()     
         time.sleep(3)
 
         temp=is_frist_page()
@@ -155,7 +159,7 @@ def let_us_go(a=1):
         time.sleep(5)
         #################################  下面要插入寻找的代码
 
-        jrttkxs.pull_screenshot()
+        pull_screenshot()
         imsrc = ac.imread(r'C:\Users\machunpo\Desktop\myimages\funtoutiao.png') # 原始图像 
 
 
