@@ -291,9 +291,13 @@ if __name__ == '__main__':
     os.system('adb shell input keyevent 3') #点击home键
     time.sleep(5)
 
-    jrttkxs1.kaishikanxiaoshuo.init()
+
     #今日头条刷金币
-    jrttkxs1.kaishikanxiaoshuo.jrtt_kxs()
+
+    kaishikanxiaoshuo=jrttkxs1.kan_xiao_shuo()
+
+    kaishikanxiaoshuo.init()
+    kaishikanxiaoshuo.jrtt_kxs()
 
     input()
 
