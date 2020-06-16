@@ -71,6 +71,7 @@ class kan_xiao_shuo:
 
 
 if __name__ == "__main__":
+    
     kaishikanxiaoshuo=kan_xiao_shuo()
 
     kaishikanxiaoshuo.init()
