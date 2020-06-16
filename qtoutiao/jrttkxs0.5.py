@@ -16,6 +16,7 @@ class kan_xiao_shuo:
     zhong_jian = (360, 650)   # 屏幕 de中间
     fan_ye     = (690, 80)    # 进行翻页 de的坐标
     ksp_ljb    = (350, 780)   #看视频再领金币  de的坐标
+    imsch2     = ac.imread(r'qtoutiao\img\$.png')  # 带查找的部分
 
     def __init__(self): #构造函数
         pass
@@ -33,11 +34,11 @@ class kan_xiao_shuo:
         os.system(r'adb pull /sdcard/jinbi.png  qtoutiao\img\ ') #下面要测试这条指令
 
         imsrc1 = ac.imread(r'qtoutiao\img\jinbi.png')  # 原始图像
-        rult = ac.find_template(imsrc1, imsch2)  # 原始图像  ，   待查找的图像
+        rult = ac.find_template(imsrc1, self.imsch2)  # 原始图像  ，   待查找的图像  
         if(rult):
             if rult['confidence'] > 0.9:
                 time.sleep(3)
-                check(ksp_ljb)  # 点击**看视频再领金币
+                check(self.ksp_ljb)  # 点击**看视频再领金币
                 time.sleep(40)
                 os.system('adb shell input keyevent BACK')
                 print(rult)
@@ -66,7 +67,7 @@ class kan_xiao_shuo:
             for j in range(15):
                 check(kan_xiao_shuo.fan_ye)  # 点击进行翻页
                 time.sleep(2)
-            #self.jljc()
+            self.jljc()
             
 
 
@@ -76,3 +77,5 @@ if __name__ == "__main__":
 
     kaishikanxiaoshuo.init()
     kaishikanxiaoshuo.jrtt_kxs()
+
+    #下一步是检测开头的升级提示  或者把手机上的升级给关了。
