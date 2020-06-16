@@ -15,6 +15,7 @@ class kan_xiao_shuo:
     fen_mian   = (100, 973)   # 小说的封面 de坐标
     zhong_jian = (360, 650)   # 屏幕 de中间
     fan_ye     = (690, 80)    # 进行翻页 de的坐标
+    ksp_ljb    = (350, 780)   #看视频再领金币  de的坐标
 
     def __init__(self): #构造函数
         pass
@@ -29,15 +30,14 @@ class kan_xiao_shuo:
     def jljc(self):#奖励检测
 
         os.system('adb shell screencap -p /sdcard/jinbi.png')
-        os.system(r'adb pull /sdcard/jinbi.png  C:\Users\machunpo\Desktop\myimages')#下面要测试这条指令
+        os.system(r'adb pull /sdcard/jinbi.png  qtoutiao\img\ ') #下面要测试这条指令
 
-        imsrc1 = ac.imread(r'C:\Users\machunpo\Desktop\myimages\jinbi.png')  # 原始图像
+        imsrc1 = ac.imread(r'qtoutiao\img\jinbi.png')  # 原始图像
         rult = ac.find_template(imsrc1, imsch2)  # 原始图像  ，   待查找的图像
-        # print(rult)
         if(rult):
             if rult['confidence'] > 0.9:
                 time.sleep(3)
-                check(350, 780)  # 点击**看视频再领金币
+                check(ksp_ljb)  # 点击**看视频再领金币
                 time.sleep(40)
                 os.system('adb shell input keyevent BACK')
                 print(rult)
@@ -66,7 +66,8 @@ class kan_xiao_shuo:
             for j in range(15):
                 check(kan_xiao_shuo.fan_ye)  # 点击进行翻页
                 time.sleep(2)
-            #kan_xiao_shuo.jljc()
+            #self.jljc()
+            
 
 
 if __name__ == "__main__":
