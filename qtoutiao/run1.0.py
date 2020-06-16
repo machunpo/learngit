@@ -1,7 +1,7 @@
 import os
 import time
 
-import jrttkxs
+import jrttkxs1
 
 import aircv as ac
 import win32com.client as win
@@ -82,7 +82,7 @@ def is_frist_page():#判断是否首页 返回一个元组  就是点击的坐�
     if (a==(243, 247, 246, 255)) & (b==(243, 247, 246, 255)):#检测搜索栏的首页特征
         if (c==(255, 255, 255, 255)) & (d==(255, 255, 255, 255)):#检测图片中间的两条白色竖线
             #print('这是状态1')
-            return (350,420)   #700
+            return (350,390)   #700
 
     else:
         return False
@@ -104,7 +104,8 @@ def let_us_go(a=1):
         time.sleep(5)#等待顶部的更新条消失
         check(72,1216)#点击刷新：72，1216
         time.sleep(7)#等待顶部的更新条消失
-        jrttkxs.pull_screenshot()
+        os.system('adb shell screencap -p /sdcard/funtoutiao.png')
+        os.system(r'adb pull /sdcard/funtoutiao.png  C:\Users\machunpo\Desktop\myimages')
         time.sleep(3)
 
         temp=is_frist_page()
@@ -286,8 +287,8 @@ if __name__ == '__main__':
     os.system('adb shell input keyevent 3') #点击home键
     time.sleep(5)
 
-    jrttkxs.init()#今日头条刷金币
-    jrttkxs.jrtt_kxs()
+    jrttkxs1.init()#今日头条刷金币
+    jrttkxs1.jrtt_kxs()
 
     input()
 

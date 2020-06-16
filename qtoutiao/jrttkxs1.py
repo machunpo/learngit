@@ -36,6 +36,7 @@ class kan_xiao_shuo:
         imsrc1 = ac.imread(r'qtoutiao\img\jinbi.png')  # 原始图像
         rult = ac.find_template(imsrc1, self.imsch2)  # 原始图像  ，   待查找的图像  
         if(rult):
+            
             if rult['confidence'] > 0.9:
                 time.sleep(3)
                 check(self.ksp_ljb)  # 点击**看视频再领金币
@@ -46,6 +47,8 @@ class kan_xiao_shuo:
                 print('相似度有点低啊！')
         else:
             print('没有找到看视频按钮！')
+
+        os.system(r'del qtoutiao\img\jinbi.png')   #为了git 而删除
 ######################################################################################################            
 
     def jrtt_kxs(self):  # 头条看小说
@@ -68,7 +71,7 @@ class kan_xiao_shuo:
                 check(kan_xiao_shuo.fan_ye)  # 点击进行翻页
                 time.sleep(2)
             self.jljc()
-            
+        os.system('adb shell input keyevent BACK')    
 
 
 if __name__ == "__main__":
