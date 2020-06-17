@@ -16,6 +16,7 @@ class kan_xiao_shuo:
     zhong_jian = (360, 650)   # 屏幕 de中间
     fan_ye     = (690, 80)    # 进行翻页 de的坐标
     ksp_ljb    = (350, 780)   #看视频再领金币  de的坐标
+
     imsch2     = ac.imread(r'qtoutiao\img\$.png')  # 带查找的部分
 
     def __init__(self): #构造函数
@@ -31,9 +32,9 @@ class kan_xiao_shuo:
     def jljc(self):#奖励检测
 
         os.system('adb shell screencap -p /sdcard/jinbi.png')
-        os.system(r'adb pull /sdcard/jinbi.png  qtoutiao\img\ ') #下面要测试这条指令
+        os.system(r'adb pull /sdcard/jinbi.png  ..\temp\ ') #下面要测试这条指令
 
-        imsrc1 = ac.imread(r'qtoutiao\img\jinbi.png')  # 原始图像
+        imsrc1 = ac.imread(r'..\temp\jinbi.png')  # 原始图像
         rult = ac.find_template(imsrc1, self.imsch2)  # 原始图像  ，   待查找的图像  
         if(rult):
             
@@ -48,7 +49,7 @@ class kan_xiao_shuo:
         else:
             print('没有找到看视频按钮！')
 
-        os.system(r'del qtoutiao\img\jinbi.png')   #为了git 而删除
+        #os.system(r'del qtoutiao\img\jinbi.png')   #为了git 而删除
 ######################################################################################################            
 
     def jrtt_kxs(self):  # 头条看小说
@@ -79,6 +80,10 @@ if __name__ == "__main__":
     kaishikanxiaoshuo=kan_xiao_shuo()
 
     kaishikanxiaoshuo.init()
+
+
+
+
     kaishikanxiaoshuo.jrtt_kxs()
 
-    #下一步是检测开头的升级提示  或者把手机上的升级给关了。
+    #下一步是检测开头的升级提示
