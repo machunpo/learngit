@@ -185,6 +185,7 @@ def qiandao():#签到  点击任务图标
     check(505,1216)
     print('签到了')
     time.sleep(3)
+    os.system('adb shell input keyevent BACK')
     
 
 def shuaxiaoshiping(i):#刷小视频
@@ -298,7 +299,7 @@ if __name__ == '__main__':
 
     kaishikanxiaoshuo.init()
     kaishikanxiaoshuo.jrtt_kxs()
-
+    print('over please press enter')
     input()
 
 
