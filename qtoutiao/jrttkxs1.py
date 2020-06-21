@@ -1,5 +1,6 @@
 import os
 import time
+import random
 import aircv as ac
 
 
@@ -12,7 +13,10 @@ class kan_xiao_shuo:
 
     tu_biao    = (450, 720)   # 今日头条的图标 de坐标
     wo_de      = (657, 1224)  # 我的 de 坐标
-    fen_mian   = (100, 973)   # 小说的封面 de坐标
+    fen_mian_1   = (100, 973)   # 小说的封面 de坐标
+    fen_mian_2   = (220, 973)
+    fen_mian_3   = (360, 973)
+    fen_mian_4   = (530, 973)
     zhong_jian = (360, 650)   # 屏幕 de中间
     fan_ye     = (690, 80)    # 进行翻页 de的坐标
     ksp_ljb    = (350, 780)   #看视频再领金币  de的坐标
@@ -26,6 +30,7 @@ class kan_xiao_shuo:
         time.sleep(5)
         check(kan_xiao_shuo.tu_biao)  # 点击今日头条的图标启动app
         time.sleep(20)
+        os.system('adb shell input keyevent BACK')
         print('初始化已经完成。')
 
 #############################################################################################################
@@ -59,7 +64,7 @@ class kan_xiao_shuo:
         check(kan_xiao_shuo.wo_de)  # 点击我的
         time.sleep(15)
 
-        check(kan_xiao_shuo.fen_mian)  # 点击封面
+        check(random.choice((kan_xiao_shuo.fen_mian_1,kan_xiao_shuo.fen_mian_2,kan_xiao_shuo.fen_mian_3,kan_xiao_shuo.fen_mian_4)))  # 点击封面
         time.sleep(15)
 
         print('中间点一下。')
