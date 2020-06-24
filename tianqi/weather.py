@@ -46,12 +46,13 @@ def weather_report():
 
     response = urllib.request.urlopen(url)
     content = response.read().decode('utf-8')
-    
+    #print(content)
 
-    content=extract(content,'<a class="five-days-item work-bg " href="javascript:void(0)">','<div class="ad-box">')
+    content=extract(content,'<a class="five-days-item work-bg" href="javascript:void(0)" >','<div class="ad-box">')
+    #         #<a class="five-days-item work-bg" href="javascript:void(0)" > , <div class="ad-box">
     content=content[0]
-
-    riqi=extract(content,r'<em class="five-date">','</em>')
+    #print(content) 
+    riqi=extract(content,r'<span class="day-date">','<em')
     tianqi=extract(content,'<em class="how-day">','</em>')
     wendu=extract(content,'<span class="tem-show">','</span>')
     fenli=extract(content,'<span class="home-day">','</span>')
