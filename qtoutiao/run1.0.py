@@ -274,7 +274,7 @@ if __name__ == '__main__':
 
     time.sleep(15)#增加两个程序切换之间的时间。
     check(270,720)#点击图标
-    time.sleep(45)
+    time.sleep(60)
     qiandao()#签到
     time.sleep(2)
     let_us_go(2)
