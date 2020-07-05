@@ -243,7 +243,7 @@ if __name__ == '__main__':
     os.system('adb version')
     time.sleep(1)
     check(110,720)#点击图标
-    time.sleep(35)
+    time.sleep(60)#等待60秒
 
     qiandao()#签到
     time.sleep(2)
