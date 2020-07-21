@@ -45,9 +45,10 @@ class kan_xiao_shuo:
             
             if rult['confidence'] > 0.9:
                 time.sleep(3)
-                check(self.ksp_ljb)  # 点击**看视频再领金币
-                time.sleep(40)
+                #check(self.ksp_ljb)  # 点击**看视频再领金币
+                #time.sleep(40)
                 os.system('adb shell input keyevent BACK')
+                time.sleep(10)
                 print(rult)
             else:
                 print('相似度有点低啊！')
