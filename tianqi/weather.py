@@ -11,7 +11,7 @@ lunar = sxtwl.Lunar()  #实例化日历库
 
 speak = win.Dispatch("SAPI.SpVoice")  #增加语音播报的模块
 speak.Rate=-1      #说话速度 -10到10
-url='https://tianqi.2345.com/haian/70445.htm'
+url='https://tianqi.2345.com/third-70445.htm'#需要改成七天的天气
 ymc = ["十一", "腊", "正", "二", "三", "四", "五", "六", "七", "八", "九", "十" ]
 rmc = ["初一", "初二", "初三", "初四", "初五", "初六", "初七", "初八", "初九", "初十", "十一", "十二", "十三", "十四", "十五", "十六", "十七", "十八", "十九", "二十", "二十一", "二十二", "二十三", "二十四", "二十五", "二十六", "二十七", "二十八", "二十九", "三十", "卅一"]
 weekchn=['星期一','星期二','星期三','星期四','星期五','星期六','星期日','星期一','星期二','星期三','星期四','星期五','星期六','星期日','星期一','星期二','星期三','星期四','星期五','星期六','星期天']
@@ -48,12 +48,13 @@ def weather_report():
     content = response.read().decode('utf-8')
     #print(content)
 
-    content=extract(content,'<a class="five-days-item work-bg" href="javascript:void(0)" >','<div class="ad-box">')
-    #         #<a class="five-days-item work-bg" href="javascript:void(0)" > , <div class="ad-box">
+    content=extract(content,'<!-- 15天的图表 -->','<!-- 15天的图表  end -->')
     content=content[0]
+
     #print(content) 
-    riqi=extract(content,r'<span class="day-date">','<em')
-    tianqi=extract(content,'<em class="how-day">','</em>')
+
+    riqi=extract(content,'<em>0','<em')
+    tianqi=extract(content,'<font>','</font>')
     wendu=extract(content,'<span class="tem-show">','</span>')
     fenli=extract(content,'<span class="home-day">','</span>')
     kongqizhilian=extract(content,'<span class="status wea','</span>')
