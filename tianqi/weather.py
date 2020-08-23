@@ -48,20 +48,22 @@ def weather_report():
     content = response.read().decode('utf-8')
     #print(content)
 
-    content=extract(content,'<!-- 15天的图表 -->','<!-- 15天的图表  end -->')
+    content=extract(content,'class=" shady-bg yesterday"','<div class="seven-echart">')
     content=content[0]
 
     #print(content) 
 
-    riqi=extract(content,'<em>0','<em')
-    tianqi=extract(content,'<font>','</font>')
+    riqi=extract(content,'<em>','</em>')
+    tianqi=extract(content,'<i>','</i>')
     wendu=extract(content,'<span class="tem-show">','</span>')
-    fenli=extract(content,'<span class="home-day">','</span>')
-    kongqizhilian=extract(content,'<span class="status wea','</span>')
+    fenli=extract(content,'<span class="wind-name">','</span>')
+    kongqizhilian=extract(content,'<span class="wea-qulity">','</span>')
+
+    #print(riqi)
 
     print('');print('');print('')
 
-    for i in range(16):
+    for i in range(8):
         print(riqi[i],end="      ")
         print(weekchn[d-1],end="      ");d=d+1
         print(tianqi[i].ljust(16-len(tianqi[i])),end=" ")
@@ -81,7 +83,7 @@ def weather_report():
         print12=(kongqizhilian[1][-1:])
 
     yuyinbobao='今天是'+str(riqi[1].replace('/','月'))+'日'+'。。'+hahhhh+'。。'+'农历：'+longli+'。。'+'天气' + str(tianqi[1]) +'。。  '+fenli[1]+'。。  '+'气温'+str(wendu[1].replace('~','到'))+'。。  '+'空气质量'+print12
-    #print(yuyinbobao)
+    print(yuyinbobao)
     speak.Speak(yuyinbobao)
 
     al=input()+"，，，，，，，，"
