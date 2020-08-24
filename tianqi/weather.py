@@ -48,12 +48,13 @@ def weather_report():
     content = response.read().decode('utf-8')
     #print(content)
 
-    content=extract(content,'class=" shady-bg yesterday"','<div class="seven-echart">')
+    content=extract(content,'seven-day-item yes','<div class="seven-echart">')
     content=content[0]
 
     #print(content) 
 
     riqi=extract(content,'<em>','</em>')
+    #print(riqi)
     tianqi=extract(content,'<i>','</i>')
     wendu=extract(content,'<span class="tem-show">','</span>')
     fenli=extract(content,'<span class="wind-name">','</span>')
@@ -83,7 +84,7 @@ def weather_report():
         print12=(kongqizhilian[1][-1:])
 
     yuyinbobao='今天是'+str(riqi[1].replace('/','月'))+'日'+'。。'+hahhhh+'。。'+'农历：'+longli+'。。'+'天气' + str(tianqi[1]) +'。。  '+fenli[1]+'。。  '+'气温'+str(wendu[1].replace('~','到'))+'。。  '+'空气质量'+print12
-    print(yuyinbobao)
+    #print(yuyinbobao)
     speak.Speak(yuyinbobao)
 
     al=input()+"，，，，，，，，"
