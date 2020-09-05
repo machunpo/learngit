@@ -15,6 +15,7 @@ loop_time_xiaoshiping = 8
 loop_time_video = 8
 loop_time_toutiao = 7
 
+hahahaha=((290, 181),(0,0),(0,0))  #暂时不会使用的变量
 
 loop_time_news = int(input('请输入要运行的次数：'))
 
@@ -105,7 +106,7 @@ def is_frist_page():  # 判断是否首页 返回一个元组  就是点击的�
 
 def let_us_go(a=1):
     for i in range(loop_time_news):
-        print('')
+        print('   ')
 
         if cheak_adb_link('adb shell input swipe 320 410 320 1000 500'):
             os.system('adb kill-server')
@@ -119,6 +120,8 @@ def let_us_go(a=1):
         check(72, 1216)  # 点击刷新：72，1216
         time.sleep(5)  # 等待顶部的更新条消失
         check(72, 1216)  # 点击刷新：72，1216
+        time.sleep(7)  # 等待顶部的更新条消失
+        check(290, 181)  # 点击刷新：290.181、、  这是选择分类
         time.sleep(7)  # 等待顶部的更新条消失
         pull_screenshot()
         time.sleep(3)
