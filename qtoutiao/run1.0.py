@@ -296,7 +296,7 @@ if __name__ == '__main__':
     time.sleep(2)
     let_us_go(2)
 
-    #play_video(loop_time_video)
+    play_video(loop_time_video)  # 播放视频10分钟
 
     shuaxiaoshiping(loop_time_xiaoshiping)  # 刷小视频
 
