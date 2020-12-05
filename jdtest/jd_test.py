@@ -22,7 +22,8 @@ def run():
         pyauto.moveTo(pyauto.locateOnScreen( pic_path + 'sqsy.png' ))
         pyauto.click()
         pyauto.moveTo(10,10)                                           #移走150
-'''    elif (pyauto.locateOnScreen( pic_path + 'bottom_null.png' )):      # button null
+        '''
+    elif (pyauto.locateOnScreen( pic_path + 'bottom_null.png' )):      # button null
         for i in range(flash_times):
             pyauto.hotkey('f5')
             time.sleep(5)# 延时3秒，用来等待刷新页面
@@ -33,8 +34,8 @@ def run():
                 break
             else:
                 pass # pyauto.hotkey('ctrl','w')
-        print('botton null')
-'''        
+        print('botton null')    '''
+
     elif (pyauto.locateOnScreen( pic_path + 'genduoshiyong.png' )):    # 查看更多试用
         pyauto.hotkey('ctrl','w')                                      # 关闭标签
         print('查看更多试用')
@@ -74,7 +75,7 @@ def run():
         if guanzhu_count > 4 :
             pyauto.hotkey('ctrl','w')
             guanzhu_count=0
-        else
+        else :
             pyauto.hotkey('f5')
             guanzhu_count=guanzhu_count+1
             print('未关注错误！',guanzhu_count)
