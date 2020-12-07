@@ -72,7 +72,7 @@ def run():
         print('京享值不符合要求！')
     
     elif (pyauto.locateOnScreen( pic_path + 'weiguanzhu.png' )):        # 用户未关注！
-        if guanzhu_count > 4 :
+        if guanzhu_count > 3 :
             pyauto.hotkey('ctrl','w')
             guanzhu_count=0
         else :
