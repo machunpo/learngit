@@ -7,17 +7,19 @@ loop_time=80                        #运行的次数
 pyauto.PAUSE=1                      #每次pyauto的延时
 pic_path='jdtest/pic/'              #图片的目录
 flash_times=5                       #刷新的次数
-guanzhu_count=0                     #关注刷新的次数
+#nonlocal guanzhu_count=0                   #关注刷新的次数
+
 
 def setup():
     print('屏幕分辨率：',pyauto.size())                                # 当前屏幕的分辨率
     print('当前目录  ：',os.getcwd() )
-    time.sleep(5)                  # 延时5秒，用来等待页面
+    time.sleep(5)                                                     # 延时5秒，用来等待页面
 
 def end():
     pyauto.moveTo(500,800)
 
 def run():
+    
     if (pyauto.locateOnScreen( pic_path + 'sqsy.png' )):               # 申请试用
         pyauto.moveTo(pyauto.locateOnScreen( pic_path + 'sqsy.png' ))
         pyauto.click()
@@ -72,13 +74,11 @@ def run():
         print('京享值不符合要求！')
     
     elif (pyauto.locateOnScreen( pic_path + 'dqyhwgzdp.png' )):        # 用户未关注！
-        if guanzhu_count > 3 :
-            pyauto.hotkey('ctrl','w')
-            guanzhu_count=0
-        else :
-            pyauto.hotkey('f5')
-            guanzhu_count=guanzhu_count+1
-            print('未关注错误！',guanzhu_count)
+
+
+        pyauto.hotkey('f5')
+
+        print('未关注错误！')
     #这里要增加没有关注的处理
 
 
@@ -101,6 +101,7 @@ if __name__ == '__main__':
     setup()
     print('setup is over！')
     for i in range(loop_time):            # 循环执行 loop-timer个页面
+
         run()
         if (pyauto.locateOnScreen( pic_path + 'tpydnw.png' )):        # 服务异常请稍后再试
             print('本次操作结束')
