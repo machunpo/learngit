@@ -7,7 +7,7 @@ loop_time=80                        #运行的次数
 pyauto.PAUSE=1                      #每次pyauto的延时
 pic_path='jdtest/pic/'              #图片的目录
 
-flash_times=5                       #刷新的次数
+flash_times=0                        #刷新的次数
 
 
 
@@ -18,14 +18,17 @@ def setup():
     print('pyauto.PAUSE =',pyauto.PAUSE)
     time.sleep(5)                                                         # 延时5秒，用来等待页面
 
+
+
 def end():
     
     pyauto.moveTo(500,800)
 
 def run():
+    time.sleep(2)
 
-    if (pyauto.locateOnScreen( pic_path + 'sqsy.png' )):                  # 申请试用
-        pyauto.moveTo(pyauto.locateOnScreen( pic_path + 'sqsy.png' ))
+    if (pyauto.locateOnScreen( pic_path + 'tstx.png' )):                  # 申请试用
+        pyauto.moveTo(pyauto.locateOnScreen( pic_path + 'tstx.png' ))
         pyauto.click()
         pyauto.moveTo(10,10)                                              #移走10
 
@@ -48,14 +51,32 @@ def run():
     elif (pyauto.locateOnScreen( pic_path + 'app.png' )):              # 需要app进行申请
         pyauto.hotkey('ctrl','w')
         print('需要app进行申请')
+
+    elif (pyauto.locateOnScreen( pic_path + 'sqsy.png' )):              # 特殊图形处理
+        pyauto.moveTo(pyauto.locateOnScreen( pic_path + 'sqsy.png' ))
+        pyauto.click()
+        print('特殊图形处理')
+        pyauto.moveTo(1000,810)
+
     else:
         pyauto.hotkey('f5')
+        global flash_times
+        flash_times=flash_times+1
+        if flash_times > 3 :
+            flash_times=0
+            break
+
+
+
 
 if __name__ == '__main__':
     
     setup()
+
     print('setup is over！')
     for i in range(loop_time): 
+
+            
         run()
 
     end()
