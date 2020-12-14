@@ -8,6 +8,7 @@ pyauto.PAUSE=1                      #每次pyauto的延时
 pic_path='jdtest/pic/'              #图片的目录
 
 flash_times=0                        #刷新的次数
+kill=0
 
 
 
@@ -23,6 +24,7 @@ def setup():
 def end():
     
     pyauto.moveTo(500,800)
+    print('程序结束')
 
 def run():
     time.sleep(2)
@@ -58,13 +60,17 @@ def run():
         print('特殊图形处理')
         pyauto.moveTo(1000,810)
 
+    elif (pyauto.locateOnScreen( pic_path + 'gzcglsx.png' )):              #关注超过了上限
+        print('关注超过了上限')
+        global kill
+        kill=1
+
+
     else:
         pyauto.hotkey('f5')
         global flash_times
         flash_times=flash_times+1
-        if flash_times > 3 :
-            flash_times=0
-            break
+
 
 
 
@@ -78,6 +84,13 @@ if __name__ == '__main__':
 
             
         run()
+        if flash_times > 3 :
+            flash_times=0
+            print('这是break')
+            break
+        if kill>0:
+            print('kill break')
+            break
 
     end()
-
+#关注超过了上限
