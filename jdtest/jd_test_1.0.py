@@ -34,14 +34,18 @@ def run():
         pyauto.click()
         pyauto.moveTo(10,10)                                              #移走10
 
+
     if (pyauto.locateOnScreen( pic_path + 'gzbsq.png' )):                 # 关注并申请
         pyauto.moveTo(pyauto.locateOnScreen( pic_path + 'gzbsq.png' ))
         pyauto.click()
         pyauto.moveTo(10,150)                                             #移走150
 
+
+
     if (pyauto.locateOnScreen( pic_path + 'sqcg.png' )):               # 申请成功
 
         pyauto.hotkey('ctrl','w')                                      # 关闭标签
+
 
     elif (pyauto.locateOnScreen( pic_path + 'genduoshiyong.png' )):    # 查看更多试用
         pyauto.hotkey('ctrl','w')                                      # 关闭标签
