@@ -94,6 +94,7 @@ def run():
 
     elif (pyauto.locateOnScreen( pic_path + 'gzcglsx.png' )):              #关注超过了上限
         print('关注超过了上限')
+        pyauto.hotkey('f5')
         quxiao_guanzhu()
 
 
