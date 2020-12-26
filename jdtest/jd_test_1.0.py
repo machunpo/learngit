@@ -19,6 +19,33 @@ def setup():
     print('pyauto.PAUSE =',pyauto.PAUSE)
     time.sleep(5)                                                         # 延时5秒，用来等待页面
 
+def quxiao_guanzhu():
+
+    if (pyauto.locateOnScreen( pic_path + 'wdjd.png' )):                  # 看看顶栏在不在
+
+        pyauto.moveTo(880,110)              #移动到我的京东 停留两秒
+        time.sleep(2)
+        pyauto.click(1023,187)         #点击我的关注
+        time.sleep(2)
+
+        pyauto.click(482,256)   #点击我关注的店铺
+
+        for i in range(8):
+            time.sleep(6)  # 延时6秒 用于开始的操作he刷新
+
+            pyauto.click(1380,370)#批量操作  1380  370
+            pyauto.click(1210,375)#全选      1210  375
+            pyauto.click(1300,375)#取消关注  1300  375
+            pyauto.click(780,600)#确定     780   600
+        
+        pyauto.hotkey('ctrl','w')                                      # 关闭标签
+
+
+
+    else:                                                     # 不在就刷新
+        pyauto.hotkey('f5')
+
+
 
 
 def end():
@@ -34,13 +61,14 @@ def run():
         pyauto.click()
         pyauto.moveTo(10,10)                                              #移走10
 
+    time.sleep(2)
 
     if (pyauto.locateOnScreen( pic_path + 'gzbsq.png' )):                 # 关注并申请
         pyauto.moveTo(pyauto.locateOnScreen( pic_path + 'gzbsq.png' ))
         pyauto.click()
         pyauto.moveTo(10,150)                                             #移走150
 
-
+    time.sleep(2)
 
     if (pyauto.locateOnScreen( pic_path + 'sqcg.png' )):               # 申请成功
 
@@ -66,8 +94,7 @@ def run():
 
     elif (pyauto.locateOnScreen( pic_path + 'gzcglsx.png' )):              #关注超过了上限
         print('关注超过了上限')
-        global kill
-        kill=1
+        quxiao_guanzhu()
 
 
     else:
@@ -88,13 +115,11 @@ if __name__ == '__main__':
 
             
         run()
-        if flash_times > 3 :
+        if flash_times > 5 :
             flash_times=0
             print('这是break')
             break
-        if kill>0:
-            print('kill break')
-            break
+
 
     end()
-#关注超过了上限
+
