@@ -117,10 +117,13 @@ if __name__ == '__main__':
             
         run()
         if flash_times > 5 :
+            print('flash_times=', flash_times)
             flash_times=0
             print('这是break')
             break
 
 
     end()
+
+    #蛋清用户未关注
 
