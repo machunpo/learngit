@@ -8,16 +8,17 @@ m=3
 while(1):
     for i in arry:
         if (m%i==0):
-            break
+            continue
         else:
             x=1
-    if x==1 :
-        arry.append(m)
-        print(m)
-    x=0
-    m=m+2
 
-    time.sleep(1)
+        if x==1 :
+            arry.append(m)
+            print(m)
+        x=0
+        m=m+2
+        print(arry)
+        time.sleep(1)
 
         
          
