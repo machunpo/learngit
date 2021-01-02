@@ -119,11 +119,11 @@ if __name__ == '__main__':
         if flash_times > 5 :
             print('flash_times=', flash_times)
             flash_times=0
-            print('这是break')
+            print('刷新超过了5次，break')
             break
 
 
     end()
 
-    #蛋清用户未关注
+    #当前用户未关注
 
