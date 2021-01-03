@@ -15,7 +15,7 @@ while(1):
 
     if x==1 :
         arry.append(m)
-        print(m)
+        #print(m)
     x=0
     m=m+2
     print(arry,m)
