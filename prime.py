@@ -15,12 +15,13 @@ while(1):
 
     if x==1 :
         arry.append(m)
-        #print(m)
+        print(m)
     x=0
     m=m+2
-    print(arry,m)
+    #print(arry,m)
     #time.sleep(1)
 
+#改进效率
         
          
 
