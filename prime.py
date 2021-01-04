@@ -1,6 +1,13 @@
 import time
 
-arry=[2,3]  #将来更改为从文件中倒入数组
+print("########################################################################################################")
+f = open('1.txt', 'r')
+print(f.readlines())
+for i in f.readlines():
+    print(i)
+f.close()
+print (arry)
+
 #x=0
 m=arry[-1]+2
 
