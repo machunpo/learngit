@@ -26,6 +26,9 @@ while(1):
     if x==1 :
         arry.append(m)
         print(m)
+        f = open('1.txt', 'a')
+        f.write(str(m)+'\n')
+        f.close()
         #time.sleep(1)
     x=0
     m=m+2
