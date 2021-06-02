@@ -3,7 +3,7 @@ import time
 import os
 import random
 
-loop_time=80                        #运行的次数
+loop_time=100                        #运行的次数
 pyauto.PAUSE=1                      #每次pyauto的延时
 pic_path='jdtest/pic/'              #图片的目录
 
@@ -25,7 +25,7 @@ def quxiao_guanzhu():
 
         pyauto.moveTo(880,110)              #移动到我的京东 停留两秒
         time.sleep(2)
-        pyauto.click(1023,187)         #点击我的关注
+        pyauto.click(1015,165)         #点击我的关注
         time.sleep(2)
 
         pyauto.click(482,256)   #点击我关注的店铺
@@ -86,6 +86,10 @@ def run():
         pyauto.hotkey('ctrl','w')
         print('需要app进行申请')
 
+    elif (pyauto.locateOnScreen( pic_path + 'zcg.png' )):              # 需要zcg进行申请
+        pyauto.hotkey('ctrl','w')
+        print('需要zcg进行申请')
+
     elif (pyauto.locateOnScreen( pic_path + 'sqsy.png' )):              # 特殊图形处理
         pyauto.moveTo(pyauto.locateOnScreen( pic_path + 'sqsy.png' ))
         pyauto.click()
@@ -97,6 +101,15 @@ def run():
         pyauto.hotkey('f5')
         quxiao_guanzhu()
 
+
+    elif (pyauto.locateOnScreen( pic_path + 'weiguanzhu.png' )):              # weiguanzhu.png
+
+        pyauto.hotkey('f5')
+        flash_2times=1
+        flash_2times=flash_2times+1
+        if flash_2times > 5 :
+            pyauto.hotkey('ctrl','w')
+            print('刷了五次未关注')
 
     else:
         pyauto.hotkey('f5')
