@@ -7,7 +7,6 @@
 #define DIO2 6
 
 TM1637 tm1637(CLK, DIO);
-
 TM1637 tm1637_second(CLK2, DIO2);
 
 int8_t TimeDisp[] = {0x08, 0x08, 0x08, 0x08};
