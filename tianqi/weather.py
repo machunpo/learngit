@@ -100,6 +100,7 @@ def two_hour():
 
     back_up_url='https://api.caiyunapp.com/v2/96Ly7wgKGq6FhllM/120.4769,32.5131/weather.jsonp?hourlysteps=120'        #这是彩云天气的短时间预报
     jizhunshuju='这是用来比较是否更新的基础数据'
+    print(back_up_url,jizhunshuju)
 
     while(1):
         time.sleep(50)
@@ -109,8 +110,11 @@ def two_hour():
         new_dict = json.loads(content)
         tianqiyubao=new_dict["result"]["forecast_keypoint"]
 
+        print(tianqiyubao)
+
         if tianqiyubao != jizhunshuju:
             h=time.gmtime()#取现在的时间 标准格林时间 0
+            print(h)
             if 3<h[3]<6 :
                 pass
             else: 
@@ -132,19 +136,22 @@ def two_hour():
 
 if __name__ == '__main__':
 
+    print('1123')
+    two_hour()
+
+    '''
     try:
         _thread.start_new_thread(two_hour,())
 
     except TypeError as e:
         print (e)    
    # _thread.start_new_thread(dizhena, ())
-    while 1:
+    #while 1:
 
-        weather_report()
+        #weather_report()
 
-    '''
     try:
         _thread.start_new_thread(weather_report)
     except:
         print ("Error: 无法启动线程")
-        '''
+    '''
