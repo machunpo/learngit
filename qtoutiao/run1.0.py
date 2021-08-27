@@ -328,6 +328,7 @@ if __name__ == '__main__':
 # adb shell input keyevent 3    #模拟home按键
 # or adb shell input keyevent HOME
 
+
 # adb shell input keyevent 82   #菜单键
 
 
