@@ -2,11 +2,21 @@
 import os
 import time
 
+icon_one = (157 , 832)
+icon_two = (411 , 832)
+
 
 def pull_screenshot():
     os.system('adb shell screencap -p /sdcard/todaytoutiao.png')
     os.system(r'adb pull /sdcard/todaytoutiao.png  C:\Users\machunpo\Desktop\myimages')
 
+def push_page_left():
+    
+    os.system('adb shell input swipe 833 1258  258  1258 500')
+
+def push_page_right():
+    
+    os.system('adb shell input swipe  258  1258 833 1258 500')
 
 def put_page_up():
     # //从 320 410 经历0.5秒滑动到 320 1000  手指向下滑
@@ -28,9 +38,14 @@ if __name__ == '__main__':
 
     os.system('adb devices')
     os.system('adb version')
-    time.sleep(1)
-    pull_screenshot()
     os.system('adb shell input keyevent HOME')
+    time.sleep(2)
+    check(icon_one[0],icon_one[1])
+    time.sleep(5)
+    push_page_left()
+
+    #pull_screenshot()
+    
 
 
 
@@ -58,3 +73,6 @@ if __name__ == '__main__':
 # 截屏并且传输到电脑
 # adb shell screencap -p /sdcard/funtoutiao.png
 # adb pull /sdcard/funtoutiao.png  C:\Users\machunpo\Desktop\myimages
+
+#竖坐标 157    411   661    921
+#横坐标 832   1123   1417   1699
