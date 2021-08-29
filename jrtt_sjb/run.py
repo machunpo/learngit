@@ -2,9 +2,12 @@
 import os
 import time
 
+
 icon_one = (157 , 832)
 icon_two = (411 , 832)
 
+reban_y=300
+reban_x=(560,690,820,950,1080,1210,1340)
 
 def pull_screenshot():
     os.system('adb shell screencap -p /sdcard/todaytoutiao.png')
@@ -43,6 +46,17 @@ if __name__ == '__main__':
     check(icon_one[0],icon_one[1])
     time.sleep(5)
     push_page_left()
+    time.sleep(5)
+
+    check(reban_y,reban_x[0])
+    time.sleep(5)
+    check(327,903)
+    time.sleep(5)
+
+    for i in range(10):
+        put_page_down()
+        time.sleep(10)
+
 
     #pull_screenshot()
     
