@@ -7,7 +7,7 @@ icon_one = (157 , 832)
 icon_two = (411 , 832)
 
 reban_y=300
-reban_x=(560,690,820,950,1080,1210,1340)
+reban_x=(560,690,820,955,1094,1240,1370,1500,1650,1782,1924,2045)
 
 def pull_screenshot():
     os.system('adb shell screencap -p /sdcard/todaytoutiao.png')
@@ -48,18 +48,31 @@ if __name__ == '__main__':
     push_page_left()
     time.sleep(5)
 
-    check(reban_y,reban_x[0])
-    time.sleep(5)
-    check(327,903)
-    time.sleep(5)
+    #pull_screenshot()
 
-    for i in range(10):
-        put_page_down()
-        time.sleep(10)
+    for i in range(11):                                
+        check(reban_y,reban_x[i])
+        time.sleep(5)
+        check(327,903)
+        time.sleep(5)
 
+        for i in range(13):
+            put_page_down()
+            time.sleep(10)
+
+        os.system('adb shell input keyevent BACK')
+        time.sleep(4)
+        os.system('adb shell input keyevent BACK')
+        time.sleep(4)
 
     #pull_screenshot()
-    
+    print(' ')
+    print(' ')
+    print(' ')
+    print(' ')
+    print(' ')
+    print(' ')
+    print(' ')
 
 
 
