@@ -44,6 +44,8 @@ if __name__ == '__main__':
     os.system('adb shell input keyevent HOME')
     time.sleep(2)
     check(icon_one[0],icon_one[1])
+
+    
     time.sleep(5)
     push_page_left()
     time.sleep(5)
