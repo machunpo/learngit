@@ -36,6 +36,12 @@ def check(x, y):
     os.system('adb shell input tap ' + str(x) + ' ' + str(y))
 
 
+#刷抖音
+def douyin_shua(x):
+    for i in range(x):
+        put_page_down()
+        time.sleep(30)
+
 
 if __name__ == '__main__':
 
@@ -44,6 +50,11 @@ if __name__ == '__main__':
     os.system('adb shell input keyevent HOME')
     time.sleep(2)
     check(icon_one[0],icon_one[1])
+
+    os.system('adb shell input keyevent BACK')
+    time.sleep(4)
+    os.system('adb shell input keyevent BACK')
+    time.sleep(4)
 
     
     time.sleep(5)
@@ -81,6 +92,11 @@ if __name__ == '__main__':
 
 
 
+    check(750,2140)
+    time.sleep(4)
+    douyin_shua(30)
+    os.system('adb shell input keyevent HOME')
+    time.sleep(2)
 
 
 
