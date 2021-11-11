@@ -10,6 +10,8 @@ pic_path='jdtest/pic/'              #图片的目录
 flash_times=0                        #刷新的次数
 kill=0
 
+flash_2times=1
+
 
 
 def setup():  
@@ -54,6 +56,7 @@ def end():
     print('程序结束')
 
 def run():
+    
     time.sleep(2)
 
     if (pyauto.locateOnScreen( pic_path + 'tstx.png' )):                  # 申请试用
@@ -102,14 +105,16 @@ def run():
         quxiao_guanzhu()
 
 
-    elif (pyauto.locateOnScreen( pic_path + 'weiguanzhu.png' )):              # weiguanzhu.png
+    elif (pyauto.locateOnScreen( pic_path + 'weiguanzhu.png' )):              # 未关注
 
         pyauto.hotkey('f5')
-        flash_2times=1
+        global flash_2times
         flash_2times=flash_2times+1
-        if flash_2times > 5 :
+        print(flash_2times)
+        if flash_2times > 3 :
             pyauto.hotkey('ctrl','w')
             print('刷了五次未关注')
+            flash_2times=1
 
     else:
         pyauto.hotkey('f5')
