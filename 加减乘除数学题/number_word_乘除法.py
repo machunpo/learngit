@@ -33,7 +33,7 @@ for section in file.sections:
 for k in range(NUMOFPAGE):
     #增加每一页的标题
     para = file.add_paragraph()
-    run = para.add_run("天天算一算,练成大本领!两位数乘以一位数 \n    姓名：                      得分:                     日期：           ")
+    run = para.add_run("天天算一算,练成大本领!两位数乘以一位数 \n  \n  姓名：                      得分:                     日期：           ")
     #("+str(zhilei)+"   
 
     #下面两行用于设置字体和字号
