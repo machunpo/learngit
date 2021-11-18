@@ -50,6 +50,7 @@ if __name__ == '__main__':
     os.system('adb shell input keyevent HOME')
     time.sleep(2)
     check(icon_one[0],icon_one[1])
+    time.sleep(5)
 
     os.system('adb shell input keyevent BACK')
     time.sleep(4)
@@ -69,9 +70,9 @@ if __name__ == '__main__':
         check(327,903)
         time.sleep(5)
 
-        for i in range(13):
+        for i in range(15):
             put_page_down()
-            time.sleep(10)
+            time.sleep(9)
 
         os.system('adb shell input keyevent BACK')
         time.sleep(4)
@@ -91,10 +92,16 @@ if __name__ == '__main__':
 
 
 
-
+    time.sleep(4)
     check(750,2140)
     time.sleep(4)
     douyin_shua(30)
+
+    time.sleep(4)
+    check(108,2140)
+    time.sleep(2)
+    push_page_right()
+    time.sleep(2)
     os.system('adb shell input keyevent HOME')
     time.sleep(2)
 
@@ -121,3 +128,5 @@ if __name__ == '__main__':
 
 #竖坐标 157    411   661    921
 #横坐标 832   1123   1417   1699
+
+#图标的坐标 （（108,2130）（320，2130）（530，2130）（747，2130）（968,2130））
