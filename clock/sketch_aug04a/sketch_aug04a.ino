@@ -114,7 +114,7 @@ void loop()
     if (Min == 60) {
       Min = 0;
       Hour++;
-      Serial.println('zhen dian bao shi ');
+     // Serial.println('zhen dian bao shi ');
       if (Hour == 24) {
         Hour = 0;
         Sec = 2;
@@ -135,10 +135,12 @@ void loop()
   digitalWrite(4,LOW);
   delay(499);            //这个用来调整时间精度
 
-  for(int j=0;j<4;j++)
-  {
-    TimeDisp_second[i]=Sec;
-  }
+
+    TimeDisp_second[0]=Sec / 10;
+    TimeDisp_second[1]=Sec % 10;
+    TimeDisp_second[2]=Sec / 10;
+    TimeDisp_second[3]=Sec % 10;
+
 
   tm1637_second.display(TimeDisp_second);
 
