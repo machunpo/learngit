@@ -135,7 +135,7 @@ void loop()
   digitalWrite(4,LOW);
   delay(499);            //这个用来调整时间精度
 
-  for(i=0,i<4,i++)
+  for(i=0;i<4;i++)
   {
     TimeDisp_second[i]=Sec;
   }
