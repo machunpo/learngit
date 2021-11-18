@@ -28,10 +28,12 @@ void setup()
   pinMode(ledPin,OUTPUT);
   pinMode(4,OUTPUT);
   Serial.println("Serial interface between PC and chipKIT");
+
   tm1637.init();
   tm1637.set(BRIGHT_DARKEST); //BRIGHT_TYPICAL = 2,BRIGHT_DARKEST = 0,BRIGHTEST = 7
   tm1637.point(POINT_ON);
   tm1637.display(TimeDisp);
+  
   digitalWrite(4,HIGH);
   delay(2500);
   tm1637.point(POINT_OFF);
