@@ -8,6 +8,10 @@ def pull_screenshot(dizhi):
     os.system('adb shell screencap -p /sdcard/cut_img.png')
     os.system(r'adb pull /sdcard/cut_img.png  '+dizhi)
 
+
+
+
+
 #函数功能：检查一个图片中是否包含另外一个图片
 #输入参数：img_arry  需要图片的列表 ['qtoutiao\img\pic1.png','qtoutiao\img\pic2.png']
 #img_scr  原始图像
