@@ -46,6 +46,13 @@ void setup()
   tm1637_second.set(BRIGHT_DARKEST); //BRIGHT_TYPICAL = 2,BRIGHT_DARKEST = 0,BRIGHTEST = 7
   tm1637_second.point(POINT_ON);
   tm1637_second.display(TimeDisp_second);
+
+  digitalWrite(4,HIGH);
+  delay(2500);
+  tm1637_second.point(POINT_OFF);
+  tm1637_second.clearDisplay();
+  digitalWrite(4,LOW);
+  delay(2500);
   
   
   
@@ -74,6 +81,7 @@ void loop()
 {
   digitalWrite(ledPin,LOW);
   digitalWrite(4,HIGH);
+
   while (Serial.available())       //判断是否接收到数据
   {
     inputString = inputString + char(Serial.read());
@@ -81,7 +89,8 @@ void loop()
   }
    
 
-  if (inputString!="") {
+  if (inputString!="")    //如果收到数据  显示之
+   {                         
     int brry = inputString.toInt();
     Hour = brry / 100;
     Min  = brry % 100;
@@ -95,7 +104,7 @@ void loop()
   if (Sec == 60) {
     Sec = 0;
     Min++;
-    //Serial.println(TimeDisp);//看看能不能打印出来
+    //Serial.println(TimeDisp);     //看看能不能打印出来
     String d="";
     for(int i=0;i<4;i++){
       d = d + TimeDisp[i];
@@ -124,7 +133,15 @@ void loop()
   tm1637.point(POINT_OFF);
   tm1637.display(TimeDisp);
   digitalWrite(4,LOW);
-  delay(499);
+  delay(499);            //这个用来调整时间精度
+
+  for(i=0,i<4,i++)
+  {
+    TimeDisp_second[i]=Sec;
+  }
+
+  tm1637_second.display(TimeDisp_second);
+
   
   
   
