@@ -16,7 +16,7 @@ pip install python-docx
 zhilei=100
 
 #定义生成的页数
-NUMOFPAGE=20
+NUMOFPAGE=5
 
 #生成一个word对象file
 file=docx.Document()
@@ -72,4 +72,4 @@ for k in range(NUMOFPAGE):
     print('OK,第{0}页已经生成'.format(k+1))
     
 #保存文件
-file.save(r"C:\Users\zyf\Desktop\mysonmath.docx")
+file.save("mysonmath.docx")
