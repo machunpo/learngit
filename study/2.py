@@ -4,7 +4,8 @@ import random
 print(random.random())
 print(random.randint(1,1000))
 print(math.pi)
-print(sys.platform)
+a=sys.platform
+print('a=',a)
 print(2**10)
 x="spam!"
 print(x*8)
