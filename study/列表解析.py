@@ -7,8 +7,11 @@ for i in list_1:
 
 print(list_1[1:-3])
 '''
+def haha(nn):
+    return nn+nn
 
-a=[x for x in list_1 if x>5]
+
+a=[haha(x) for x in list_1 ]
 
 print('a = ',a)
 
