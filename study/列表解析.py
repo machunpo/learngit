@@ -18,3 +18,7 @@ print('b:',b)
 c=[x for x in range(0,10) if x>3]
 
 print(c)
+
+d = {x for x in range(10)}
+
+print(d)
