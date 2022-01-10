@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "C:\\Users\\zyf\\AppData\\Local\\Arduino15\\packages\\chipKIT\\tools\\**",
+                "C:\\Users\\zyf\\AppData\\Local\\Arduino15\\packages\\chipKIT\\hardware\\pic32\\2.0.0\\**"
+            ],
+            "forcedInclude": [],
+            "intelliSenseMode": "msvc-x64"
+        }
+    ],
+    "version": 4
+}

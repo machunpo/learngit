@@ -1,0 +1,5 @@
+{
+    "programmer": "ArduinoISP",
+    "board": "chipKIT:pic32:uno_pic32",
+    "configuration": "PMOD=yes"
+}
