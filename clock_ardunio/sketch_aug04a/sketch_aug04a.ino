@@ -108,7 +108,7 @@ void loop()
     TemperatureDisp[3] = temperature % 10;
     tm1637.display(TemperatureDisp);
     tm1637.point(POINT_OFF);
-    delay(5000)                                //显示五秒钟的温度
+    delay(5000);                                //显示五秒钟的温度
 
     //Serial.println(TimeDisp);    
 
@@ -117,7 +117,11 @@ void loop()
       Min = 0;
       Sec = 0;
       Hour++;
-      Serial.println('现在是北京时间:',Hour,'点整。\n');   //整点报时
+      
+      Serial.print("现在是北京时间: ");  
+      Serial.print(Hour); 
+      Serial.println(" 点整");          //整点报时
+      
       if (Hour == 24)
       {
         Hour = 0;
