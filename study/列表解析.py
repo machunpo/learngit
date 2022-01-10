@@ -20,12 +20,4 @@ print('a = ',a)
 print('b = ',[x**3 for x in list_1 ])
 c=[x for x in range(0,10) if x>3]
 
-<<<<<<< HEAD
-print(c)
-
-d = {x for x in range(10)}
-
-print(d)
-=======
 print('c =',c)
->>>>>>> 39391bb7823fc618590f773de7b2f8d0dbc470c7
