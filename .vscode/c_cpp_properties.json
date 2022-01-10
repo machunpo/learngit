@@ -4,10 +4,17 @@
             "name": "Win32",
             "includePath": [
                 "C:\\Users\\zyf\\AppData\\Local\\Arduino15\\packages\\chipKIT\\tools\\**",
-                "C:\\Users\\zyf\\AppData\\Local\\Arduino15\\packages\\chipKIT\\hardware\\pic32\\2.0.0\\**"
+                "C:\\Users\\zyf\\AppData\\Local\\Arduino15\\packages\\chipKIT\\hardware\\pic32\\2.0.0\\**",
+                "${workspaceFolder}/clock_ardunio/库",
+                "${workspaceFolder}/clock_ardunio/sketch_aug04a"
             ],
             "forcedInclude": [],
-            "intelliSenseMode": "msvc-x64"
+            "intelliSenseMode": "msvc-x64",
+            "browse": {
+                "path": [
+                    "C:\\myfile\\learngit\\clock_ardunio\\"
+                ]
+            }
         }
     ],
     "version": 4

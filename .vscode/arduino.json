@@ -1,5 +1,7 @@
 {
     "programmer": "ArduinoISP",
     "board": "chipKIT:pic32:uno_pic32",
-    "configuration": "PMOD=yes"
+    "configuration": "PMOD=no",
+    "sketch": "clock_ardunio\\sketch_aug04a\\sketch_aug04a.ino",
+    "port": "COM1"
 }
