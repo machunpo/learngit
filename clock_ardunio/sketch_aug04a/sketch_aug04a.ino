@@ -19,8 +19,12 @@ int8_t Sec = 0;
 String inputString = "";
 int ledPin = 13;
 
-// int8_t TimeDisp_second[] = {0x08, 0x08, 0x08, 0x08};
-int temperature = 0;
+
+int temperature = 15; //设置默认温度为十五度
+int8_t TemperatureDisp[] = {0x00, 0x00, 0x08, 0x08};
+
+
+
 
 void setup()
 {
@@ -93,10 +97,19 @@ void loop()
 
   Sec++;
 
-  if (Sec == 60)
+  if (Sec == 55) //给温度显示5秒
   {
     Sec = 0;
     Min++;
+
+    TemperatureDisp[0] = 0;
+    TemperatureDisp[1] = 0;
+    TemperatureDisp[2] = temperature / 10;
+    TemperatureDisp[3] = temperature % 10;
+    tm1637.display(TemperatureDisp);
+    tm1637.point(POINT_OFF);
+    delay(5000)                                //显示五秒钟的温度
+
     //Serial.println(TimeDisp);    
 
     if (Min == 60)
@@ -104,7 +117,7 @@ void loop()
       Min = 0;
       Sec = 0;
       Hour++;
-      // Serial.println('zhen dian bao shi ');
+      Serial.println('现在是北京时间:',Hour,'点整。\n');   //整点报时
       if (Hour == 24)
       {
         Hour = 0;
@@ -125,7 +138,7 @@ void loop()
   digitalWrite(4, LOW);
   delay(499); //这个用来调整时间精度
 
-  // tm1637_second.display(TimeDisp_second);
 
-  
+
+
 }
