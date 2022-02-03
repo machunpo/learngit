@@ -11,13 +11,13 @@ text = f.read()
 print(text)
 '''
 
-f = open('study/mcp.txt','w')
+f = open('study_python/mcp.txt','w')
 f.write('你好，这是一个文件操作的复习。\n')
 f.write('这是第二句的测试。\n')
 f.close()
 
 print('文件已经关闭。')
 
-f = open('study/mcp.txt')
+f = open('study_python/mcp.txt')
 text = f.read()
 print(text)
