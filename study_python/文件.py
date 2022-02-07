@@ -10,7 +10,7 @@ f = open('study/mcp.txt')
 text = f.read()
 print(text)
 '''
-
+'''
 b=[1,2,4,55,'年']
 
 
@@ -29,3 +29,19 @@ print('文件已经关闭。')
 f = open('study_python/mcp.txt')
 text = f.read()
 print(text)
+
+f.close()
+'''
+
+
+from pydoc import text
+
+
+with open('study_python/mcp.txt','w') as f:
+    data = 'some data to be written to the file'
+    f.write(data)
+
+with open('study_python/mcp.txt') as f:
+
+    text = f.read()
+    print(text)
