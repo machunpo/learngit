@@ -136,11 +136,12 @@ void loop()
   TimeDisp[3] = Min % 10;
   tm1637.point(POINT_ON);
   tm1637.display(TimeDisp);
-  delay(499);
+  delay(499); //这个用来调整时间精度
   tm1637.point(POINT_OFF);
   tm1637.display(TimeDisp);
   digitalWrite(4, LOW);
-  delay(499); //这个用来调整时间精度
+  
+  delay(498.5); //这个用来调整时间精度
 
 
 
