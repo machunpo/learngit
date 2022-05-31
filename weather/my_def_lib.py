@@ -87,18 +87,7 @@ def quxhu_extract(string_all,string_begin,string_end):
 
 if __name__ == '__main__':
 
-    with open(r'C:\Users\zyf\Desktop\1.txt', 'r') as f:
-        
-    
-        hi=quchu_heml(f.read())
-
-        #hi=hi.replace('?','')
-
-        print(hi)
-
-    with open(r'C:\Users\zyf\Desktop\2.txt', 'a') as f:
-
-        f.write(hi)
+    getip()
 
 
 
