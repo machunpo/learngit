@@ -1,4 +1,5 @@
 import time
+import random
 
 ctime1 = time.time()
 
@@ -9,7 +10,11 @@ print('test begin')
 ctime1 = time.time()
 
 
+
+list1=[random.randint(1,1000000) for i in range(1000000)] #生成1百万个随机数进行排序
+
 for i in range(100000000):  # 循环1亿次
+
     a = i**2
 
 ctime2 = time.time()
