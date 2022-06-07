@@ -11,10 +11,11 @@ ctime1 = time.time()
 
 
 
-list1=[random.randint(1,100000) for i in range(100000)] #生成10万个随机数进行排序
+list1=[random.randint(1,20000) for i in range(20000)] #生成1万个随机数进行排序
 
 
 for i in range(len(list1)):
+
 
     # 内循环将数组元素与外循环迭代元素进行比较
     for j in range(0, len(list1) - i - 1):
@@ -28,7 +29,7 @@ for i in range(len(list1)):
         list1[j+1] = temp
 
 
-
+print('sort end.')
 
 
 for i in range(10000000):  # 循环1千万次
