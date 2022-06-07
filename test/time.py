@@ -32,7 +32,7 @@ for i in range(len(list1)):
 print('sort end.')
 
 
-for i in range(10000000):  # 循环1千万次
+for i in range(30000000):  # 循环3千万次
 
     a = i**2
 
@@ -45,8 +45,8 @@ print('程序一共运行了：', alltime, ('秒'))
 print(time.localtime().tm_year, "年")
 print(time.localtime().tm_mon, "月")
 
-#  i5:      34.05399990081787 秒
-#  手机：   40.02087473869324 秒
+#  i5:       25.325999975204468 秒
+#  手机：    40.02087473869324 秒
 #  笔记本： 32.953285932540894 秒
 #  apple    63.484251260757446 秒
 #  老平板   393.6 秒
