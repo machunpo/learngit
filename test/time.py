@@ -11,7 +11,7 @@ ctime1 = time.time()
 
 
 
-list1=[random.randint(1,20000) for i in range(20000)] #生成1万个随机数进行排序
+list1=[random.randint(1,10000) for i in range(10000)] #生成1万个随机数进行排序
 
 
 for i in range(len(list1)):
