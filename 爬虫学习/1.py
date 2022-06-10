@@ -5,12 +5,17 @@ html = urlopen("http://www.baidu.com")
 
 
 
-html = urlopen("http://pythonscraping.com/pages/page1.html")
+html = urlopen("https://tianqi.2345.com/")
 
 bsObj = BeautifulSoup(html.read(),'lxml')
 #bsObj = BeautifulSoup(html.read(),'html.parser')
 
 
 
-print(bsObj.h1.get_text())
+print(bsObj.head.title)
+
+
+print(bsObj.head.title.get_text())
+
+
 
