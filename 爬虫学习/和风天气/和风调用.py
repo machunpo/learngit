@@ -8,7 +8,7 @@ import requests
 import time
 
 
-mykey = '&key=ff4823599d1843c68468d5ed07fbbea3'
+mykey = '&key=ff4823599d******ed07fbbea3'
 url_api = 'https://devapi.qweather.com/v7/weather/'
 url_api_v2 = 'https://geoapi.qweather.com/v2/city/'
 
