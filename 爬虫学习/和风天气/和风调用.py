@@ -7,7 +7,8 @@ __author__ = 'machunpo'
 import requests
 import time
 
-mykey = '&key=ff4823599***********d07fbbea3'
+
+mykey = '&key=ff4823599d1843c68468d5ed07fbbea3'
 url_api = 'https://devapi.qweather.com/v7/weather/'
 url_api_v2 = 'https://geoapi.qweather.com/v2/city/'
 
@@ -19,11 +20,18 @@ def get_location(city):
 
 # 天气相关 api 调用
 def get(api_type):
-    # url = 'https://devapi.qweather.com/v7/weather/now?location=101240101&key=cbe7ec6******************01d0d20'
-    url = url_api + api_type + '?location=' + city_id + mykey
+    # url = 'https://devapi.qweather.com/v7/weather/7d?location=101190502&key=cbe7ec6******************01d0d20'
+    url = url_api + api_type + '?location=101190502'+ mykey
+    #print(url)
     return requests.get(url).json()
 
 
-print(get_location('北京'))
+weather_date = get('3d')
 
-# https://geoapi.qweather.com/v2/city/lookup?[请求参数]   城市请求
+#print(weather_date['code'])
+#print(weather_date['daily'])
+
+
+for i in range(3):
+    print(weather_date['daily'][i]['fxDate'] , weather_date['daily'][i]['tempMax'] , weather_date['daily'][i]['tempMin'] ,weather_date['daily'][i]['textDay'],weather_date['daily'][i]['windDirDay'] ,weather_date['daily'][i]['windScaleDay'])
+
