@@ -8,7 +8,7 @@ import requests
 import time
 
 
-mykey = '&key=ff4823599d******ed07fbbea3'
+mykey = '&key=ff4823599d184******d07fbbea3'
 url_api = 'https://devapi.qweather.com/v7/weather/'
 url_api_v2 = 'https://geoapi.qweather.com/v2/city/'
 
@@ -26,12 +26,10 @@ def get(api_type):
     return requests.get(url).json()
 
 
+
 weather_date = get('3d')
 
-#print(weather_date['code'])
-#print(weather_date['daily'])
-
-
 for i in range(3):
-    print(weather_date['daily'][i]['fxDate'] , weather_date['daily'][i]['tempMax'] , weather_date['daily'][i]['tempMin'] ,weather_date['daily'][i]['textDay'],weather_date['daily'][i]['windDirDay'] ,weather_date['daily'][i]['windScaleDay'])
+    print(weather_date['daily'][i]['fxDate'],'   ' ,weather_date['daily'][i]['tempMin'] ,'-', weather_date['daily'][i]['tempMax'] , '℃   ',weather_date['daily'][i]['textDay'],weather_date['daily'][i]['windDirDay'] ,weather_date['daily'][i]['windScaleDay'],'级')
 
+input()
