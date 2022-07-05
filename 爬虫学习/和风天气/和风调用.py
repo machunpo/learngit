@@ -6,11 +6,18 @@ __author__ = 'machunpo'
 
 import requests
 import time
+import os
+import win32com.client as win  # pip install pypiwin32
 
 
-mykey = '&key=ff4823599d184******d07fbbea3'
+mykey = '&key=ff4823599******d07fbbea3'
 url_api = 'https://devapi.qweather.com/v7/weather/'
 url_api_v2 = 'https://geoapi.qweather.com/v2/city/'
+
+speak = win.Dispatch("SAPI.SpVoice")  #增加语音播报的模块
+def speak_and_print(command):
+    print(command)
+    speak.Speak(command)
 
 # 城市相关 api 调用 
 def get_location(city):
@@ -25,11 +32,13 @@ def get(api_type):
     #print(url)
     return requests.get(url).json()
 
+while(1):
 
+    weather_date = get('3d')
 
-weather_date = get('3d')
+    for i in range(3):
+        print(weather_date['daily'][i]['fxDate'],'   ' ,weather_date['daily'][i]['tempMin'] ,'-', weather_date['daily'][i]['tempMax'] , '℃   ',weather_date['daily'][i]['textDay'],weather_date['daily'][i]['windDirDay'] ,weather_date['daily'][i]['windScaleDay'],'级')
+    voic_text = '今天是'+weather_date['daily'][0]['fxDate'] +'     天气'+ weather_date['daily'][0]['textDay'] + '      '+weather_date['daily'][0]['windDirDay'] + weather_date['daily'][0]['windScaleDay'] + '级      ' +'         气温' + weather_date['daily'][0]['tempMin'] +'-'+ weather_date['daily'][0]['tempMax'] + '℃   '
+    speak_and_print(voic_text)
 
-for i in range(3):
-    print(weather_date['daily'][i]['fxDate'],'   ' ,weather_date['daily'][i]['tempMin'] ,'-', weather_date['daily'][i]['tempMax'] , '℃   ',weather_date['daily'][i]['textDay'],weather_date['daily'][i]['windDirDay'] ,weather_date['daily'][i]['windScaleDay'],'级')
-
-input()
+    input()
