@@ -42,3 +42,4 @@ while(1):
     speak_and_print(voic_text)
 
     input()
+
