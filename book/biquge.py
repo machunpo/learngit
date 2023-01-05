@@ -10,7 +10,9 @@ html=urlopen(url)
 import gzip
 html = gzip.decompress(html.read())
 
-print(html.decode("utf-8"))
+#print(html.decode("utf-8"))
+
+print(type(html.decode("utf-8")))
 
 #第一步 把所有的小说名字和目录页地址down下来，格式为【（名字，地址）】
 
