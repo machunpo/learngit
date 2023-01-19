@@ -8,4 +8,7 @@ for i in t:
 print([x**2 for x in t])
 
 
+print(t[0]+1)
+
+
 
