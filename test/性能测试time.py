@@ -1,7 +1,7 @@
 import time
 import random
 
-ctime1 = time.time()
+# ctime1 = time.time()
 
 
 print('test begin')
