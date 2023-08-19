@@ -36,6 +36,7 @@ print('程序一共运行了：', alltime, ('秒'))
 
 print(time.localtime().tm_year, "年")
 print(time.localtime().tm_mon, "月")
+print(time.localtime().tm_mday,'日')
 
 #  i5:       25.325999975204468 秒
 #  手机：    40.02087473869324 秒
