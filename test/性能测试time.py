@@ -1,5 +1,6 @@
 import time
 import random
+
 # ctime1 = time.time()
 print('test begin')
 ctime1 = time.time()
