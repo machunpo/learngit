@@ -13,10 +13,10 @@ http://python-docx.readthedocs.io/en/latest/
 pip install python-docx  
 '''
 #定义多少之内的加减法
-zhilei=100
+zhilei=10
 
 #定义生成的页数
-NUMOFPAGE=5
+NUMOFPAGE=10
 
 #生成一个word对象file
 file=docx.Document()
