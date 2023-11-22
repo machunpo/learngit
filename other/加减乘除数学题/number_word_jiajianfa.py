@@ -18,6 +18,10 @@ zhilei=10
 #定义生成的页数
 NUMOFPAGE=10
 
+#定义表格的行列数目
+Rows=20
+Cols=5
+
 #生成一个word对象file
 file=docx.Document()
 
@@ -42,9 +46,11 @@ for k in range(NUMOFPAGE):
     para.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
 
     #生成一个20行*5列的表格，每一个单元格中放一个问题等式。表格的作用主要用于排版
-    table = file.add_table(rows=20, cols=5)
+    table = file.add_table(rows=Rows, cols=Cols)
     table.style.font.name = "Arial"
     table.style.font.size = Pt(12)
+    
+
 
     for i in range(20):
         print('.',end=' ')#这一行为测试输出的代码
