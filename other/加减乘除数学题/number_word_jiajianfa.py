@@ -19,8 +19,8 @@ zhilei=10
 NUMOFPAGE=10
 
 #定义表格的行列数目
-Rows=20
-Cols=5
+Rows=15
+Cols=4
 
 #生成一个word对象file
 file=docx.Document()
@@ -42,19 +42,19 @@ for k in range(NUMOFPAGE):
     #下面两行用于设置字体和字号
     run.font.name = u"微软雅黑"
     run._element.rPr.rFonts.set(qn('w:eastAsia'), u"微软雅黑")
-    run.font.size = Pt(15)
+    run.font.size = Pt(20)
     para.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
 
     #生成一个20行*5列的表格，每一个单元格中放一个问题等式。表格的作用主要用于排版
     table = file.add_table(rows=Rows, cols=Cols)
     table.style.font.name = "Arial"
-    table.style.font.size = Pt(12)
+    table.style.font.size = Pt(20)
     
 
 
-    for i in range(20):
+    for i in range(Rows):
         print('.',end=' ')#这一行为测试输出的代码
-        for j in range(5):
+        for j in range(Cols):
             #随机生成一个加减符号
             op=random.choice(["+","-"])
             #随机生成两个操作数
@@ -64,15 +64,15 @@ for k in range(NUMOFPAGE):
             if op=="+":
                 op2=int(random.randint(1,(zhilei-op1)))#防止两个数的和超过zhilei
                 run=table.cell(i,j).paragraphs[0].add_run(str(op1)+op+str(op2)+"=")
-                run.font.size=Pt(14)
+                run.font.size=Pt(19)
                 table.cell(i,j).paragraphs[0].alignment=WD_PARAGRAPH_ALIGNMENT.LEFT
             else:
                 if op1>op2:
                     run = table.cell(i, j).paragraphs[0].add_run(str(op1) + op + str(op2) + "=")
-                    run.font.size = Pt(14)
+                    run.font.size = Pt(19)
                 else:
                     run = table.cell(i, j).paragraphs[0].add_run(str(op2) + op + str(op1) + "=")
-                    run.font.size = Pt(14)
+                    run.font.size = Pt(19)
     file.add_page_break()
 
     print('OK,第{0}页已经生成'.format(k+1))
