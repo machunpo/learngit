@@ -1,6 +1,6 @@
 import random
 
-list1=[random.randint(1,100) for i in range(40)] #列表解析
+list1=[random.randint(1,100) for i in range(30)] #列表解析
 #生成20个100以内随机数进行排序
 
 print(list1)
