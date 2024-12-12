@@ -4,7 +4,7 @@
 
 __author__ = 'machunpo'
 
-import requests
+import requests # type: ignore
 import time
 import os
 import win32com.client as win  # pip install pypiwin32
