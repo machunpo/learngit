@@ -7,8 +7,8 @@ import win32com.client as win  # pip install pypiwin32
 #函数功能：去除一段文本中的HTML标记
 #输入参数：text_all 整段文本
 #输出参数：去除HTML标记后的文本
-def quchu_heml(html_text):
-    s = html_text.find("<")
+def quchu_heml(html_text):              
+    s = html_text.find("<")     
     while s != -1:
         s = html_text.find("<")
         e = html_text.find(">")

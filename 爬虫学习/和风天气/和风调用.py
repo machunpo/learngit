@@ -2,23 +2,23 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-__author__ = 'machunpo'
+__author__ = 'machunpo'         
 
-import requests # type: ignore
-import time
-import os
+import requests         
+import time     
+import os   
 import win32com.client as win  # pip install pypiwin32
 
 
-mykey = '&key=ff4823599******d07fbbea3'
+mykey = '&key=ff4823599******d07fbbea3'  # 替换为你的和风天气API密钥
 
-url_api = 'https://devapi.qweather.com/v7/weather/'
-url_api_v2 = 'https://geoapi.qweather.com/v2/city/'
+url_api = 'https://devapi.qweather.com/v7/weather/'         # 和风天气API的基础URL
+url_api_v2 = 'https://geoapi.qweather.com/v2/city/'         # 和风天气API的城市查询基础URL
 
 speak = win.Dispatch("SAPI.SpVoice")  #增加语音播报的模块
 def speak_and_print(command):
     print(command)
-    speak.Speak(command)
+    speak.Speak(command)        
 
 # 城市相关 api 调用 
 def get_location(city):
