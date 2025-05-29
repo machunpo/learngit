@@ -19,14 +19,12 @@ int8_t Day = 10;  //日期
 int8_t Hour = 12;  //小时
 int8_t Min = 34;  //分钟
 int8_t Sec = 0;   //秒钟
+int ledPin = 13;   //LED引脚定义
 String inputString = "";    //用于存储从串口接收到的输入字符串
-int ledPin = 13;     //LED引脚定义
 
 
-int temperature = 15; //设置默认温度为十五度
-int8_t TemperatureDisp[] = {0x00, 0x00, 0x08, 0x08};    //温度显示数组，0x08表示小数点
-
-
+// int temperature = 15; //设置默认温度为十五度
+// int8_t TemperatureDisp[] = {0x00, 0x00, 0x08, 0x08};    //温度显示数组，0x08表示小数点
 
 
 void setup()
@@ -37,7 +35,9 @@ void setup()
   Serial.println("Serial interface between PC and chipKIT");    //打印提示信息到串口
 
   tm1637.init();    //初始化TM1637显示模块
-  tm1637.set(BRIGHT_DARKEST);                       //BRIGHT_TYPICAL = 2,BRIGHT_DARKEST = 0,BRIGHTEST = 7
+  tm1637.set(BRIGHT_DARKEST);       //BRIGHT_TYPICAL = 2,BRIGHT_DARKEST = 0,BRIGHTEST = 7  `BRIGHT_DARKEST` 是一个标识符，通常用于表示亮度的最低级别（最暗）。
+
+
   tm1637.point(POINT_ON);       //开启小数点显示   
   tm1637.display(TimeDisp);     //显示初始时间
 
