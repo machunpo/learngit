@@ -35,8 +35,10 @@
 #ifndef TM1637_h
 #define TM1637_h
 #include <inttypes.h>
-#include <Arduino.h>
-//#include <WProgram.h>
+//#include <Arduino.h>
+#include <WProgram.h> 
+// For compatibility with Arduino IDE 1.0 and later
+
 /*******************Definitions for TM1637*********************/
 #define ADDR_AUTO 0x40
 #define ADDR_FIXED 0x44

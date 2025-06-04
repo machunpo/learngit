@@ -19,7 +19,7 @@ int8_t Day = 10;  //日期
 int8_t Hour = 12;  //小时
 int8_t Min = 34;  //分钟
 int8_t Sec = 0;   //秒钟
-int ledPin = 13;   //LED引脚定义
+int8_t ledPin = 13;   //LED引脚定义
 String inputString = "";    //用于存储从串口接收到的输入字符串
 
 
@@ -103,18 +103,18 @@ void loop()
 
   Sec++;    //每次循环增加秒钟计数
 
-  if (Sec == 55) //给温度显示5秒
-  {
-    Sec = 0;    //秒钟归零
-    Min++;    //分钟增加1
+  //if (Sec == 55) //给温度显示5秒
+  //{
+  //  Sec = 0;    //秒钟归零
+   // Min++;    //分钟增加1
 
-    TemperatureDisp[0] = 0;   //温度显示数组的第一个元素设置为0
-    TemperatureDisp[1] = 0;   //温度显示数组的第二个元素设置为0
-    TemperatureDisp[2] = temperature / 10;    //温度显示数组的第三个元素设置为温度的十位数
-    TemperatureDisp[3] = temperature % 10;    //温度显示数组的第四个元素设置为温度的个位数
-    tm1637.display(TemperatureDisp);    //显示温度
-    tm1637.point(POINT_OFF);    //关闭小数点显示
-    delay(5000);                                //显示五秒钟的温度
+   // TemperatureDisp[0] = 0;   //温度显示数组的第一个元素设置为0
+    //TemperatureDisp[1] = 0;   //温度显示数组的第二个元素设置为0
+    //TemperatureDisp[2] = temperature / 10;    //温度显示数组的第三个元素设置为温度的十位数
+    //TemperatureDisp[3] = temperature % 10;    //温度显示数组的第四个元素设置为温度的个位数
+    //tm1637.display(TemperatureDisp);    //显示温度
+    //tm1637.point(POINT_OFF);    //关闭小数点显示
+    //delay(5000);                                //显示五秒钟的温度
 
     //Serial.println(TimeDisp);    
 

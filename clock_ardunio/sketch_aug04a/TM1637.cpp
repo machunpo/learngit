@@ -33,8 +33,8 @@
 */
 
 #include "TM1637.h"
-#include <Arduino.h>
-//include <WProgram.h>
+//#include <Arduino.h>
+#include <WProgram.h>
 
 //  --0x01--
 // |        |
