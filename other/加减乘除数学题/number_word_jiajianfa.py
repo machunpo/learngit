@@ -80,4 +80,4 @@ for k in range(NUMOFPAGE):
 #保存文件
 file.save("mysonmath.docx")  
 #file.save("mysonmath.docx")
-print(zhilei)
+print(zhilei，"以内的加减法题目已经生成完毕，文件名为mysonmath.docx")
