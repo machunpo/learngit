@@ -13,7 +13,7 @@ http://python-docx.readthedocs.io/en/latest/
 pip install python-docx  
 '''
 #定义多少之内的加减法
-zhilei=10
+zhilei=100
 
 #定义生成的页数
 NUMOFPAGE=10
@@ -79,3 +79,4 @@ for k in range(NUMOFPAGE):
     
 #保存文件
 file.save("mysonmath.docx")
+print('dd ')
